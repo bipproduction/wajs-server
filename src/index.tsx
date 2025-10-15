@@ -8,6 +8,7 @@ import ApiKeyRoute from "./server/routes/apikey_route";
 import type { User } from "generated/prisma";
 import WaRoute from "./server/routes/wa_route";
 import WebhookRoute from "./server/routes/webhook_route";
+import cors from "@elysiajs/cors";
 
 const Docs = new Elysia().use(
   Swagger({
@@ -35,6 +36,7 @@ const Api = new Elysia({
   .use(WebhookRoute);
 
 const app = new Elysia()
+  .use(cors())
   .use(Api)
   .use(Docs)
   .use(Auth)
