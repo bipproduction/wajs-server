@@ -5,18 +5,10 @@ import path from 'path';
 import { v4 as uuid } from 'uuid';
 import { prisma } from '../prisma';
 import { getValueByPath } from '../get_value_by_path';
-import "colors"
 
+// === KONFIGURASI UTAMA ===
 const MEDIA_DIR = path.join(process.cwd(), 'downloads');
 await ensureDir(MEDIA_DIR);
-
-async function ensureDir(dir: string) {
-    try {
-        await fs.access(dir);
-    } catch {
-        await fs.mkdir(dir, { recursive: true });
-    }
-}
 
 type DataMessage = {
     from: string;
@@ -27,7 +19,12 @@ type DataMessage = {
     type: WAWebJS.MessageTypes;
     to: string;
     deviceType: string;
-    media: any[] | null;
+    media: {
+        data: WAWebJS.MessageMedia["data"];
+        mimetype: WAWebJS.MessageMedia["mimetype"];
+        filename: WAWebJS.MessageMedia["filename"];
+        filesize: WAWebJS.MessageMedia["filesize"];
+    };
     notifyName: string;
 }
 
@@ -63,6 +60,13 @@ function log(...args: any[]) {
     console.log(`[${new Date().toISOString()}]`, ...args);
 }
 
+async function ensureDir(dir: string) {
+    try {
+        await fs.access(dir);
+    } catch {
+        await fs.mkdir(dir, { recursive: true });
+    }
+}
 
 async function safeRm(path: string) {
     try {
@@ -90,8 +94,6 @@ async function destroyClient() {
         state.ready = false;
     }
 }
-
-let connectedAt: number | null = null;
 
 // === PEMBUATAN CLIENT ===
 async function startClient() {
@@ -129,7 +131,6 @@ async function startClient() {
     });
 
     client.on('ready', () => {
-        connectedAt = Date.now();
         log('✅ WhatsApp client siap digunakan!');
         state.ready = true;
         state.isReconnecting = false;
@@ -176,32 +177,17 @@ async function startClient() {
     }
 }
 
-function detectFileCategory(mime: string) {
-    if (mime.startsWith("image/")) return "image";
-    if (mime.startsWith("audio/")) return "audio";
-    if (mime.startsWith("video/")) return "video";
-    if (mime === "application/pdf") return "pdf";
-    if (mime.includes("spreadsheet") || mime.includes("excel")) return "excel";
-    if (mime.includes("word")) return "document";
-    if (mime.includes("presentation") || mime.includes("powerpoint")) return "presentation";
-    return "file";
-}
-
 // === HANDLER PESAN MASUK ===
 async function handleIncomingMessage(msg: WAWebJS.Message) {
-    const chat = await msg.getChat();
-    await chat.sendStateTyping();
     log(`💬 Pesan dari ${msg.from}: ${msg.body || '[MEDIA]'}`);
-
-    if (!connectedAt) return;
-    if (msg.timestamp * 1000 < connectedAt) return;
-
     if (msg.from.endsWith('@g.us') || msg.isStatus || msg.from === 'status@broadcast') {
         log(`🚫 Pesan dari grup/status diabaikan (${msg.from})`);
         return;
     }
 
     try {
+
+        const body = msg.body?.toLowerCase().trim() || '';
         const notifyName = (msg as any)._data.notifyName;
 
         const dataMessage: DataMessage = {
@@ -213,32 +199,32 @@ async function handleIncomingMessage(msg: WAWebJS.Message) {
             type: msg.type,
             to: msg.to,
             deviceType: msg.deviceType,
-            media: null,
+            media: {
+                data: null as unknown as WAWebJS.MessageMedia['data'],
+                mimetype: null as unknown as WAWebJS.MessageMedia['mimetype'],
+                filename: null as unknown as WAWebJS.MessageMedia['filename'],
+                filesize: null as unknown as WAWebJS.MessageMedia['filesize'],
+
+            },
             notifyName,
         };
 
-        // === HANDLE MEDIA ===
+        // Media handler
         if (msg.hasMedia) {
             const media = await msg.downloadMedia();
 
-            // Pastikan formatnya data:<mimetype>;base64,<data>
-            const mime = media.mimetype || 'application/octet-stream';
-            const prefixedBase64 = `data:${mime};base64,${media.data}`;
-
-            dataMessage.media = [{
-                type: "file:full",
-                data: prefixedBase64,
-                mime: mime,
-                name: media.filename || `${uuid()}.${mime.split('/')[1] || 'bin'}`
-            }];
-
-            // await fs.writeFile(path.join(MEDIA_DIR, dataMessage.media[0].name), Buffer.from(media.data, 'base64'));
-
+            dataMessage.media = {
+                data: media.data,
+                mimetype: media.mimetype,
+                filename: media.filename,
+                filesize: media.filesize
+            };
         }
 
-        // === KIRIM KE WEBHOOK ===
+        // to web hook
         try {
             const webhooks = await prisma.webHook.findMany({ where: { enabled: true } });
+
             if (!webhooks.length) {
                 log('🚫 Tidak ada webhook yang aktif');
                 return;
@@ -247,22 +233,8 @@ async function handleIncomingMessage(msg: WAWebJS.Message) {
             await Promise.allSettled(
                 webhooks.map(async (hook) => {
                     try {
-                        log(`🌐 Mengirim webhook ke ${hook.url}`);
-
-                        let body = payloadConverter({
-                            payload: hook.payload ?? JSON.stringify(dataMessage),
-                            data: dataMessage,
-                        });
-
-                        if (dataMessage.hasMedia) {
-                            const bodyMedia = JSON.parse(body);
-                            bodyMedia.question = msg.body ?? dataMessage.media?.[0].mime;
-                            bodyMedia.uploads = dataMessage.media;
-                            body = JSON.stringify(bodyMedia);
-                        }
-
-                        // await fs.writeFile(path.join(process.cwd(), 'webhook.json'), body);
-
+                        console.log("send webhook " + hook.url);
+                        const body = payloadConverter({ payload: hook.payload ?? JSON.stringify(dataMessage), data: dataMessage });
                         const res = await fetch(hook.url, {
                             method: hook.method,
                             headers: {
@@ -272,58 +244,56 @@ async function handleIncomingMessage(msg: WAWebJS.Message) {
                             body,
                         });
 
-                        const responseText = await res.text();
-
-                        if (!res.ok) {
-                            log(`⚠️ Webhook ${hook.url} gagal: ${res.status}`);
-                            log(responseText);
-                            await msg.reply("Maaf, terjadi kesalahan saat memproses pesan Anda [ERR01]");
-                            return;
-                        }
-
-                        const responseJson = JSON.parse(responseText);
+                        if (!res.ok) log(`⚠️ Webhook ${hook.url} gagal: ${res.status}`);
+                        const responseJson = await res.json();
 
                         if (hook.replay) {
                             try {
+                                // === Simulasikan sedang mengetik ===
+                                const chat = await msg.getChat();
+                                await chat.sendStateTyping(); // tampilkan status 'sedang mengetik...'
+
+                                // Durasi delay tergantung panjang teks (lebih panjang = lebih lama)
                                 const textResponseRaw = hook.replayKey
                                     ? getValueByPath(responseJson, hook.replayKey, JSON.stringify(responseJson))
                                     : JSON.stringify(responseJson, null, 2);
 
-                                const typingDelay = Math.min(5000, Math.max(1500, textResponseRaw.length * 20));
-                                await new Promise((r) => setTimeout(r, typingDelay));
+                                const typingDelay = Math.min(5000, Math.max(1500, textResponseRaw.length * 20)); // 1.5–5 detik
+                                await new Promise((resolve) => setTimeout(resolve, typingDelay));
 
-                                await chat.clearState();
-                                // send message
-                                await chat.sendMessage(textResponseRaw);
+                                // Setelah delay, hentikan typing indicator
+                                await chat.clearState(); // hilangkan status "mengetik..."
+
+                                // Kirim balasan ke pengirim
+                                await msg.reply(textResponseRaw);
 
                                 log(`💬 Balasan dikirim ke ${msg.from} setelah mengetik selama ${typingDelay}ms`);
                             } catch (err) {
                                 log('⚠️ Gagal menampilkan status mengetik:', err);
-                                await msg.reply("Maaf, terjadi kesalahan saat memproses pesan Anda [ERR03]");
+                                await msg.reply(hook.replayKey
+                                    ? getValueByPath(responseJson, hook.replayKey, JSON.stringify(responseJson))
+                                    : JSON.stringify(responseJson, null, 2)
+                                );
                             }
                         }
+
                     } catch (err) {
                         log(`❌ Gagal kirim ke ${hook.url}:`, err);
-                        await msg.reply("Maaf, terjadi kesalahan saat memproses pesan Anda [ERR04]");
                     }
                 })
             );
+
         } catch (error) {
-            log('❌ Error mengirim webhook:', error);
-            await msg.reply("Maaf, terjadi kesalahan saat memproses pesan Anda [ERR05]");
+            console.log(error);
         }
     } catch (err) {
         log('❌ Error handling pesan:', err);
-        await msg.reply("Maaf, terjadi kesalahan saat memproses pesan Anda [ERR06]");
-    } finally {
-        await chat.clearState();
     }
 }
 
-
 function payloadConverter({ payload, data }: { payload: string; data: DataMessage }) {
     try {
-        const map: Record<string, any> = {
+        const map: Record<string, string | number | boolean | null> = {
             'data.from': data.from,
             'data.fromNumber': data.fromNumber,
             'data.fromMe': data.fromMe,
@@ -333,30 +303,19 @@ function payloadConverter({ payload, data }: { payload: string; data: DataMessag
             'data.to': data.to,
             'data.deviceType': data.deviceType,
             'data.notifyName': data.notifyName,
-            'data.media': data.media
+            'data.media.data': data.media?.data ?? null,
+            'data.media.mimetype': data.media?.mimetype ?? null,
+            'data.media.filename': data.media?.filename ?? null,
+            'data.media.filesize': data.media?.filesize ?? 0,
         };
 
         let result = payload;
-
         for (const [key, value] of Object.entries(map)) {
-            let safeValue: string;
-
-            if (value === null || value === undefined) {
-                safeValue = '';
-            } else if (typeof value === 'object') {
-                // Perbaikan di sini — objek seperti media dikonversi ke JSON string
-                safeValue = JSON.stringify(value);
-            } else {
-                safeValue = String(value);
-            }
-
-            result = result.replace(new RegExp(`{{\\s*${key}\\s*}}`, 'g'), safeValue);
+            result = result.replace(new RegExp(`{{\\s*${key}\\s*}}`, 'g'), String(value ?? ''));
         }
-
         return result;
-    } catch (err) {
-        console.error("⚠️ payloadConverter error:", err);
-        return JSON.stringify(data);
+    } catch {
+        return JSON.stringify(data, null, 2);
     }
 }
 

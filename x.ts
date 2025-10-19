@@ -1,73 +1,33 @@
+async function query(data: any) {
 
-/**
- * Helper type to recursively generate all possible key paths up to 7 levels deep.
- * Example: "media.data", "a.b.c.d.e.f.g"
- */
- type NestedKeyOf<T, Prev extends string = ''> = {
-    [K in keyof T & (string | number)]: T[K] extends Record<string, any>
-      ? | `${Prev}${K}`
-        | `${Prev}${K}.${NestedKeyOf<T[K], ''>}`
-      : `${Prev}${K}`;
-  }[keyof T & (string | number)];
-  
-  /**
-   * Safely get deep value by string path like "a.b.c[0].d"
-   */
- function getValueByPath<
-    T extends object,
-    P extends string,
-    R = unknown
-  >(obj: T, path: P, defaultValue?: R): any {
-    try {
-      return path
-        .replace(/\[(\w+)\]/g, '.$1')
-        .split('.')
-        .reduce((acc: any, key) => (acc != null ? acc[key] : undefined), obj) ?? defaultValue;
-    } catch {
-      return defaultValue;
-    }
+  const file = Buffer.from(await Bun.file("./downloads/billing-server-20-06-2024.pdf").arrayBuffer()).toString("base64");
+  const base64File = `data:application/pdf;base64,${file}`;
+
+  const fileObject = {
+    type: "file:full",
+    data: base64File,
+    mime: "application/pdf",
+    name: "billing-server-20-06-2024.pdf"
   }
-  
-  /**
-   * Safely set deep value by string path like "a.b.c[0].d"
-   */
-  export function setValueByPath<T extends object>(
-    obj: T,
-    path: string,
-    value: any
-  ): void {
-    const keys = path.replace(/\[(\w+)\]/g, '.$1').split('.');
-    let current: any = obj;
-  
-    for (let i = 0; i < keys.length - 1; i++) {
-      const key = keys[i];
-      if (current[key as keyof typeof current] == null || typeof current[key as keyof typeof current] !== 'object') {
-        current[key as keyof typeof current] = isNaN(Number(keys[i + 1])) ? {} : [];
+  const response = await fetch(
+      "https://cloud-aiflow.wibudev.com/api/v1/prediction/4da85628-c638-43d3-9491-4cd0a7e6b1b8",
+      {
+          headers: {
+              Authorization: "Bearer v3WdPjn61bNDsEYCO5_LYPRs16ICKjpQE6lF60DjpNo",
+              "Content-Type": "application/json"
+          },
+          method: "POST",
+          body: JSON.stringify({
+            ...data,
+            uploads: [fileObject]
+          })
       }
-      current = current[key as keyof typeof current];
-    }
-  
-    current[keys[keys.length - 1] as keyof typeof current] = value;
-  }
-  
+  );
+  const result = await response.text();
+  return result;
+}
 
-  const data = {
-    "from": "6289505046093@c.us",
-    "fromMe": false,
-    "body": "halo gaes",
-    "hasMedia": false,
-    "type": "chat",
-    "to": "6289697338821@c.us",
-    "deviceType": "android",
-    "media": {
-      "data": "image...",
-      "mimetype": null,
-      "filename": null,
-      "filesize": null
-    },
-    "notifyName": "jenna ai"
-  }
 
-  const find = getValueByPath(data, "media.data")
-
-  console.log(find)
+query({"question": "apa isi data ini ?"}).then((response) => {
+  console.log(response);
+});
