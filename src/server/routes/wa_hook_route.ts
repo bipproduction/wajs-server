@@ -65,7 +65,7 @@ const WaHookRoute = new Elysia({
             description: "Menerima pesan dari WhatsApp Webhook"
         }
     })
-    .get("/list-wahook", async () => {
+    .get("/list", async () => {
         const list = await prisma.waHook.findMany();
         return {
             list,
