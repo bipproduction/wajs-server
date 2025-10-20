@@ -10,6 +10,7 @@ const WaHookRoute = new Elysia({
     // ✅ Handle verifikasi Webhook (GET)
     .get("/hook", async(ctx) => {
         const { query, set } = ctx;
+        console.log(query);
         const mode = query["hub.mode"];
         const challenge = query["hub.challenge"];
         const verifyToken = query["hub.verify_token"];
@@ -20,9 +21,11 @@ const WaHookRoute = new Elysia({
             },
         });
 
+        console.log(getToken);
+
         if (!getToken) {
             set.status = 403;
-            return "Verification failed";
+            return "Verification failed [ERR01]";
         }
 
         if (mode === "subscribe") {
@@ -31,12 +34,12 @@ const WaHookRoute = new Elysia({
         }
 
         set.status = 403;
-        return "Verification failed";
+        return "Verification failed [ERR02]";
     }, {
         query: t.Object({
-            "hub.mode": t.Optional(t.String()),
-            "hub.verify_token": t.Optional(t.String()),
-            "hub.challenge": t.Optional(t.String())
+            ["hub.mode"]: t.Optional(t.String()),
+            ["hub.verify_token"]: t.Optional(t.String()),
+            ["hub.challenge"]: t.Optional(t.String())
         }),
         detail: {
             summary: "Webhook Verification",
