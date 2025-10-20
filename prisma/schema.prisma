@@ -46,3 +46,10 @@ model WebHook {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
+
+model WaHook {
+  id   String @id @default(cuid())
+  data Json?   @db.Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

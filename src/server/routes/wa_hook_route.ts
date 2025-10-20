@@ -1,14 +1,12 @@
 import Elysia, { t } from "elysia";
 import { prisma } from "../lib/prisma";
 
-const VERIFY_TOKEN = "token_yang_kamu_set_di_dashboard";
-
 const WaHookRoute = new Elysia({
     prefix: "/wa-hook",
     tags: ["WhatsApp Hook"],
 })
     // ✅ Handle verifikasi Webhook (GET)
-    .get("/hook", async(ctx) => {
+    .get("/hook", async (ctx) => {
         const { query, set } = ctx;
         const mode = query["hub.mode"];
         const challenge = query["hub.challenge"];
@@ -50,6 +48,12 @@ const WaHookRoute = new Elysia({
     .post("/hook", async ({ body }) => {
         console.log("Incoming WhatsApp Webhook:", body);
 
+        await prisma.waHook.create({
+            data: {
+                data: body,
+            },
+        });
+
         return {
             success: true,
             message: "WhatsApp Hook received"
@@ -59,6 +63,17 @@ const WaHookRoute = new Elysia({
         detail: {
             summary: "Receive WhatsApp Messages",
             description: "Menerima pesan dari WhatsApp Webhook"
+        }
+    })
+    .get("/list-wahook", async () => {
+        const list = await prisma.waHook.findMany();
+        return {
+            list,
+        };
+    }, {
+        detail: {
+            summary: "List WhatsApp Hook",
+            description: "List semua WhatsApp Hook",
         }
     });
 
