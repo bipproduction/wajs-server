@@ -4,5 +4,6 @@ declare namespace NodeJS {
     JWT_SECRET?: string;
     BUN_PUBLIC_BASE_URL?: string;
     PORT?: string;
+    WWEBJS_AUTH?: string;
   }
 }

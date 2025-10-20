@@ -106,7 +106,7 @@ async function startClient() {
     log('🚀 Memulai WhatsApp client...');
     const client = new Client({
         authStrategy: new LocalAuth({
-            dataPath: path.join(process.cwd(), '.wwebjs_auth'),
+            dataPath: process.env.WWEBJS_AUTH || path.join(process.cwd(), '.wwebjs_auth')
         }),
         puppeteer: {
             headless: true,
