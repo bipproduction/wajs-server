@@ -1,4 +1,5 @@
 import Elysia, { t } from "elysia";
+import { prisma } from "../lib/prisma";
 
 const VERIFY_TOKEN = "token_yang_kamu_set_di_dashboard";
 
@@ -7,14 +8,26 @@ const WaHookRoute = new Elysia({
     tags: ["WhatsApp Hook"],
 })
     // ✅ Handle verifikasi Webhook (GET)
-    .get("/hook", (ctx) => {
+    .get("/hook", async(ctx) => {
         const { query, set } = ctx;
         const mode = query["hub.mode"];
         const challenge = query["hub.challenge"];
+        const verifyToken = query["hub.verify_token"];
+
+        const getToken = await prisma.webHook.findFirst({
+            where: {
+                apiToken: verifyToken || "",
+            },
+        });
+
+        if (!getToken) {
+            set.status = 403;
+            return "Verification failed";
+        }
 
         if (mode === "subscribe") {
             set.status = 200;
-            return challenge; // WA butuh raw challenge string
+            return challenge;
         }
 
         set.status = 403;

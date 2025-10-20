@@ -35,13 +35,14 @@ const Api = new Elysia({
   .use(ApiUser)
   .use(WaRoute)
   .use(WebhookRoute)
-  .use(WaHookRoute);
+
 
 const app = new Elysia()
   .use(cors())
   .use(Api)
   .use(Docs)
   .use(Auth)
+  .use(WaHookRoute)
   .get("*", html)
   .listen(3000, () => {
     console.log("Server running at http://localhost:3000");
