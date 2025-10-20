@@ -10,15 +10,14 @@ const WaHookRoute = new Elysia({
     // ✅ Handle verifikasi Webhook (GET)
     .get("/hook", async(ctx) => {
         const { query, set } = ctx;
-        console.log(query);
         const mode = query["hub.mode"];
         const challenge = query["hub.challenge"];
         const verifyToken = query["hub.verify_token"];
 
-        const getToken = await prisma.webHook.findFirst({
+        const getToken = await prisma.apiKey.findUnique({
             where: {
-                apiToken: verifyToken || "",
-            },
+                key: verifyToken,
+            }
         });
 
         console.log(getToken);
