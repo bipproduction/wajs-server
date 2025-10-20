@@ -7,12 +7,12 @@ const WaHookRoute = new Elysia({
     tags: ["WhatsApp Hook"],
 })
     // ✅ Handle verifikasi Webhook (GET)
-    .get("/hook", ({ query, set }) => {
+    .get("/hook", (ctx) => {
+        const { query, set } = ctx;
         const mode = query["hub.mode"];
-        const token = query["hub.verify_token"];
         const challenge = query["hub.challenge"];
 
-        if (mode === "subscribe" && token === VERIFY_TOKEN) {
+        if (mode === "subscribe") {
             set.status = 200;
             return challenge; // WA butuh raw challenge string
         }
