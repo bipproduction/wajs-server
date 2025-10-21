@@ -122,9 +122,19 @@ const WaHookRoute = new Elysia({
         }
     })
     .get("/list", async () => {
-        const list = await prisma.waHook.findMany();
+        const list = await prisma.waHook.findMany({
+            orderBy: {
+                createdAt: "desc",
+            },
+        });
+
+        const result = list.map((item) => ({
+            id: item.id,
+            data: item.data as WAHookMessage,
+            createdAt: item.createdAt,
+        }))
         return {
-            list,
+            list: result,
         };
     }, {
         detail: {

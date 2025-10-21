@@ -4,7 +4,7 @@ import { useShallowEffect } from "@mantine/hooks";
 import useSWR from "swr";
 
 export default function WaHookHome() {
-  const { data, error, isLoading, mutate } = useSWR("/wa-hook", apiFetch["wa-hook"].list.get,{
+  const { data, error, isLoading, mutate } = useSWR("/wa-hook", apiFetch["wa-hook"].list.get, {
     refreshInterval: 3000,
     revalidateOnFocus: true,
     revalidateOnReconnect: true,
@@ -23,7 +23,17 @@ export default function WaHookHome() {
   return (
     <Stack>
       <Title order={2}>WaHookHome</Title>
-      <pre>{JSON.stringify(data?.data?.list, null, 2)}</pre>
+      {data?.data?.list.map((item) => (
+        <Stack key={item.id}>
+          <Text key={item.id}>{item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.text?.body}</Text>
+          <Text key={item.id}>{item.data?.entry?.[0]?.changes?.[0]?.value?.contacts?.[0]?.wa_id}</Text>
+          <Text key={item.id}>{item.data?.entry?.[0]?.changes?.[0]?.value?.contacts?.[0]?.profile?.name}</Text>
+          <Text key={item.id}>{item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.from}</Text>
+          <Text key={item.id}>{item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.id}</Text>
+          <Text key={item.id}>{item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.timestamp}</Text>
+          <Text key={item.id}>{item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.type}</Text>
+        </Stack>
+      ))}
     </Stack>
   );
 }
