@@ -55,7 +55,10 @@ export default function WaHookHome() {
       <Pagination
         value={page}
         total={data?.data?.count || 1}
-        onChange={setPage}
+        onChange={(value) => {
+          setPage(value)
+          mutate()
+        }}
         withEdges
       />
     </Stack>
