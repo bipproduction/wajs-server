@@ -100,117 +100,117 @@ export default function WaHookHome() {
 
         <Divider color="rgba(0,255,200,0.2)" />
 
-        <ScrollArea h={600} type="always" scrollHideDelay={0}>
-          <Stack gap="md">
-            {data?.data?.list?.length ? (
-              data.data.list.map((item) => {
-                const msg = item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0];
-                const contact = item.data?.entry?.[0]?.changes?.[0]?.value?.contacts?.[0];
-                const answer = (item.data as any)?.answer;
-                return (
-                  <Card
-                    key={item.id}
-                    radius="lg"
-                    p="lg"
-                    style={{
-                      background:
-                        "linear-gradient(160deg, rgba(45,45,45,0.9) 0%, rgba(25,25,25,0.95) 100%)",
-                      backdropFilter: "blur(14px)",
-                      border: "1px solid rgba(0,255,200,0.25)",
-                      boxShadow: "0 0 20px rgba(0,255,200,0.1)",
-                      transition: "all 0.2s ease",
-                    }}
-                  >
-                    <Stack gap={8}>
-                      <Group gap="xs" align="center">
-                        <IconUser size={16} color="#00FFC8" />
-                        <Text c="#EAEAEA" fw={500}>
-                          {contact?.profile?.name || "Unknown Sender"}
-                        </Text>
-                      </Group>
+        <pre>{JSON.stringify(data, null, 2)}</pre>
 
-                      <Group gap="xs" align="center">
-                        <IconMessageCircle size={16} color="#00FFFF" />
-                        <Text c="#9A9A9A" fz="sm">
-                          {msg?.text?.body || "(No message content)"}
-                        </Text>
-                      </Group>
+        <Stack gap="md">
+          {data?.data?.list?.length ? (
+            data.data.list.map((item) => {
+              const msg = item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0];
+              const contact = item.data?.entry?.[0]?.changes?.[0]?.value?.contacts?.[0];
+              const answer = (item.data as any)?.answer;
+              return (
+                <Card
+                  key={item.id}
+                  radius="lg"
+                  p="lg"
+                  style={{
+                    background:
+                      "linear-gradient(160deg, rgba(45,45,45,0.9) 0%, rgba(25,25,25,0.95) 100%)",
+                    backdropFilter: "blur(14px)",
+                    border: "1px solid rgba(0,255,200,0.25)",
+                    boxShadow: "0 0 20px rgba(0,255,200,0.1)",
+                    transition: "all 0.2s ease",
+                  }}
+                >
+                  <Stack gap={8}>
+                    <Group gap="xs" align="center">
+                      <IconUser size={16} color="#00FFC8" />
+                      <Text c="#EAEAEA" fw={500}>
+                        {contact?.profile?.name || "Unknown Sender"}
+                      </Text>
+                    </Group>
 
-                      <Group gap="xs" align="center">
-                        <IconHash size={16} color="#00FFC8" />
-                        <Text c="#9A9A9A" fz="xs">
-                          {msg?.id}
-                        </Text>
-                      </Group>
+                    <Group gap="xs" align="center">
+                      <IconMessageCircle size={16} color="#00FFFF" />
+                      <Text c="#9A9A9A" fz="sm">
+                        {msg?.text?.body || "(No message content)"}
+                      </Text>
+                    </Group>
 
-                      <Group gap="xs" align="center">
-                        <IconCalendar size={16} color="#00FFFF" />
-                        <Text c="#9A9A9A" fz="xs">
-                          {dayjs(Number(msg?.timestamp) * 1000).format("YYYY-MM-DD HH:mm:ss")}
-                        </Text>
-                      </Group>
+                    <Group gap="xs" align="center">
+                      <IconHash size={16} color="#00FFC8" />
+                      <Text c="#9A9A9A" fz="xs">
+                        {msg?.id}
+                      </Text>
+                    </Group>
 
-                      <Group gap="xs" align="center">
-                        <IconCode size={16} color="#B554FF" />
-                        <Badge
-                          color="grape"
-                          radius="sm"
-                          variant="light"
-                          styles={{
-                            root: { backgroundColor: "rgba(181,84,255,0.15)", color: "#EAEAEA" },
-                          }}
-                        >
-                          {msg?.type || "Unknown"}
-                        </Badge>
-                      </Group>
+                    <Group gap="xs" align="center">
+                      <IconCalendar size={16} color="#00FFFF" />
+                      <Text c="#9A9A9A" fz="xs">
+                        {dayjs(Number(msg?.timestamp) * 1000).format("YYYY-MM-DD HH:mm:ss")}
+                      </Text>
+                    </Group>
 
-                      {answer && (
-                        <Card
-                          p="sm"
-                          radius="md"
-                          style={{
-                            backgroundColor: "rgba(45,45,45,0.7)",
-                            border: "1px solid rgba(0,255,255,0.15)",
-                            boxShadow: "inset 0 0 10px rgba(0,255,255,0.1)",
-                          }}
-                        >
-                          <Stack gap={4}>
-                            <Text c="#EAEAEA" fw={500} fz="sm">
-                              Flow Response
-                            </Text>
-                            <Text c="#9A9A9A" fz="xs">
-                              id: {answer.flowId}
-                            </Text>
-                            <Text c="#9A9A9A" fz="xs">
-                              type: {answer.type}
-                            </Text>
-                            <Text c="#EAEAEA" fz="sm">
-                              {answer.text}
-                            </Text>
-                          </Stack>
-                        </Card>
-                      )}
-                    </Stack>
-                  </Card>
-                );
-              })
-            ) : (
-              <Card
-                radius="lg"
-                style={{
-                  backgroundColor: "#2D2D2D",
-                  border: "1px solid rgba(0,255,255,0.1)",
-                  textAlign: "center",
-                  padding: 60,
-                }}
-              >
-                <Text c="#9A9A9A" fz="lg">
-                  No webhook activity detected yet.
-                </Text>
-              </Card>
-            )}
-          </Stack>
-        </ScrollArea>
+                    <Group gap="xs" align="center">
+                      <IconCode size={16} color="#B554FF" />
+                      <Badge
+                        color="grape"
+                        radius="sm"
+                        variant="light"
+                        styles={{
+                          root: { backgroundColor: "rgba(181,84,255,0.15)", color: "#EAEAEA" },
+                        }}
+                      >
+                        {msg?.type || "Unknown"}
+                      </Badge>
+                    </Group>
+
+                    {answer && (
+                      <Card
+                        p="sm"
+                        radius="md"
+                        style={{
+                          backgroundColor: "rgba(45,45,45,0.7)",
+                          border: "1px solid rgba(0,255,255,0.15)",
+                          boxShadow: "inset 0 0 10px rgba(0,255,255,0.1)",
+                        }}
+                      >
+                        <Stack gap={4}>
+                          <Text c="#EAEAEA" fw={500} fz="sm">
+                            Flow Response
+                          </Text>
+                          <Text c="#9A9A9A" fz="xs">
+                            id: {answer.flowId}
+                          </Text>
+                          <Text c="#9A9A9A" fz="xs">
+                            type: {answer.type}
+                          </Text>
+                          <Text c="#EAEAEA" fz="sm">
+                            {answer.text}
+                          </Text>
+                        </Stack>
+                      </Card>
+                    )}
+                  </Stack>
+                </Card>
+              );
+            })
+          ) : (
+            <Card
+              radius="lg"
+              style={{
+                backgroundColor: "#2D2D2D",
+                border: "1px solid rgba(0,255,255,0.1)",
+                textAlign: "center",
+                padding: 60,
+              }}
+            >
+              <Text c="#9A9A9A" fz="lg">
+                No webhook activity detected yet.
+              </Text>
+            </Card>
+          )}
+        </Stack>
 
         <Group justify="center" mt="xl">
           <Pagination
