@@ -84,23 +84,21 @@ const FlowRoute = new Elysia({
   .put(
     '/default',
     async ctx => {
-      const { id, defaultData } = ctx.body
+      const { id } = ctx.body
 
       const result = await prisma.chatFlows.update({
         where: {
           id: "1",
         },
         data: {
-          defaultFlow: id,
-          defaultData: defaultData,
+          defaultFlow: id
         },
       })
       return { data: result }
     },
     {
       body: t.Object({
-        id: t.String(),
-        defaultData: t.Any(),
+        id: t.String()
       }),
       detail: {
         summary: "Update default chatflows",

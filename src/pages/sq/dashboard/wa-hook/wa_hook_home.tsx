@@ -1,10 +1,13 @@
 import apiFetch from "@/lib/apiFetch";
-import { Card, Skeleton, Stack, Text, Title } from "@mantine/core";
+import { Card, Pagination, Skeleton, Stack, Text, Title } from "@mantine/core";
 import { useShallowEffect } from "@mantine/hooks";
 import useSWR from "swr";
 import dayjs from "dayjs";
+import { useState } from "react";
 
 export default function WaHookHome() {
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   const { data, error, isLoading, mutate } = useSWR("/wa-hook", apiFetch["wa-hook"].list.get, {
     refreshInterval: 3000,
     revalidateOnFocus: true,
@@ -37,6 +40,12 @@ export default function WaHookHome() {
           </Stack>
         </Card>
       ))}
+      <Pagination
+        value={page}
+        total={totalPages}
+        onChange={setPage}
+        withEdges
+      />
     </Stack>
   );
 }

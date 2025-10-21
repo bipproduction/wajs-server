@@ -106,8 +106,7 @@ const WaHookRoute = new Elysia({
                 createData.answer = {
                     text: result.text,
                     type: "text",
-                    flowId: flow.defaultFlow,
-                    flow: flow.defaultData,
+                    flowId: flow.defaultFlow
                 }
 
                 await prisma.waHook.update({
@@ -137,13 +136,17 @@ const WaHookRoute = new Elysia({
             description: "Menerima pesan dari WhatsApp Webhook"
         }
     })
-    .get("/list", async () => {
+    .get("/list", async ({ query }) => {
         const list = await prisma.waHook.findMany({
+            take: query.limit,
+            skip: query.offset,
             orderBy: {
                 createdAt: "desc",
             },
         });
 
+
+        const count = await prisma.waHook.count()
         const result = list.map((item) => ({
             id: item.id,
             data: item.data as WAHookMessage,
@@ -151,8 +154,13 @@ const WaHookRoute = new Elysia({
         }))
         return {
             list: result,
+            count,
         };
     }, {
+        query: t.Object({
+            limit: t.Optional(t.Number({ minimum: 1, maximum: 100, default: 10 })),
+            offset: t.Optional(t.Number({ minimum: 0, default: 0 })),
+        }),
         detail: {
             summary: "List WhatsApp Hook",
             description: "List semua WhatsApp Hook",
