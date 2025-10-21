@@ -172,6 +172,8 @@ exports.Prisma.ChatFlowsScalarFieldEnum = {
   active: 'active',
   flowUrl: 'flowUrl',
   flowToken: 'flowToken',
+  waPhoneNumberId: 'waPhoneNumberId',
+  waToken: 'waToken',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

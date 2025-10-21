@@ -55,13 +55,15 @@ model WaHook {
 }
 
 model ChatFlows {
-  id          String   @id @default(cuid())
-  flows       Json?
-  defaultFlow String?
-  defaultData Json?
-  active      Boolean  @default(true)
-  flowUrl     String?  @unique
-  flowToken   String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id              String   @id @default(cuid())
+  flows           Json?
+  defaultFlow     String?
+  defaultData     Json?
+  active          Boolean  @default(true)
+  flowUrl         String?  @unique
+  flowToken       String?
+  waPhoneNumberId String?
+  waToken         String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
 }

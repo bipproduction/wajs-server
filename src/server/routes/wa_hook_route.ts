@@ -2,7 +2,6 @@ import Elysia, { t } from "elysia";
 import { prisma } from "../lib/prisma";
 import type { WAHookMessage } from "types/wa_messages";
 import _ from "lodash";
-import dayjs from "dayjs";
 
 async function fetchWithTimeout(input: RequestInfo, init: RequestInit, timeoutMs = 120_000) {
     const controller = new AbortController()
@@ -13,6 +12,22 @@ async function fetchWithTimeout(input: RequestInfo, init: RequestInit, timeoutMs
         clearTimeout(id)
     }
 }
+
+async function sendReplyMessage(to: string, message: string, phoneNumberId: string, token: string) {
+    return await fetch(`https://graph.facebook.com/v21.0/${phoneNumberId}/messages`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+            messaging_product: "whatsapp",
+            to,
+            text: { body: message }
+        })
+    });
+}
+
 
 const WaHookRoute = new Elysia({
     prefix: "/wa-hook",
@@ -118,7 +133,11 @@ const WaHookRoute = new Elysia({
                         data: createData,
                     },
                 })
-                
+
+                if (flow?.waPhoneNumberId && flow?.waToken && number) {
+                    await sendReplyMessage(number, result.text, flow.waPhoneNumberId, flow.waToken)
+                }
+
             } catch (error) {
                 console.log(error)
                 console.log(responseText)

@@ -5593,6 +5593,8 @@ export namespace Prisma {
     active: boolean | null
     flowUrl: string | null
     flowToken: string | null
+    waPhoneNumberId: string | null
+    waToken: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -5603,6 +5605,8 @@ export namespace Prisma {
     active: boolean | null
     flowUrl: string | null
     flowToken: string | null
+    waPhoneNumberId: string | null
+    waToken: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -5615,6 +5619,8 @@ export namespace Prisma {
     active: number
     flowUrl: number
     flowToken: number
+    waPhoneNumberId: number
+    waToken: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -5627,6 +5633,8 @@ export namespace Prisma {
     active?: true
     flowUrl?: true
     flowToken?: true
+    waPhoneNumberId?: true
+    waToken?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -5637,6 +5645,8 @@ export namespace Prisma {
     active?: true
     flowUrl?: true
     flowToken?: true
+    waPhoneNumberId?: true
+    waToken?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -5649,6 +5659,8 @@ export namespace Prisma {
     active?: true
     flowUrl?: true
     flowToken?: true
+    waPhoneNumberId?: true
+    waToken?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -5734,6 +5746,8 @@ export namespace Prisma {
     active: boolean
     flowUrl: string | null
     flowToken: string | null
+    waPhoneNumberId: string | null
+    waToken: string | null
     createdAt: Date
     updatedAt: Date
     _count: ChatFlowsCountAggregateOutputType | null
@@ -5763,6 +5777,8 @@ export namespace Prisma {
     active?: boolean
     flowUrl?: boolean
     flowToken?: boolean
+    waPhoneNumberId?: boolean
+    waToken?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["chatFlows"]>
@@ -5775,6 +5791,8 @@ export namespace Prisma {
     active?: boolean
     flowUrl?: boolean
     flowToken?: boolean
+    waPhoneNumberId?: boolean
+    waToken?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["chatFlows"]>
@@ -5787,6 +5805,8 @@ export namespace Prisma {
     active?: boolean
     flowUrl?: boolean
     flowToken?: boolean
+    waPhoneNumberId?: boolean
+    waToken?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["chatFlows"]>
@@ -5799,11 +5819,13 @@ export namespace Prisma {
     active?: boolean
     flowUrl?: boolean
     flowToken?: boolean
+    waPhoneNumberId?: boolean
+    waToken?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type ChatFlowsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "flows" | "defaultFlow" | "defaultData" | "active" | "flowUrl" | "flowToken" | "createdAt" | "updatedAt", ExtArgs["result"]["chatFlows"]>
+  export type ChatFlowsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "flows" | "defaultFlow" | "defaultData" | "active" | "flowUrl" | "flowToken" | "waPhoneNumberId" | "waToken" | "createdAt" | "updatedAt", ExtArgs["result"]["chatFlows"]>
 
   export type $ChatFlowsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "ChatFlows"
@@ -5816,6 +5838,8 @@ export namespace Prisma {
       active: boolean
       flowUrl: string | null
       flowToken: string | null
+      waPhoneNumberId: string | null
+      waToken: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["chatFlows"]>
@@ -6248,6 +6272,8 @@ export namespace Prisma {
     readonly active: FieldRef<"ChatFlows", 'Boolean'>
     readonly flowUrl: FieldRef<"ChatFlows", 'String'>
     readonly flowToken: FieldRef<"ChatFlows", 'String'>
+    readonly waPhoneNumberId: FieldRef<"ChatFlows", 'String'>
+    readonly waToken: FieldRef<"ChatFlows", 'String'>
     readonly createdAt: FieldRef<"ChatFlows", 'DateTime'>
     readonly updatedAt: FieldRef<"ChatFlows", 'DateTime'>
   }
@@ -6694,6 +6720,8 @@ export namespace Prisma {
     active: 'active',
     flowUrl: 'flowUrl',
     flowToken: 'flowToken',
+    waPhoneNumberId: 'waPhoneNumberId',
+    waToken: 'waToken',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -7114,6 +7142,8 @@ export namespace Prisma {
     active?: BoolFilter<"ChatFlows"> | boolean
     flowUrl?: StringNullableFilter<"ChatFlows"> | string | null
     flowToken?: StringNullableFilter<"ChatFlows"> | string | null
+    waPhoneNumberId?: StringNullableFilter<"ChatFlows"> | string | null
+    waToken?: StringNullableFilter<"ChatFlows"> | string | null
     createdAt?: DateTimeFilter<"ChatFlows"> | Date | string
     updatedAt?: DateTimeFilter<"ChatFlows"> | Date | string
   }
@@ -7126,6 +7156,8 @@ export namespace Prisma {
     active?: SortOrder
     flowUrl?: SortOrderInput | SortOrder
     flowToken?: SortOrderInput | SortOrder
+    waPhoneNumberId?: SortOrderInput | SortOrder
+    waToken?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -7141,6 +7173,8 @@ export namespace Prisma {
     defaultData?: JsonNullableFilter<"ChatFlows">
     active?: BoolFilter<"ChatFlows"> | boolean
     flowToken?: StringNullableFilter<"ChatFlows"> | string | null
+    waPhoneNumberId?: StringNullableFilter<"ChatFlows"> | string | null
+    waToken?: StringNullableFilter<"ChatFlows"> | string | null
     createdAt?: DateTimeFilter<"ChatFlows"> | Date | string
     updatedAt?: DateTimeFilter<"ChatFlows"> | Date | string
   }, "id" | "flowUrl">
@@ -7153,6 +7187,8 @@ export namespace Prisma {
     active?: SortOrder
     flowUrl?: SortOrderInput | SortOrder
     flowToken?: SortOrderInput | SortOrder
+    waPhoneNumberId?: SortOrderInput | SortOrder
+    waToken?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: ChatFlowsCountOrderByAggregateInput
@@ -7171,6 +7207,8 @@ export namespace Prisma {
     active?: BoolWithAggregatesFilter<"ChatFlows"> | boolean
     flowUrl?: StringNullableWithAggregatesFilter<"ChatFlows"> | string | null
     flowToken?: StringNullableWithAggregatesFilter<"ChatFlows"> | string | null
+    waPhoneNumberId?: StringNullableWithAggregatesFilter<"ChatFlows"> | string | null
+    waToken?: StringNullableWithAggregatesFilter<"ChatFlows"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"ChatFlows"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"ChatFlows"> | Date | string
   }
@@ -7494,6 +7532,8 @@ export namespace Prisma {
     active?: boolean
     flowUrl?: string | null
     flowToken?: string | null
+    waPhoneNumberId?: string | null
+    waToken?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -7506,6 +7546,8 @@ export namespace Prisma {
     active?: boolean
     flowUrl?: string | null
     flowToken?: string | null
+    waPhoneNumberId?: string | null
+    waToken?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -7518,6 +7560,8 @@ export namespace Prisma {
     active?: BoolFieldUpdateOperationsInput | boolean
     flowUrl?: NullableStringFieldUpdateOperationsInput | string | null
     flowToken?: NullableStringFieldUpdateOperationsInput | string | null
+    waPhoneNumberId?: NullableStringFieldUpdateOperationsInput | string | null
+    waToken?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -7530,6 +7574,8 @@ export namespace Prisma {
     active?: BoolFieldUpdateOperationsInput | boolean
     flowUrl?: NullableStringFieldUpdateOperationsInput | string | null
     flowToken?: NullableStringFieldUpdateOperationsInput | string | null
+    waPhoneNumberId?: NullableStringFieldUpdateOperationsInput | string | null
+    waToken?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -7542,6 +7588,8 @@ export namespace Prisma {
     active?: boolean
     flowUrl?: string | null
     flowToken?: string | null
+    waPhoneNumberId?: string | null
+    waToken?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -7554,6 +7602,8 @@ export namespace Prisma {
     active?: BoolFieldUpdateOperationsInput | boolean
     flowUrl?: NullableStringFieldUpdateOperationsInput | string | null
     flowToken?: NullableStringFieldUpdateOperationsInput | string | null
+    waPhoneNumberId?: NullableStringFieldUpdateOperationsInput | string | null
+    waToken?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -7566,6 +7616,8 @@ export namespace Prisma {
     active?: BoolFieldUpdateOperationsInput | boolean
     flowUrl?: NullableStringFieldUpdateOperationsInput | string | null
     flowToken?: NullableStringFieldUpdateOperationsInput | string | null
+    waPhoneNumberId?: NullableStringFieldUpdateOperationsInput | string | null
+    waToken?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -7941,6 +7993,8 @@ export namespace Prisma {
     active?: SortOrder
     flowUrl?: SortOrder
     flowToken?: SortOrder
+    waPhoneNumberId?: SortOrder
+    waToken?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -7951,6 +8005,8 @@ export namespace Prisma {
     active?: SortOrder
     flowUrl?: SortOrder
     flowToken?: SortOrder
+    waPhoneNumberId?: SortOrder
+    waToken?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -7961,6 +8017,8 @@ export namespace Prisma {
     active?: SortOrder
     flowUrl?: SortOrder
     flowToken?: SortOrder
+    waPhoneNumberId?: SortOrder
+    waToken?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }

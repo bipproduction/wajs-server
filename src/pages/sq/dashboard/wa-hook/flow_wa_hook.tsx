@@ -132,6 +132,8 @@ function FlowWaHookForm() {
   const [flowUrl, setFlowUrl] = useState("");
   const [flowToken, setFlowToken] = useState("");
   const [loading, setLoading] = useState(false);
+  const [waPhoneNumberId, setWaPhoneNumberId] = useState("");
+  const [waToken, setWaToken] = useState("");
 
   useShallowEffect(() => {
     const loadCredentials = async () => {
@@ -141,6 +143,8 @@ function FlowWaHookForm() {
       } else {
         setFlowUrl(data?.data?.flowUrl || "");
         setFlowToken(data?.data?.flowToken || "");
+        setWaPhoneNumberId(data?.data?.waPhoneNumberId || "");
+        setWaToken(data?.data?.waToken || "");
       }
     };
     loadCredentials();
@@ -152,7 +156,7 @@ function FlowWaHookForm() {
       return;
     }
     setLoading(true);
-    const { error } = await apiFetch.api.chatflows["url-token"].put({ flowUrl, flowToken });
+    const { error } = await apiFetch.api.chatflows["url-token"].put({ flowUrl, flowToken, waPhoneNumberId, waToken });
     if (error) {
       showNotification({ title: "Error", message: "Failed to update credentials", color: "red" });
     } else {
@@ -177,6 +181,21 @@ function FlowWaHookForm() {
             placeholder="Enter flow token"
             value={flowToken}
             onChange={(e) => setFlowToken(e.currentTarget.value)}
+            rightSection={
+              <ActionIcon onClick={copyToken}>
+                <IconCopy size={16} />
+              </ActionIcon>
+            }
+          />
+        </Stack>
+        <Title order={3}>WhatsApp Credentials</Title>
+        <Stack gap="md">
+          <TextInput label="WhatsApp Phone Number ID" placeholder="Enter WhatsApp Phone Number ID" value={waPhoneNumberId} onChange={(e) => setWaPhoneNumberId(e.currentTarget.value)} />
+          <PasswordInput
+            label="WhatsApp Token"
+            placeholder="Enter WhatsApp Token"
+            value={waToken}
+            onChange={(e) => setWaToken(e.currentTarget.value)}
             rightSection={
               <ActionIcon onClick={copyToken}>
                 <IconCopy size={16} />
