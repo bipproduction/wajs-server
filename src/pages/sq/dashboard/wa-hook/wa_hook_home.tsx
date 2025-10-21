@@ -33,6 +33,7 @@ export default function WaHookHome() {
             <Text>Timestamp: {dayjs(item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.timestamp).format("YYYY-MM-DD HH:mm:ss")}</Text>
             <Text>Type: {item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.type}</Text>
             <Text>Body: {item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.text?.body}</Text>
+            {JSON.stringify((item.data as any)?.answer)}
           </Stack>
         </Card>
       ))}

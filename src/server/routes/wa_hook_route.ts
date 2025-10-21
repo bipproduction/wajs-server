@@ -60,7 +60,7 @@ const WaHookRoute = new Elysia({
     .post("/hook", async ({ body }) => {
         console.log("Incoming WhatsApp Webhook:", body);
 
-        await prisma.waHook.create({
+        const create = await prisma.waHook.create({
             data: {
                 data: body,
             },
@@ -102,7 +102,22 @@ const WaHookRoute = new Elysia({
             const responseText = await response.text()
             try {
                 const result = JSON.parse(responseText)
-                console.log(result)
+                let createData = create.data as any
+                createData.answer = {
+                    text: result.text,
+                    type: "text",
+                    flow: flow.defaultData,
+                }
+
+                await prisma.waHook.update({
+                    where: {
+                        id: create.id,
+                    },
+                    data: {
+                        data: createData,
+                    },
+                })
+                
             } catch (error) {
                 console.log(error)
                 console.log(responseText)
