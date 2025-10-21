@@ -137,7 +137,7 @@ const WaHookRoute = new Elysia({
                 })
 
                 if (flow?.waPhoneNumberId && flow?.waToken && number) {
-                    await sendReplyMessage(number, result.text, flow.waPhoneNumberId, flow.waToken)
+                    // await sendReplyMessage(number, result.text, flow.waPhoneNumberId, flow.waToken)
                 }
 
             } catch (error) {
