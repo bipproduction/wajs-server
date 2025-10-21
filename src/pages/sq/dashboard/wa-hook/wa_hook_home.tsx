@@ -1,7 +1,8 @@
 import apiFetch from "@/lib/apiFetch";
-import { Skeleton, Stack, Text, Title } from "@mantine/core";
+import { Card, Skeleton, Stack, Text, Title } from "@mantine/core";
 import { useShallowEffect } from "@mantine/hooks";
 import useSWR from "swr";
+import dayjs from "dayjs";
 
 export default function WaHookHome() {
   const { data, error, isLoading, mutate } = useSWR("/wa-hook", apiFetch["wa-hook"].list.get, {
@@ -24,15 +25,16 @@ export default function WaHookHome() {
     <Stack>
       <Title order={2}>WaHookHome</Title>
       {data?.data?.list.map((item) => (
-        <Stack key={item.id}>
-          <Text key={item.id}>{item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.text?.body}</Text>
-          <Text key={item.id}>{item.data?.entry?.[0]?.changes?.[0]?.value?.contacts?.[0]?.wa_id}</Text>
-          <Text key={item.id}>{item.data?.entry?.[0]?.changes?.[0]?.value?.contacts?.[0]?.profile?.name}</Text>
-          <Text key={item.id}>{item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.from}</Text>
-          <Text key={item.id}>{item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.id}</Text>
-          <Text key={item.id}>{item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.timestamp}</Text>
-          <Text key={item.id}>{item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.type}</Text>
-        </Stack>
+        <Card key={item.id}>
+          <Stack>
+            <Text>Name: {item.data?.entry?.[0]?.changes?.[0]?.value?.contacts?.[0]?.profile?.name}</Text>
+            <Text>From: {item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.from}</Text>
+            <Text>ID: {item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.id}</Text>
+            <Text>Timestamp: {dayjs(item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.timestamp).format("YYYY-MM-DD HH:mm:ss")}</Text>
+            <Text>Type: {item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.type}</Text>
+            <Text>Body: {item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.text?.body}</Text>
+          </Stack>
+        </Card>
       ))}
     </Stack>
   );
