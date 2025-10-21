@@ -1,5 +1,17 @@
 import Elysia, { t } from "elysia";
 import { prisma } from "../lib/prisma";
+import type { WAHookMessage } from "types/wa_messages";
+import _ from "lodash";
+
+async function fetchWithTimeout(input: RequestInfo, init: RequestInit, timeoutMs = 120_000) {
+    const controller = new AbortController()
+    const id = setTimeout(() => controller.abort(), timeoutMs)
+    try {
+        return await fetch(input, { ...init, signal: controller.signal })
+    } finally {
+        clearTimeout(id)
+    }
+}
 
 const WaHookRoute = new Elysia({
     prefix: "/wa-hook",
@@ -53,6 +65,50 @@ const WaHookRoute = new Elysia({
                 data: body,
             },
         });
+
+        const waHook = body as WAHookMessage
+        const flow = await prisma.chatFlows.findUnique({
+            where: {
+                id: "1",
+            },
+        })
+
+        if (!flow) {
+            console.log("no flow found")
+        }
+
+        if (flow?.defaultFlow && flow.active) {
+            const { flowUrl, flowToken } = flow
+            const question = waHook?.entry[0]?.changes[0]?.value?.messages[0]?.text?.body
+            const contacts = waHook?.entry[0]?.changes[0]?.value?.contacts[0]
+            const name = contacts?.profile?.name
+            const number = contacts?.wa_id
+
+            const response = await fetchWithTimeout(`${flowUrl}/prediction/${flow.defaultFlow}`, {
+                headers: {
+                    Authorization: `Bearer ${flowToken}`,
+                    'Content-Type': 'application/json',
+                },
+                method: 'POST',
+                body: JSON.stringify({
+                    question,
+                    overrideConfig: {
+                        sessionId: `${_.kebabCase(name)}_x_${number}`,
+                        vars: { userName: _.kebabCase(name), userPhone: number },
+                    },
+                }),
+            })
+
+            const responseText = await response.text()
+            try {
+                const result = JSON.parse(responseText)
+                console.log(result)
+            } catch (error) {
+                console.log(error)
+                console.log(responseText)
+            }
+        }
+
 
         return {
             success: true,
