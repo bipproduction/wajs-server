@@ -139,7 +139,7 @@ const WaHookRoute = new Elysia({
     .get("/list", async ({ query }) => {
         const list = await prisma.waHook.findMany({
             take: query.limit,
-            skip: query.offset,
+            skip: ((query.page || 1) - 1) * (query.limit || 10),
             orderBy: {
                 createdAt: "desc",
             },
@@ -158,8 +158,8 @@ const WaHookRoute = new Elysia({
         };
     }, {
         query: t.Object({
+            page: t.Optional(t.Number({ minimum: 1, default: 1 })),
             limit: t.Optional(t.Number({ minimum: 1, maximum: 100, default: 10 })),
-            offset: t.Optional(t.Number({ minimum: 0, default: 0 })),
         }),
         detail: {
             summary: "List WhatsApp Hook",

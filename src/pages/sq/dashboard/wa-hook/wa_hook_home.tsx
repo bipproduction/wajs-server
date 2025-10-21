@@ -3,12 +3,16 @@ import { Card, Pagination, Skeleton, Stack, Text, Title } from "@mantine/core";
 import { useShallowEffect } from "@mantine/hooks";
 import useSWR from "swr";
 import dayjs from "dayjs";
+import { useLocalStorage } from "@mantine/hooks";
 import { useState } from "react";
 
 export default function WaHookHome() {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useLocalStorage({
+    key: "wa-hook-page",
+    defaultValue: 1,
+  })
   const [totalPages, setTotalPages] = useState(1);
-  const { data, error, isLoading, mutate } = useSWR("/wa-hook", apiFetch["wa-hook"].list.get, {
+  const { data, error, isLoading, mutate } = useSWR("/wa-hook",() => apiFetch["wa-hook"].list.get({ query: { page, limit: 10 } }), {
     refreshInterval: 3000,
     revalidateOnFocus: true,
     revalidateOnReconnect: true,
@@ -20,6 +24,8 @@ export default function WaHookHome() {
 
   useShallowEffect(() => {
     mutate()
+    setPage(data?.data?.list?.length || 1)
+    setTotalPages(data?.data?.count || 1)
   }, [])
 
   if (isLoading) return <Skeleton height={500} />
