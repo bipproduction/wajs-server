@@ -155,7 +155,7 @@ const WaHookRoute = new Elysia({
         }))
         return {
             list: result,
-            count,
+            count: Math.ceil(count / (query.limit || 10)),
         };
     }, {
         query: t.Object({

@@ -1,5 +1,5 @@
 import apiFetch from "@/lib/apiFetch";
-import { Button, Card, Pagination, Skeleton, Stack, Text, Title } from "@mantine/core";
+import { Button, Card, Group, Pagination, Skeleton, Stack, Text, Title } from "@mantine/core";
 import { useLocalStorage, useShallowEffect } from "@mantine/hooks";
 import dayjs from "dayjs";
 import useSWR from "swr";
@@ -10,7 +10,7 @@ export default function WaHookHome() {
     key: "wa-hook-page",
     defaultValue: 1,
   })
-  const { data, error, isLoading, mutate } = useSWR("/wa-hook",() => apiFetch["wa-hook"].list.get({ query: { page, limit: 10 } }), {
+  const { data, error, isLoading, mutate } = useSWR("/wa-hook", () => apiFetch["wa-hook"].list.get({ query: { page, limit: 10 } }), {
     refreshInterval: 3000,
     revalidateOnFocus: true,
     revalidateOnReconnect: true,
@@ -36,7 +36,9 @@ export default function WaHookHome() {
   return (
     <Stack>
       <Title order={2}>WaHookHome</Title>
-      <Button onClick={reset}>Reset</Button>
+      <Group justify="flex-end">
+        <Button onClick={reset}>Reset</Button>
+      </Group>
       {data?.data?.list.map((item) => (
         <Card key={item.id}>
           <Stack>
