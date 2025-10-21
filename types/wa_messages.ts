@@ -1,4 +1,4 @@
-type TYPE = "image" | "video" | "audio" | "file" | "text" | "sticker" | "document"
+type TYPE_MESSAGE = "image" | "video" | "audio" | "file" | "text" | "sticker" | "document"
 const message = {
     "object": "whatsapp_business_account",
     "entry": [
@@ -28,7 +28,7 @@ const message = {
                                 "text": {
                                     "body": "halo"
                                 },
-                                "type": "text" as TYPE
+                                "type": "text" as TYPE_MESSAGE
                             }
                         ]
                     },

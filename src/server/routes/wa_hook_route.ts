@@ -29,6 +29,8 @@ async function sendReplyMessage(to: string, message: string, phoneNumberId: stri
 }
 
 
+const allowedTypeMessage = ["text"]
+
 const WaHookRoute = new Elysia({
     prefix: "/wa-hook",
     tags: ["WhatsApp Hook"],
@@ -165,15 +167,16 @@ const WaHookRoute = new Elysia({
             },
         });
 
-
         const count = await prisma.waHook.count()
         const result = list.map((item) => ({
             id: item.id,
             data: item.data as WAHookMessage,
             createdAt: item.createdAt,
         }))
+
+        const filterData = result.filter((item) => allowedTypeMessage.includes(item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.type || ""))
         return {
-            list: result,
+            list: filterData,
             count: Math.ceil(count / (query.limit || 10)),
         };
     }, {
