@@ -174,9 +174,8 @@ const WaHookRoute = new Elysia({
             createdAt: item.createdAt,
         }))
 
-        const filterData = result.filter((item) => allowedTypeMessage.includes(item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0]?.type || ""))
         return {
-            list: filterData,
+            list: result,
             count: Math.ceil(count / (query.limit || 10)),
         };
     }, {
