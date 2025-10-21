@@ -117,6 +117,10 @@ async function startClient() {
                 '--disable-gpu',
             ],
         },
+        webVersionCache: {
+            path: process.env.WWEBJS_CACHE || path.join(process.cwd(), '.wwebjs_cache'),
+            type: 'local',
+        }
     });
 
     state.client = client;
