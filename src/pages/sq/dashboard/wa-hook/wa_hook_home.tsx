@@ -179,7 +179,7 @@ export default function WaHookHome() {
                               Flow Response
                             </Text>
                             <Text c="#9A9A9A" fz="xs">
-                              id: {answer.id}
+                              id: {answer.flowId}
                             </Text>
                             <Text c="#9A9A9A" fz="xs">
                               type: {answer.type}
