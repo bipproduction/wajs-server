@@ -100,7 +100,7 @@ const FlowRoute = new Elysia({
     {
       body: t.Object({
         id: t.String(),
-        defaultData: t.Optional(t.Any()),
+        defaultData: t.Any(),
       }),
       detail: {
         summary: "Update default chatflows",

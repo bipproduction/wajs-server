@@ -64,9 +64,9 @@ function FlowWaHookList() {
     setLoading(false);
   };
 
-  const setAsDefault = async (id: string) => {
+  const setAsDefault = async (id: string, defaultData: any) => {
     setLoading(true);
-    const { error } = await apiFetch.api.chatflows.default.put({ id, defaultData: {} });
+    const { error } = await apiFetch.api.chatflows.default.put({ id, defaultData });
     if (error) {
       showNotification({ title: "Error", message: "Failed to set default flow", color: "red" });
     } else {
@@ -99,7 +99,7 @@ function FlowWaHookList() {
                 <Table.Td>{flow.name}</Table.Td>
                 <Table.Td>{flow.type}</Table.Td>
                 <Table.Td>
-                  <Checkbox checked={defaultFlow === flow.id} onChange={() => setAsDefault(flow.id)} />
+                  <Checkbox checked={defaultFlow === flow.id} onChange={() => setAsDefault(flow.id, flow)} />
                 </Table.Td>
               </Table.Tr>
             ))}
