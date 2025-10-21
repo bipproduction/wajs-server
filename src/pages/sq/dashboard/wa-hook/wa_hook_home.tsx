@@ -1,8 +1,9 @@
 import apiFetch from "@/lib/apiFetch";
-import { Card, Pagination, Skeleton, Stack, Text, Title } from "@mantine/core";
+import { Button, Card, Pagination, Skeleton, Stack, Text, Title } from "@mantine/core";
 import { useLocalStorage, useShallowEffect } from "@mantine/hooks";
 import dayjs from "dayjs";
 import useSWR from "swr";
+import { showNotification } from "@mantine/notifications";
 
 export default function WaHookHome() {
   const [page, setPage] = useLocalStorage({
@@ -24,11 +25,18 @@ export default function WaHookHome() {
     setPage(data?.data?.list?.length || 1)
   }, [])
 
+  async function reset() {
+    await apiFetch["wa-hook"].reset.post()
+    mutate()
+    showNotification({ title: "Success", message: "WhatsApp Hook reset", color: "green" })
+  }
+
   if (isLoading) return <Skeleton height={500} />
   if (error) return <div>Error: {error.message}</div>
   return (
     <Stack>
       <Title order={2}>WaHookHome</Title>
+      <Button onClick={reset}>Reset</Button>
       {data?.data?.list.map((item) => (
         <Card key={item.id}>
           <Stack>

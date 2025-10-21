@@ -2,6 +2,7 @@ import Elysia, { t } from "elysia";
 import { prisma } from "../lib/prisma";
 import type { WAHookMessage } from "types/wa_messages";
 import _ from "lodash";
+import dayjs from "dayjs";
 
 async function fetchWithTimeout(input: RequestInfo, init: RequestInit, timeoutMs = 120_000) {
     const controller = new AbortController()
@@ -164,6 +165,18 @@ const WaHookRoute = new Elysia({
         detail: {
             summary: "List WhatsApp Hook",
             description: "List semua WhatsApp Hook",
+        }
+    })
+    .post("/reset", async () => {
+        await prisma.waHook.deleteMany()
+        return {
+            success: true,
+            message: "WhatsApp Hook reset"
+        };
+    }, {
+        detail: {
+            summary: "Reset WhatsApp Hook",
+            description: "Reset semua WhatsApp Hook",
         }
     });
 
