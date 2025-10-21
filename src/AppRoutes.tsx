@@ -7,6 +7,9 @@ import WebhookHome from "./pages/sq/dashboard/webhook/webhook_home";
 import WebhookLayout from "./pages/sq/dashboard/webhook/webhook_layout";
 import WajsHome from "./pages/sq/dashboard/wajs/wajs_home";
 import WajsLayout from "./pages/sq/dashboard/wajs/wajs_layout";
+import WaHookHome from "./pages/sq/dashboard/wa-hook/wa_hook_home";
+import FlowWaHook from "./pages/sq/dashboard/wa-hook/flow_wa_hook";
+import WaHookLayout from "./pages/sq/dashboard/wa-hook/wa_hook_layout";
 import ApikeyPage from "./pages/sq/dashboard/apikey/apikey_page";
 import DashboardPage from "./pages/sq/dashboard/dashboard_page";
 import DashboardLayout from "./pages/sq/dashboard/dashboard_layout";
@@ -46,6 +49,19 @@ export default function AppRoutes() {
               <Route
                 path="/sq/dashboard/wajs/wajs-home"
                 element={<WajsHome />}
+              />
+            </Route>
+
+            <Route path="/sq/dashboard/wa-hook" element={<WaHookLayout />}>
+              <Route index element={<WaHookHome />} />
+
+              <Route
+                path="/sq/dashboard/wa-hook/wa-hook-home"
+                element={<WaHookHome />}
+              />
+              <Route
+                path="/sq/dashboard/wa-hook/flow-wa-hook"
+                element={<FlowWaHook />}
               />
             </Route>
             <Route

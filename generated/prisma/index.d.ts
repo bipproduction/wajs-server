@@ -33,6 +33,11 @@ export type WebHook = $Result.DefaultSelection<Prisma.$WebHookPayload>
  * 
  */
 export type WaHook = $Result.DefaultSelection<Prisma.$WaHookPayload>
+/**
+ * Model ChatFlows
+ * 
+ */
+export type ChatFlows = $Result.DefaultSelection<Prisma.$ChatFlowsPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -191,6 +196,16 @@ export class PrismaClient<
     * ```
     */
   get waHook(): Prisma.WaHookDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.chatFlows`: Exposes CRUD operations for the **ChatFlows** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ChatFlows
+    * const chatFlows = await prisma.chatFlows.findMany()
+    * ```
+    */
+  get chatFlows(): Prisma.ChatFlowsDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -634,7 +649,8 @@ export namespace Prisma {
     User: 'User',
     ApiKey: 'ApiKey',
     WebHook: 'WebHook',
-    WaHook: 'WaHook'
+    WaHook: 'WaHook',
+    ChatFlows: 'ChatFlows'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -653,7 +669,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "apiKey" | "webHook" | "waHook"
+      modelProps: "user" | "apiKey" | "webHook" | "waHook" | "chatFlows"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -953,6 +969,80 @@ export namespace Prisma {
           }
         }
       }
+      ChatFlows: {
+        payload: Prisma.$ChatFlowsPayload<ExtArgs>
+        fields: Prisma.ChatFlowsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ChatFlowsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChatFlowsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ChatFlowsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChatFlowsPayload>
+          }
+          findFirst: {
+            args: Prisma.ChatFlowsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChatFlowsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ChatFlowsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChatFlowsPayload>
+          }
+          findMany: {
+            args: Prisma.ChatFlowsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChatFlowsPayload>[]
+          }
+          create: {
+            args: Prisma.ChatFlowsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChatFlowsPayload>
+          }
+          createMany: {
+            args: Prisma.ChatFlowsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ChatFlowsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChatFlowsPayload>[]
+          }
+          delete: {
+            args: Prisma.ChatFlowsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChatFlowsPayload>
+          }
+          update: {
+            args: Prisma.ChatFlowsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChatFlowsPayload>
+          }
+          deleteMany: {
+            args: Prisma.ChatFlowsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ChatFlowsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ChatFlowsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChatFlowsPayload>[]
+          }
+          upsert: {
+            args: Prisma.ChatFlowsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ChatFlowsPayload>
+          }
+          aggregate: {
+            args: Prisma.ChatFlowsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateChatFlows>
+          }
+          groupBy: {
+            args: Prisma.ChatFlowsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ChatFlowsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ChatFlowsCountArgs<ExtArgs>
+            result: $Utils.Optional<ChatFlowsCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1053,6 +1143,7 @@ export namespace Prisma {
     apiKey?: ApiKeyOmit
     webHook?: WebHookOmit
     waHook?: WaHookOmit
+    chatFlows?: ChatFlowsOmit
   }
 
   /* Types for Logging */
@@ -5487,6 +5578,1045 @@ export namespace Prisma {
 
 
   /**
+   * Model ChatFlows
+   */
+
+  export type AggregateChatFlows = {
+    _count: ChatFlowsCountAggregateOutputType | null
+    _min: ChatFlowsMinAggregateOutputType | null
+    _max: ChatFlowsMaxAggregateOutputType | null
+  }
+
+  export type ChatFlowsMinAggregateOutputType = {
+    id: string | null
+    defaultFlow: string | null
+    active: boolean | null
+    flowUrl: string | null
+    flowToken: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ChatFlowsMaxAggregateOutputType = {
+    id: string | null
+    defaultFlow: string | null
+    active: boolean | null
+    flowUrl: string | null
+    flowToken: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ChatFlowsCountAggregateOutputType = {
+    id: number
+    flows: number
+    defaultFlow: number
+    defaultData: number
+    active: number
+    flowUrl: number
+    flowToken: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ChatFlowsMinAggregateInputType = {
+    id?: true
+    defaultFlow?: true
+    active?: true
+    flowUrl?: true
+    flowToken?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ChatFlowsMaxAggregateInputType = {
+    id?: true
+    defaultFlow?: true
+    active?: true
+    flowUrl?: true
+    flowToken?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ChatFlowsCountAggregateInputType = {
+    id?: true
+    flows?: true
+    defaultFlow?: true
+    defaultData?: true
+    active?: true
+    flowUrl?: true
+    flowToken?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ChatFlowsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ChatFlows to aggregate.
+     */
+    where?: ChatFlowsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ChatFlows to fetch.
+     */
+    orderBy?: ChatFlowsOrderByWithRelationInput | ChatFlowsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ChatFlowsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ChatFlows from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ChatFlows.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ChatFlows
+    **/
+    _count?: true | ChatFlowsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ChatFlowsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ChatFlowsMaxAggregateInputType
+  }
+
+  export type GetChatFlowsAggregateType<T extends ChatFlowsAggregateArgs> = {
+        [P in keyof T & keyof AggregateChatFlows]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateChatFlows[P]>
+      : GetScalarType<T[P], AggregateChatFlows[P]>
+  }
+
+
+
+
+  export type ChatFlowsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ChatFlowsWhereInput
+    orderBy?: ChatFlowsOrderByWithAggregationInput | ChatFlowsOrderByWithAggregationInput[]
+    by: ChatFlowsScalarFieldEnum[] | ChatFlowsScalarFieldEnum
+    having?: ChatFlowsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ChatFlowsCountAggregateInputType | true
+    _min?: ChatFlowsMinAggregateInputType
+    _max?: ChatFlowsMaxAggregateInputType
+  }
+
+  export type ChatFlowsGroupByOutputType = {
+    id: string
+    flows: JsonValue | null
+    defaultFlow: string | null
+    defaultData: JsonValue | null
+    active: boolean
+    flowUrl: string | null
+    flowToken: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: ChatFlowsCountAggregateOutputType | null
+    _min: ChatFlowsMinAggregateOutputType | null
+    _max: ChatFlowsMaxAggregateOutputType | null
+  }
+
+  type GetChatFlowsGroupByPayload<T extends ChatFlowsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ChatFlowsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ChatFlowsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ChatFlowsGroupByOutputType[P]>
+            : GetScalarType<T[P], ChatFlowsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ChatFlowsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    flows?: boolean
+    defaultFlow?: boolean
+    defaultData?: boolean
+    active?: boolean
+    flowUrl?: boolean
+    flowToken?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["chatFlows"]>
+
+  export type ChatFlowsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    flows?: boolean
+    defaultFlow?: boolean
+    defaultData?: boolean
+    active?: boolean
+    flowUrl?: boolean
+    flowToken?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["chatFlows"]>
+
+  export type ChatFlowsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    flows?: boolean
+    defaultFlow?: boolean
+    defaultData?: boolean
+    active?: boolean
+    flowUrl?: boolean
+    flowToken?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["chatFlows"]>
+
+  export type ChatFlowsSelectScalar = {
+    id?: boolean
+    flows?: boolean
+    defaultFlow?: boolean
+    defaultData?: boolean
+    active?: boolean
+    flowUrl?: boolean
+    flowToken?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ChatFlowsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "flows" | "defaultFlow" | "defaultData" | "active" | "flowUrl" | "flowToken" | "createdAt" | "updatedAt", ExtArgs["result"]["chatFlows"]>
+
+  export type $ChatFlowsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ChatFlows"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      flows: Prisma.JsonValue | null
+      defaultFlow: string | null
+      defaultData: Prisma.JsonValue | null
+      active: boolean
+      flowUrl: string | null
+      flowToken: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["chatFlows"]>
+    composites: {}
+  }
+
+  type ChatFlowsGetPayload<S extends boolean | null | undefined | ChatFlowsDefaultArgs> = $Result.GetResult<Prisma.$ChatFlowsPayload, S>
+
+  type ChatFlowsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ChatFlowsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ChatFlowsCountAggregateInputType | true
+    }
+
+  export interface ChatFlowsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ChatFlows'], meta: { name: 'ChatFlows' } }
+    /**
+     * Find zero or one ChatFlows that matches the filter.
+     * @param {ChatFlowsFindUniqueArgs} args - Arguments to find a ChatFlows
+     * @example
+     * // Get one ChatFlows
+     * const chatFlows = await prisma.chatFlows.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ChatFlowsFindUniqueArgs>(args: SelectSubset<T, ChatFlowsFindUniqueArgs<ExtArgs>>): Prisma__ChatFlowsClient<$Result.GetResult<Prisma.$ChatFlowsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ChatFlows that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ChatFlowsFindUniqueOrThrowArgs} args - Arguments to find a ChatFlows
+     * @example
+     * // Get one ChatFlows
+     * const chatFlows = await prisma.chatFlows.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ChatFlowsFindUniqueOrThrowArgs>(args: SelectSubset<T, ChatFlowsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ChatFlowsClient<$Result.GetResult<Prisma.$ChatFlowsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ChatFlows that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ChatFlowsFindFirstArgs} args - Arguments to find a ChatFlows
+     * @example
+     * // Get one ChatFlows
+     * const chatFlows = await prisma.chatFlows.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ChatFlowsFindFirstArgs>(args?: SelectSubset<T, ChatFlowsFindFirstArgs<ExtArgs>>): Prisma__ChatFlowsClient<$Result.GetResult<Prisma.$ChatFlowsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ChatFlows that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ChatFlowsFindFirstOrThrowArgs} args - Arguments to find a ChatFlows
+     * @example
+     * // Get one ChatFlows
+     * const chatFlows = await prisma.chatFlows.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ChatFlowsFindFirstOrThrowArgs>(args?: SelectSubset<T, ChatFlowsFindFirstOrThrowArgs<ExtArgs>>): Prisma__ChatFlowsClient<$Result.GetResult<Prisma.$ChatFlowsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ChatFlows that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ChatFlowsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ChatFlows
+     * const chatFlows = await prisma.chatFlows.findMany()
+     * 
+     * // Get first 10 ChatFlows
+     * const chatFlows = await prisma.chatFlows.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const chatFlowsWithIdOnly = await prisma.chatFlows.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ChatFlowsFindManyArgs>(args?: SelectSubset<T, ChatFlowsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ChatFlowsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ChatFlows.
+     * @param {ChatFlowsCreateArgs} args - Arguments to create a ChatFlows.
+     * @example
+     * // Create one ChatFlows
+     * const ChatFlows = await prisma.chatFlows.create({
+     *   data: {
+     *     // ... data to create a ChatFlows
+     *   }
+     * })
+     * 
+     */
+    create<T extends ChatFlowsCreateArgs>(args: SelectSubset<T, ChatFlowsCreateArgs<ExtArgs>>): Prisma__ChatFlowsClient<$Result.GetResult<Prisma.$ChatFlowsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ChatFlows.
+     * @param {ChatFlowsCreateManyArgs} args - Arguments to create many ChatFlows.
+     * @example
+     * // Create many ChatFlows
+     * const chatFlows = await prisma.chatFlows.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ChatFlowsCreateManyArgs>(args?: SelectSubset<T, ChatFlowsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ChatFlows and returns the data saved in the database.
+     * @param {ChatFlowsCreateManyAndReturnArgs} args - Arguments to create many ChatFlows.
+     * @example
+     * // Create many ChatFlows
+     * const chatFlows = await prisma.chatFlows.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ChatFlows and only return the `id`
+     * const chatFlowsWithIdOnly = await prisma.chatFlows.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ChatFlowsCreateManyAndReturnArgs>(args?: SelectSubset<T, ChatFlowsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ChatFlowsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ChatFlows.
+     * @param {ChatFlowsDeleteArgs} args - Arguments to delete one ChatFlows.
+     * @example
+     * // Delete one ChatFlows
+     * const ChatFlows = await prisma.chatFlows.delete({
+     *   where: {
+     *     // ... filter to delete one ChatFlows
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ChatFlowsDeleteArgs>(args: SelectSubset<T, ChatFlowsDeleteArgs<ExtArgs>>): Prisma__ChatFlowsClient<$Result.GetResult<Prisma.$ChatFlowsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ChatFlows.
+     * @param {ChatFlowsUpdateArgs} args - Arguments to update one ChatFlows.
+     * @example
+     * // Update one ChatFlows
+     * const chatFlows = await prisma.chatFlows.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ChatFlowsUpdateArgs>(args: SelectSubset<T, ChatFlowsUpdateArgs<ExtArgs>>): Prisma__ChatFlowsClient<$Result.GetResult<Prisma.$ChatFlowsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ChatFlows.
+     * @param {ChatFlowsDeleteManyArgs} args - Arguments to filter ChatFlows to delete.
+     * @example
+     * // Delete a few ChatFlows
+     * const { count } = await prisma.chatFlows.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ChatFlowsDeleteManyArgs>(args?: SelectSubset<T, ChatFlowsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ChatFlows.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ChatFlowsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ChatFlows
+     * const chatFlows = await prisma.chatFlows.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ChatFlowsUpdateManyArgs>(args: SelectSubset<T, ChatFlowsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ChatFlows and returns the data updated in the database.
+     * @param {ChatFlowsUpdateManyAndReturnArgs} args - Arguments to update many ChatFlows.
+     * @example
+     * // Update many ChatFlows
+     * const chatFlows = await prisma.chatFlows.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ChatFlows and only return the `id`
+     * const chatFlowsWithIdOnly = await prisma.chatFlows.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ChatFlowsUpdateManyAndReturnArgs>(args: SelectSubset<T, ChatFlowsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ChatFlowsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ChatFlows.
+     * @param {ChatFlowsUpsertArgs} args - Arguments to update or create a ChatFlows.
+     * @example
+     * // Update or create a ChatFlows
+     * const chatFlows = await prisma.chatFlows.upsert({
+     *   create: {
+     *     // ... data to create a ChatFlows
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ChatFlows we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ChatFlowsUpsertArgs>(args: SelectSubset<T, ChatFlowsUpsertArgs<ExtArgs>>): Prisma__ChatFlowsClient<$Result.GetResult<Prisma.$ChatFlowsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ChatFlows.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ChatFlowsCountArgs} args - Arguments to filter ChatFlows to count.
+     * @example
+     * // Count the number of ChatFlows
+     * const count = await prisma.chatFlows.count({
+     *   where: {
+     *     // ... the filter for the ChatFlows we want to count
+     *   }
+     * })
+    **/
+    count<T extends ChatFlowsCountArgs>(
+      args?: Subset<T, ChatFlowsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ChatFlowsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ChatFlows.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ChatFlowsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ChatFlowsAggregateArgs>(args: Subset<T, ChatFlowsAggregateArgs>): Prisma.PrismaPromise<GetChatFlowsAggregateType<T>>
+
+    /**
+     * Group by ChatFlows.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ChatFlowsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ChatFlowsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ChatFlowsGroupByArgs['orderBy'] }
+        : { orderBy?: ChatFlowsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ChatFlowsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetChatFlowsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ChatFlows model
+   */
+  readonly fields: ChatFlowsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ChatFlows.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ChatFlowsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ChatFlows model
+   */
+  interface ChatFlowsFieldRefs {
+    readonly id: FieldRef<"ChatFlows", 'String'>
+    readonly flows: FieldRef<"ChatFlows", 'Json'>
+    readonly defaultFlow: FieldRef<"ChatFlows", 'String'>
+    readonly defaultData: FieldRef<"ChatFlows", 'Json'>
+    readonly active: FieldRef<"ChatFlows", 'Boolean'>
+    readonly flowUrl: FieldRef<"ChatFlows", 'String'>
+    readonly flowToken: FieldRef<"ChatFlows", 'String'>
+    readonly createdAt: FieldRef<"ChatFlows", 'DateTime'>
+    readonly updatedAt: FieldRef<"ChatFlows", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ChatFlows findUnique
+   */
+  export type ChatFlowsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ChatFlows
+     */
+    select?: ChatFlowsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ChatFlows
+     */
+    omit?: ChatFlowsOmit<ExtArgs> | null
+    /**
+     * Filter, which ChatFlows to fetch.
+     */
+    where: ChatFlowsWhereUniqueInput
+  }
+
+  /**
+   * ChatFlows findUniqueOrThrow
+   */
+  export type ChatFlowsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ChatFlows
+     */
+    select?: ChatFlowsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ChatFlows
+     */
+    omit?: ChatFlowsOmit<ExtArgs> | null
+    /**
+     * Filter, which ChatFlows to fetch.
+     */
+    where: ChatFlowsWhereUniqueInput
+  }
+
+  /**
+   * ChatFlows findFirst
+   */
+  export type ChatFlowsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ChatFlows
+     */
+    select?: ChatFlowsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ChatFlows
+     */
+    omit?: ChatFlowsOmit<ExtArgs> | null
+    /**
+     * Filter, which ChatFlows to fetch.
+     */
+    where?: ChatFlowsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ChatFlows to fetch.
+     */
+    orderBy?: ChatFlowsOrderByWithRelationInput | ChatFlowsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ChatFlows.
+     */
+    cursor?: ChatFlowsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ChatFlows from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ChatFlows.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ChatFlows.
+     */
+    distinct?: ChatFlowsScalarFieldEnum | ChatFlowsScalarFieldEnum[]
+  }
+
+  /**
+   * ChatFlows findFirstOrThrow
+   */
+  export type ChatFlowsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ChatFlows
+     */
+    select?: ChatFlowsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ChatFlows
+     */
+    omit?: ChatFlowsOmit<ExtArgs> | null
+    /**
+     * Filter, which ChatFlows to fetch.
+     */
+    where?: ChatFlowsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ChatFlows to fetch.
+     */
+    orderBy?: ChatFlowsOrderByWithRelationInput | ChatFlowsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ChatFlows.
+     */
+    cursor?: ChatFlowsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ChatFlows from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ChatFlows.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ChatFlows.
+     */
+    distinct?: ChatFlowsScalarFieldEnum | ChatFlowsScalarFieldEnum[]
+  }
+
+  /**
+   * ChatFlows findMany
+   */
+  export type ChatFlowsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ChatFlows
+     */
+    select?: ChatFlowsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ChatFlows
+     */
+    omit?: ChatFlowsOmit<ExtArgs> | null
+    /**
+     * Filter, which ChatFlows to fetch.
+     */
+    where?: ChatFlowsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ChatFlows to fetch.
+     */
+    orderBy?: ChatFlowsOrderByWithRelationInput | ChatFlowsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ChatFlows.
+     */
+    cursor?: ChatFlowsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ChatFlows from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ChatFlows.
+     */
+    skip?: number
+    distinct?: ChatFlowsScalarFieldEnum | ChatFlowsScalarFieldEnum[]
+  }
+
+  /**
+   * ChatFlows create
+   */
+  export type ChatFlowsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ChatFlows
+     */
+    select?: ChatFlowsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ChatFlows
+     */
+    omit?: ChatFlowsOmit<ExtArgs> | null
+    /**
+     * The data needed to create a ChatFlows.
+     */
+    data: XOR<ChatFlowsCreateInput, ChatFlowsUncheckedCreateInput>
+  }
+
+  /**
+   * ChatFlows createMany
+   */
+  export type ChatFlowsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ChatFlows.
+     */
+    data: ChatFlowsCreateManyInput | ChatFlowsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ChatFlows createManyAndReturn
+   */
+  export type ChatFlowsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ChatFlows
+     */
+    select?: ChatFlowsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ChatFlows
+     */
+    omit?: ChatFlowsOmit<ExtArgs> | null
+    /**
+     * The data used to create many ChatFlows.
+     */
+    data: ChatFlowsCreateManyInput | ChatFlowsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ChatFlows update
+   */
+  export type ChatFlowsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ChatFlows
+     */
+    select?: ChatFlowsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ChatFlows
+     */
+    omit?: ChatFlowsOmit<ExtArgs> | null
+    /**
+     * The data needed to update a ChatFlows.
+     */
+    data: XOR<ChatFlowsUpdateInput, ChatFlowsUncheckedUpdateInput>
+    /**
+     * Choose, which ChatFlows to update.
+     */
+    where: ChatFlowsWhereUniqueInput
+  }
+
+  /**
+   * ChatFlows updateMany
+   */
+  export type ChatFlowsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ChatFlows.
+     */
+    data: XOR<ChatFlowsUpdateManyMutationInput, ChatFlowsUncheckedUpdateManyInput>
+    /**
+     * Filter which ChatFlows to update
+     */
+    where?: ChatFlowsWhereInput
+    /**
+     * Limit how many ChatFlows to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ChatFlows updateManyAndReturn
+   */
+  export type ChatFlowsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ChatFlows
+     */
+    select?: ChatFlowsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ChatFlows
+     */
+    omit?: ChatFlowsOmit<ExtArgs> | null
+    /**
+     * The data used to update ChatFlows.
+     */
+    data: XOR<ChatFlowsUpdateManyMutationInput, ChatFlowsUncheckedUpdateManyInput>
+    /**
+     * Filter which ChatFlows to update
+     */
+    where?: ChatFlowsWhereInput
+    /**
+     * Limit how many ChatFlows to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ChatFlows upsert
+   */
+  export type ChatFlowsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ChatFlows
+     */
+    select?: ChatFlowsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ChatFlows
+     */
+    omit?: ChatFlowsOmit<ExtArgs> | null
+    /**
+     * The filter to search for the ChatFlows to update in case it exists.
+     */
+    where: ChatFlowsWhereUniqueInput
+    /**
+     * In case the ChatFlows found by the `where` argument doesn't exist, create a new ChatFlows with this data.
+     */
+    create: XOR<ChatFlowsCreateInput, ChatFlowsUncheckedCreateInput>
+    /**
+     * In case the ChatFlows was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ChatFlowsUpdateInput, ChatFlowsUncheckedUpdateInput>
+  }
+
+  /**
+   * ChatFlows delete
+   */
+  export type ChatFlowsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ChatFlows
+     */
+    select?: ChatFlowsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ChatFlows
+     */
+    omit?: ChatFlowsOmit<ExtArgs> | null
+    /**
+     * Filter which ChatFlows to delete.
+     */
+    where: ChatFlowsWhereUniqueInput
+  }
+
+  /**
+   * ChatFlows deleteMany
+   */
+  export type ChatFlowsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ChatFlows to delete
+     */
+    where?: ChatFlowsWhereInput
+    /**
+     * Limit how many ChatFlows to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ChatFlows without action
+   */
+  export type ChatFlowsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ChatFlows
+     */
+    select?: ChatFlowsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ChatFlows
+     */
+    omit?: ChatFlowsOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -5554,6 +6684,21 @@ export namespace Prisma {
   };
 
   export type WaHookScalarFieldEnum = (typeof WaHookScalarFieldEnum)[keyof typeof WaHookScalarFieldEnum]
+
+
+  export const ChatFlowsScalarFieldEnum: {
+    id: 'id',
+    flows: 'flows',
+    defaultFlow: 'defaultFlow',
+    defaultData: 'defaultData',
+    active: 'active',
+    flowUrl: 'flowUrl',
+    flowToken: 'flowToken',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ChatFlowsScalarFieldEnum = (typeof ChatFlowsScalarFieldEnum)[keyof typeof ChatFlowsScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -5958,6 +7103,78 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"WaHook"> | Date | string
   }
 
+  export type ChatFlowsWhereInput = {
+    AND?: ChatFlowsWhereInput | ChatFlowsWhereInput[]
+    OR?: ChatFlowsWhereInput[]
+    NOT?: ChatFlowsWhereInput | ChatFlowsWhereInput[]
+    id?: StringFilter<"ChatFlows"> | string
+    flows?: JsonNullableFilter<"ChatFlows">
+    defaultFlow?: StringNullableFilter<"ChatFlows"> | string | null
+    defaultData?: JsonNullableFilter<"ChatFlows">
+    active?: BoolFilter<"ChatFlows"> | boolean
+    flowUrl?: StringNullableFilter<"ChatFlows"> | string | null
+    flowToken?: StringNullableFilter<"ChatFlows"> | string | null
+    createdAt?: DateTimeFilter<"ChatFlows"> | Date | string
+    updatedAt?: DateTimeFilter<"ChatFlows"> | Date | string
+  }
+
+  export type ChatFlowsOrderByWithRelationInput = {
+    id?: SortOrder
+    flows?: SortOrderInput | SortOrder
+    defaultFlow?: SortOrderInput | SortOrder
+    defaultData?: SortOrderInput | SortOrder
+    active?: SortOrder
+    flowUrl?: SortOrderInput | SortOrder
+    flowToken?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ChatFlowsWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    flowUrl?: string
+    AND?: ChatFlowsWhereInput | ChatFlowsWhereInput[]
+    OR?: ChatFlowsWhereInput[]
+    NOT?: ChatFlowsWhereInput | ChatFlowsWhereInput[]
+    flows?: JsonNullableFilter<"ChatFlows">
+    defaultFlow?: StringNullableFilter<"ChatFlows"> | string | null
+    defaultData?: JsonNullableFilter<"ChatFlows">
+    active?: BoolFilter<"ChatFlows"> | boolean
+    flowToken?: StringNullableFilter<"ChatFlows"> | string | null
+    createdAt?: DateTimeFilter<"ChatFlows"> | Date | string
+    updatedAt?: DateTimeFilter<"ChatFlows"> | Date | string
+  }, "id" | "flowUrl">
+
+  export type ChatFlowsOrderByWithAggregationInput = {
+    id?: SortOrder
+    flows?: SortOrderInput | SortOrder
+    defaultFlow?: SortOrderInput | SortOrder
+    defaultData?: SortOrderInput | SortOrder
+    active?: SortOrder
+    flowUrl?: SortOrderInput | SortOrder
+    flowToken?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ChatFlowsCountOrderByAggregateInput
+    _max?: ChatFlowsMaxOrderByAggregateInput
+    _min?: ChatFlowsMinOrderByAggregateInput
+  }
+
+  export type ChatFlowsScalarWhereWithAggregatesInput = {
+    AND?: ChatFlowsScalarWhereWithAggregatesInput | ChatFlowsScalarWhereWithAggregatesInput[]
+    OR?: ChatFlowsScalarWhereWithAggregatesInput[]
+    NOT?: ChatFlowsScalarWhereWithAggregatesInput | ChatFlowsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ChatFlows"> | string
+    flows?: JsonNullableWithAggregatesFilter<"ChatFlows">
+    defaultFlow?: StringNullableWithAggregatesFilter<"ChatFlows"> | string | null
+    defaultData?: JsonNullableWithAggregatesFilter<"ChatFlows">
+    active?: BoolWithAggregatesFilter<"ChatFlows"> | boolean
+    flowUrl?: StringNullableWithAggregatesFilter<"ChatFlows"> | string | null
+    flowToken?: StringNullableWithAggregatesFilter<"ChatFlows"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"ChatFlows"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ChatFlows"> | Date | string
+  }
+
   export type UserCreateInput = {
     id?: string
     name?: string | null
@@ -6265,6 +7482,90 @@ export namespace Prisma {
   export type WaHookUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     data?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ChatFlowsCreateInput = {
+    id?: string
+    flows?: NullableJsonNullValueInput | InputJsonValue
+    defaultFlow?: string | null
+    defaultData?: NullableJsonNullValueInput | InputJsonValue
+    active?: boolean
+    flowUrl?: string | null
+    flowToken?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ChatFlowsUncheckedCreateInput = {
+    id?: string
+    flows?: NullableJsonNullValueInput | InputJsonValue
+    defaultFlow?: string | null
+    defaultData?: NullableJsonNullValueInput | InputJsonValue
+    active?: boolean
+    flowUrl?: string | null
+    flowToken?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ChatFlowsUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    flows?: NullableJsonNullValueInput | InputJsonValue
+    defaultFlow?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultData?: NullableJsonNullValueInput | InputJsonValue
+    active?: BoolFieldUpdateOperationsInput | boolean
+    flowUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    flowToken?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ChatFlowsUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    flows?: NullableJsonNullValueInput | InputJsonValue
+    defaultFlow?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultData?: NullableJsonNullValueInput | InputJsonValue
+    active?: BoolFieldUpdateOperationsInput | boolean
+    flowUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    flowToken?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ChatFlowsCreateManyInput = {
+    id?: string
+    flows?: NullableJsonNullValueInput | InputJsonValue
+    defaultFlow?: string | null
+    defaultData?: NullableJsonNullValueInput | InputJsonValue
+    active?: boolean
+    flowUrl?: string | null
+    flowToken?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ChatFlowsUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    flows?: NullableJsonNullValueInput | InputJsonValue
+    defaultFlow?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultData?: NullableJsonNullValueInput | InputJsonValue
+    active?: BoolFieldUpdateOperationsInput | boolean
+    flowUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    flowToken?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ChatFlowsUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    flows?: NullableJsonNullValueInput | InputJsonValue
+    defaultFlow?: NullableStringFieldUpdateOperationsInput | string | null
+    defaultData?: NullableJsonNullValueInput | InputJsonValue
+    active?: BoolFieldUpdateOperationsInput | boolean
+    flowUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    flowToken?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -6630,6 +7931,38 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedJsonNullableFilter<$PrismaModel>
     _max?: NestedJsonNullableFilter<$PrismaModel>
+  }
+
+  export type ChatFlowsCountOrderByAggregateInput = {
+    id?: SortOrder
+    flows?: SortOrder
+    defaultFlow?: SortOrder
+    defaultData?: SortOrder
+    active?: SortOrder
+    flowUrl?: SortOrder
+    flowToken?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ChatFlowsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    defaultFlow?: SortOrder
+    active?: SortOrder
+    flowUrl?: SortOrder
+    flowToken?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ChatFlowsMinOrderByAggregateInput = {
+    id?: SortOrder
+    defaultFlow?: SortOrder
+    active?: SortOrder
+    flowUrl?: SortOrder
+    flowToken?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type ApiKeyCreateNestedManyWithoutUserInput = {

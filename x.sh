@@ -1,8 +1,7 @@
+TOKEN="EAALP22EWyC4BPnZCfcPQNmD5pGLKV6Ao3GIeWZCc81aPivDFc2FXGA1ZBgrRGcB60LaZCdAr1sbnfP1ufrH3dGthxQzpf18BTjDZBkgG3vBiYZAMpHa7MEZBiRIUZCBe4BDXe8KV0r7DsDmQHJqhA3yZBDKPOL1PKJPEqIq40tLxPwMqWYg4o7xf0sBmZCzx2wI1KtJL8I20MV1ggldngHZCIcnOKDL0uPzDAhc2LAQuI7ZBsgZDZD"
+MEDIA_ID="24893686766920074"
+BUSINESS_PHONE_NUMBER_ID="783866307805501"
 
-#!/bin/bash
-TOKEN="EAALP22EWyC4BPv7XnK1xSaZCWccblEoJFbHzPZAf5mlp4678lSM7cqhQl1ExATf8abrOpinvvFF6U6ruK2FsJqIk8wg6DiUz2fc0NYfcwjon3ng7I3C5HSDQHecgTiJLUBxfZAcvE4IIlhks722jakXaJpojlByo8QJ0CEURtzwEU1guFq7YTX3Et0ZCkbhkdftZCOGmpUKFjL5w5nUdd26Nd58YrLVZCoT8NKhxpWFQZDZD"
-curl -i -X POST \
-  https://graph.facebook.com/v22.0/838757782652201/messages \
-  -H 'Authorization: Bearer $TOKEN' \
-  -H 'Content-Type: application/json' \
-  -d '{ "messaging_product": "whatsapp", "to": "6289505046093", "type": "template", "template": { "name": "hello_world", "language": { "code": "en_US" } } }'
+curl 'https://graph.facebook.com/v19.0/$MEDIA_ID?phone_number_id=$BUSINESS_PHONE_NUMBER_ID' \
+-H 'Authorization: Bearer $TOKEN' \
+-H 'Content-Type: application/json'

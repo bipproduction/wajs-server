@@ -258,6 +258,12 @@ function NavigationDashboard() {
       icon: <IconWebhook size={20} color="#00FFFF" />,
       desc: "Incoming and outgoing event handlers",
     },
+    {
+      path: clientRoutes["/sq/dashboard/wa-hook/wa-hook-home"],
+      label: "WA Hook",
+      icon: <IconWebhook size={20} color="#00FFFF" />,
+      desc: "WA Hook",
+    },
   ];
 
   return (

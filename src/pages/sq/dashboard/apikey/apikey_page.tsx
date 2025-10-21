@@ -254,25 +254,17 @@ function ListApiKey({ refresh }: { refresh: boolean }) {
                     }}
                   >
                     <Table.Td>{apiKey.name}</Table.Td>
-                    <Table.Td c="#9A9A9A">
-                      {apiKey.description || "—"}
-                    </Table.Td>
+                    <Table.Td c="#9A9A9A">{apiKey.description || "—"}</Table.Td>
                     <Table.Td>
                       {apiKey.expiredAt
-                        ? new Date(apiKey.expiredAt)
-                            .toISOString()
-                            .split("T")[0]
+                        ? new Date(apiKey.expiredAt).toISOString().split("T")[0]
                         : "—"}
                     </Table.Td>
                     <Table.Td>
-                      {new Date(apiKey.createdAt)
-                        .toISOString()
-                        .split("T")[0]}
+                      {new Date(apiKey.createdAt).toISOString().split("T")[0]}
                     </Table.Td>
                     <Table.Td>
-                      {new Date(apiKey.updatedAt)
-                        .toISOString()
-                        .split("T")[0]}
+                      {new Date(apiKey.updatedAt).toISOString().split("T")[0]}
                     </Table.Td>
                     <Table.Td align="right">
                       <Group gap={4} justify="right">
@@ -301,7 +293,7 @@ function ListApiKey({ refresh }: { refresh: boolean }) {
                                 id: apiKey.id,
                               });
                               setApiKeys((prev) =>
-                                prev.filter((a) => a.id !== apiKey.id)
+                                prev.filter((a) => a.id !== apiKey.id),
                               );
                               showNotification({
                                 title: "Deleted",

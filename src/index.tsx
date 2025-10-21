@@ -10,6 +10,7 @@ import WaRoute from "./server/routes/wa_route";
 import WebhookRoute from "./server/routes/webhook_route";
 import cors from "@elysiajs/cors";
 import WaHookRoute from "./server/routes/wa_hook_route";
+import FlowRoute from "./server/routes/flow_route";
 
 const Docs = new Elysia().use(
   Swagger({
@@ -35,7 +36,7 @@ const Api = new Elysia({
   .use(ApiUser)
   .use(WaRoute)
   .use(WebhookRoute)
-
+  .use(FlowRoute);
 
 const app = new Elysia()
   .use(cors())

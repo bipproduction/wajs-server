@@ -164,6 +164,18 @@ exports.Prisma.WaHookScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.ChatFlowsScalarFieldEnum = {
+  id: 'id',
+  flows: 'flows',
+  defaultFlow: 'defaultFlow',
+  defaultData: 'defaultData',
+  active: 'active',
+  flowUrl: 'flowUrl',
+  flowToken: 'flowToken',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -195,7 +207,8 @@ exports.Prisma.ModelName = {
   User: 'User',
   ApiKey: 'ApiKey',
   WebHook: 'WebHook',
-  WaHook: 'WaHook'
+  WaHook: 'WaHook',
+  ChatFlows: 'ChatFlows'
 };
 
 /**
