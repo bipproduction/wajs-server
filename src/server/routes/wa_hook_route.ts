@@ -106,6 +106,7 @@ const WaHookRoute = new Elysia({
                 createData.answer = {
                     text: result.text,
                     type: "text",
+                    flowId: flow.defaultFlow,
                     flow: flow.defaultData,
                 }
 
