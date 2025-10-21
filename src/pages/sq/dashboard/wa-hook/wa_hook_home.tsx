@@ -100,7 +100,7 @@ export default function WaHookHome() {
 
         <Divider color="rgba(0,255,200,0.2)" />
 
-        <pre>{JSON.stringify(data, null, 2)}</pre>
+        <pre>{JSON.stringify(data?.data?.list, null, 2)}</pre>
 
         <Stack gap="md">
           {data?.data?.list?.length ? (
