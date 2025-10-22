@@ -11,9 +11,11 @@ const APP_SECRET: string = process.env.WA_APP_SECRET!;
 logger.info("WA API started");
 
 // Inisialisasi WhatsApp API dengan typing generik jika diperlukan (contoh: number sebagai tipe session)
-const Whatsapp = new WhatsAppAPI<number>({
+export const Whatsapp = new WhatsAppAPI<number>({
     token: TOKEN,
-    appSecret: APP_SECRET
+    appSecret: APP_SECRET,
+    webhookVerifyToken: process.env.WA_WEBHOOK_TOKEN!,
+    v: "v23.0"
 });
 
 // Tipe untuk request body dari server (bisa disesuaikan dengan framework seperti Express, Elysia, Hono, dll)
@@ -36,8 +38,10 @@ export async function post(req: PostRequest) {
 }
 
 export function whatsappApiInit() {
+    logger.info("WA API initialized");
     // Handler jika ada pesan masuk dari user
     Whatsapp.on.message = async ({ phoneID, from, message, name, Whatsapp, reply }) => {
+        logger.info("WA API received");
         logger.info(
             `User ${name} (${from}) sent to bot ${phoneID} ${JSON.stringify(message)}`
         );

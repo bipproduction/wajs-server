@@ -2,9 +2,9 @@ import Elysia, { t } from "elysia";
 import { prisma } from "../lib/prisma";
 import type { WAHookMessage } from "types/wa_messages";
 import _ from "lodash";
-import { whatsappApiInit } from "../lib/wa-api/wa-api";
-
-whatsappApiInit()
+import { Whatsapp, whatsappApiInit } from "../lib/wa-api/wa-api";
+import type { GetParams, PostData } from "whatsapp-api-js/types";
+import { logger } from "../lib/logger";
 
 async function fetchWithTimeout(input: RequestInfo, init: RequestInit, timeoutMs = 120_000) {
     const controller = new AbortController()
@@ -40,6 +40,7 @@ const WaHookRoute = new Elysia({
 })
     // ✅ Handle verifikasi Webhook (GET)
     .get("/hook", async (ctx) => {
+        Whatsapp.get(ctx.query as GetParams)
         const { query, set } = ctx;
         const mode = query["hub.mode"];
         const challenge = query["hub.challenge"];
@@ -79,7 +80,8 @@ const WaHookRoute = new Elysia({
 
     // ✅ Handle incoming message (POST)
     .post("/hook", async ({ body }) => {
-        console.log("Incoming WhatsApp Webhook:", body);
+        Whatsapp.post(body as PostData)
+        logger.info("[POST] Incoming WhatsApp Webhook:", body)
 
         const create = await prisma.waHook.create({
             data: {
@@ -95,7 +97,7 @@ const WaHookRoute = new Elysia({
         })
 
         if (!flow) {
-            console.log("no flow found")
+            logger.info("[POST] no flow found")
         }
 
         if (flow?.defaultFlow && flow.active) {
@@ -205,3 +207,6 @@ const WaHookRoute = new Elysia({
     });
 
 export default WaHookRoute;
+
+// Initialize WhatsApp API
+whatsappApiInit()

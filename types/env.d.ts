@@ -9,6 +9,7 @@ declare namespace NodeJS {
     WA_TOKEN?: string;
     WA_APP_SECRET?: string;
     WA_PHONE_NUMBER_ID?: string;
+    WA_WEBHOOK_TOKEN?: string;
     APP_LOGS_PATH?: string;
   }
 }
