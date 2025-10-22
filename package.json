@@ -22,6 +22,7 @@
     "@monaco-editor/react": "^4.7.0",
     "@prisma/client": "^6.17.1",
     "@tabler/icons-react": "^3.35.0",
+    "@types/express": "^5.0.3",
     "@types/jwt-decode": "^3.1.0",
     "@types/lodash": "^4.17.20",
     "@types/qrcode-terminal": "^0.12.2",
@@ -32,7 +33,10 @@
     "form-data": "^4.0.4",
     "jwt-decode": "^4.0.0",
     "lodash": "^4.17.21",
+    "meta-cloud-api": "^1.3.0",
     "node-fetch": "^3.3.2",
+    "pino": "^10.1.0",
+    "pino-pretty": "^13.1.2",
     "qrcode-terminal": "^0.12.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -40,6 +44,8 @@
     "react-router-dom": "^7.9.4",
     "swr": "^2.3.6",
     "uuid": "^13.0.0",
+    "whatsapp-api-js": "^6.1.1",
+    "whatsapp-client-sdk": "^1.6.0",
     "whatsapp-web.js": "^1.34.1"
   },
   "devDependencies": {

@@ -2,6 +2,9 @@ import Elysia, { t } from "elysia";
 import { prisma } from "../lib/prisma";
 import type { WAHookMessage } from "types/wa_messages";
 import _ from "lodash";
+import { whatsappApiInit } from "../lib/wa-api/wa-api";
+
+whatsappApiInit()
 
 async function fetchWithTimeout(input: RequestInfo, init: RequestInit, timeoutMs = 120_000) {
     const controller = new AbortController()
