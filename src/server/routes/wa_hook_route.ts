@@ -209,4 +209,4 @@ const WaHookRoute = new Elysia({
 export default WaHookRoute;
 
 // Initialize WhatsApp API
-whatsappApiInit()
+// whatsappApiInit()
