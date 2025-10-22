@@ -6,6 +6,17 @@ import { Whatsapp, whatsappApiInit } from "../lib/wa-api/wa-api";
 import type { GetParams, PostData } from "whatsapp-api-js/types";
 import { logger } from "../lib/logger";
 
+
+import { WhatsAppClient, WhatsAppMessageType } from 'whatsapp-client-sdk';
+
+const client = new WhatsAppClient({
+    accessToken: 'your-access-token',        // Required: Get from Meta Developer Console
+    phoneNumberId: 'your-phone-number-id',   // Required: Your WhatsApp Business phone number ID
+    webhookVerifyToken: 'your-verify-token'  // Required: For receiving messages
+});
+
+
+
 async function fetchWithTimeout(input: RequestInfo, init: RequestInit, timeoutMs = 120_000) {
     const controller = new AbortController()
     const id = setTimeout(() => controller.abort(), timeoutMs)
@@ -83,73 +94,89 @@ const WaHookRoute = new Elysia({
         Whatsapp.post(body as PostData)
         logger.info("[POST] Incoming WhatsApp Webhook:", body)
 
-        const create = await prisma.waHook.create({
-            data: {
-                data: body,
-            },
-        });
+        const webhook = client.parseWebhook(body)
 
-        const waHook = body as WAHookMessage
-        const flow = await prisma.chatFlows.findUnique({
-            where: {
-                id: "1",
-            },
-        })
+        if (webhook[0]?.type === WhatsAppMessageType.TEXT) {
+            const message = webhook[0]?.text
+            const from = webhook[0]?.from
+            const name = webhook[0].contact?.name
 
-        if (!flow) {
-            logger.info("[POST] no flow found")
-        }
-
-        if (flow?.defaultFlow && flow.active) {
-            const { flowUrl, flowToken } = flow
-            const question = waHook?.entry[0]?.changes[0]?.value?.messages[0]?.text?.body
-            const contacts = waHook?.entry[0]?.changes[0]?.value?.contacts[0]
-            const name = contacts?.profile?.name
-            const number = contacts?.wa_id
-
-            const response = await fetchWithTimeout(`${flowUrl}/prediction/${flow.defaultFlow}`, {
-                headers: {
-                    Authorization: `Bearer ${flowToken}`,
-                    'Content-Type': 'application/json',
-                },
-                method: 'POST',
-                body: JSON.stringify({
-                    question,
-                    overrideConfig: {
-                        sessionId: `${_.kebabCase(name)}_x_${number}`,
-                        vars: { userName: _.kebabCase(name), userPhone: number },
-                    },
-                }),
-            })
-
-            const responseText = await response.text()
-            try {
-                const result = JSON.parse(responseText)
-                let createData = create.data as any
-                createData.answer = {
-                    text: result.text,
-                    type: "text",
-                    flowId: flow.defaultFlow
-                }
-
-                await prisma.waHook.update({
-                    where: {
-                        id: create.id,
-                    },
-                    data: {
-                        data: createData,
-                    },
-                })
-
-                if (flow?.waPhoneNumberId && flow?.waToken && number) {
-                    // await sendReplyMessage(number, result.text, flow.waPhoneNumberId, flow.waToken)
-                }
-
-            } catch (error) {
-                console.log(error)
-                console.log(responseText)
+            const dataMessage = {
+                message,
+                from,
+                name,
             }
+
+            logger.info(`[POST] Incoming WhatsApp Webhook: ${JSON.stringify(dataMessage)}`)
         }
+
+        // const create = await prisma.waHook.create({
+        //     data: {
+        //         data: body,
+        //     },
+        // });
+
+        // const waHook = body as WAHookMessage
+        // const flow = await prisma.chatFlows.findUnique({
+        //     where: {
+        //         id: "1",
+        //     },
+        // })
+
+        // if (!flow) {
+        //     logger.info("[POST] no flow found")
+        // }
+
+        // if (flow?.defaultFlow && flow.active) {
+        //     const { flowUrl, flowToken } = flow
+        //     const question = waHook?.entry[0]?.changes[0]?.value?.messages[0]?.text?.body
+        //     const contacts = waHook?.entry[0]?.changes[0]?.value?.contacts[0]
+        //     const name = contacts?.profile?.name
+        //     const number = contacts?.wa_id
+
+        //     const response = await fetchWithTimeout(`${flowUrl}/prediction/${flow.defaultFlow}`, {
+        //         headers: {
+        //             Authorization: `Bearer ${flowToken}`,
+        //             'Content-Type': 'application/json',
+        //         },
+        //         method: 'POST',
+        //         body: JSON.stringify({
+        //             question,
+        //             overrideConfig: {
+        //                 sessionId: `${_.kebabCase(name)}_x_${number}`,
+        //                 vars: { userName: _.kebabCase(name), userPhone: number },
+        //             },
+        //         }),
+        //     })
+
+        //     const responseText = await response.text()
+        //     try {
+        //         const result = JSON.parse(responseText)
+        //         let createData = create.data as any
+        //         createData.answer = {
+        //             text: result.text,
+        //             type: "text",
+        //             flowId: flow.defaultFlow
+        //         }
+
+        //         await prisma.waHook.update({
+        //             where: {
+        //                 id: create.id,
+        //             },
+        //             data: {
+        //                 data: createData,
+        //             },
+        //         })
+
+        //         if (flow?.waPhoneNumberId && flow?.waToken && number) {
+        //             // await sendReplyMessage(number, result.text, flow.waPhoneNumberId, flow.waToken)
+        //         }
+
+        //     } catch (error) {
+        //         console.log(error)
+        //         console.log(responseText)
+        //     }
+        // }
 
 
         return {
@@ -207,6 +234,3 @@ const WaHookRoute = new Elysia({
     });
 
 export default WaHookRoute;
-
-// Initialize WhatsApp API
-// whatsappApiInit()
