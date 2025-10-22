@@ -10,9 +10,10 @@ import { logger } from "../lib/logger";
 import { WhatsAppClient, WhatsAppMessageType } from 'whatsapp-client-sdk';
 
 const client = new WhatsAppClient({
-    accessToken: 'your-access-token',        // Required: Get from Meta Developer Console
-    phoneNumberId: 'your-phone-number-id',   // Required: Your WhatsApp Business phone number ID
-    webhookVerifyToken: 'your-verify-token'  // Required: For receiving messages
+    accessToken: process.env.WA_TOKEN!,        
+    phoneNumberId: process.env.WA_PHONE_NUMBER_ID!,   
+    webhookVerifyToken: process.env.WA_WEBHOOK_TOKEN!
+
 });
 
 
