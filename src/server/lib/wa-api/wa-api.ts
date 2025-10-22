@@ -89,5 +89,4 @@ export function whatsappApiInit() {
     Whatsapp.on.sent = ({ phoneID, to, message }) => {
         logger.info(`Bot ${phoneID} sent to user ${to} ${message}`);
     };
-
 }
