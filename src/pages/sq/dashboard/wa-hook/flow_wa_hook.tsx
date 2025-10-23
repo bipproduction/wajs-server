@@ -134,6 +134,7 @@ function FlowWaHookForm() {
   const [loading, setLoading] = useState(false);
   const [waPhoneNumberId, setWaPhoneNumberId] = useState("");
   const [waToken, setWaToken] = useState("");
+  const [active, setActive] = useState(false);
 
   useShallowEffect(() => {
     const loadCredentials = async () => {
@@ -145,6 +146,7 @@ function FlowWaHookForm() {
         setFlowToken(data?.data?.flowToken || "");
         setWaPhoneNumberId(data?.data?.waPhoneNumberId || "");
         setWaToken(data?.data?.waToken || "");
+        setActive(data?.data?.active || false);
       }
     };
     loadCredentials();
@@ -156,7 +158,7 @@ function FlowWaHookForm() {
       return;
     }
     setLoading(true);
-    const { error } = await apiFetch.api.chatflows["url-token"].put({ flowUrl, flowToken, waPhoneNumberId, waToken });
+    const { error } = await apiFetch.api.chatflows["url-token"].put({ active, flowUrl, flowToken, waPhoneNumberId, waToken });
     if (error) {
       showNotification({ title: "Error", message: "Failed to update credentials", color: "red" });
     } else {
@@ -174,6 +176,7 @@ function FlowWaHookForm() {
     <Card radius="md" p="lg" withBorder>
       <Stack gap="lg">
         <Title order={3}>Flow Credentials</Title>
+        <Checkbox label="Active" checked={active} onChange={(e) => setActive(e.currentTarget.checked)} />
         <Stack gap="md">
           <TextInput label="Flow URL" placeholder="Enter flow URL" value={flowUrl} onChange={(e) => setFlowUrl(e.currentTarget.value)} />
           <PasswordInput

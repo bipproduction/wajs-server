@@ -159,12 +159,13 @@ const FlowRoute = new Elysia({
         flowToken: true,
         waPhoneNumberId: true,
         waToken: true,
+        active: true,
       },
     })
     if (!result) {
-      return { data: { flowUrl: null, flowToken: null, waPhoneNumberId: null, waToken: null } }
+      return { data: null }
     }
-    return { data: { flowUrl: result.flowUrl, flowToken: result.flowToken, waPhoneNumberId: result.waPhoneNumberId, waToken: result.waToken } }
+    return { data: { active: result.active, flowUrl: result.flowUrl, flowToken: result.flowToken, waPhoneNumberId: result.waPhoneNumberId, waToken: result.waToken } }
   }, {
     detail: {
       summary: "Get flow url and token",
@@ -174,7 +175,7 @@ const FlowRoute = new Elysia({
   .put(
     '/url-token',
     async ctx => {
-      const { flowUrl, flowToken, waPhoneNumberId, waToken } = ctx.body
+      const { flowUrl, flowToken, waPhoneNumberId, waToken, active } = ctx.body
       const result = await prisma.chatFlows.upsert({
         where: {
           id: "1",
@@ -184,6 +185,7 @@ const FlowRoute = new Elysia({
           flowToken: flowToken,
           waPhoneNumberId: waPhoneNumberId,
           waToken: waToken,
+          active: active,
         },
         create: {
           id: "1",
@@ -191,6 +193,7 @@ const FlowRoute = new Elysia({
           flowToken: flowToken,
           waPhoneNumberId: waPhoneNumberId,
           waToken: waToken,
+          active: active,
         },
       })
       return { data: result }
@@ -201,6 +204,7 @@ const FlowRoute = new Elysia({
         flowToken: t.String(),
         waPhoneNumberId: t.String(),
         waToken: t.String(),
+        active: t.Boolean(),
       }),
       detail: {
         summary: "Update flow url and token",

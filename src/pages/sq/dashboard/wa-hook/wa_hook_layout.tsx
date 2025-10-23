@@ -8,7 +8,8 @@ export default function WaHookLayout() {
     <Container size="xl" w={"100%"}>
       <Group justify="flex-start" p={"md"}>
           <Button
-            size="compact-xs"
+            color="cyan"
+            size="xs"
             radius={"lg"}
             onClick={() =>
               navigate(clientRoutes["/sq/dashboard/wa-hook/flow-wa-hook"])

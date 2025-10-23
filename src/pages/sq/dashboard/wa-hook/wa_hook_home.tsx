@@ -105,9 +105,8 @@ export default function WaHookHome() {
         <Stack gap="md">
           {data?.data?.list?.length ? (
             data.data.list.map((item) => {
-              const msg = item.data?.entry?.[0]?.changes?.[0]?.value?.messages?.[0];
-              const contact = item.data?.entry?.[0]?.changes?.[0]?.value?.contacts?.[0];
-              const answer = (item.data as any)?.answer;
+              const parsed = JSON.parse((item.data as any) || "{}");
+
               return (
                 <Card
                   key={item.id}
@@ -116,77 +115,75 @@ export default function WaHookHome() {
                   style={{
                     background:
                       "linear-gradient(160deg, rgba(45,45,45,0.9) 0%, rgba(25,25,25,0.95) 100%)",
-                    backdropFilter: "blur(14px)",
                     border: "1px solid rgba(0,255,200,0.25)",
-                    boxShadow: "0 0 20px rgba(0,255,200,0.1)",
-                    transition: "all 0.2s ease",
                   }}
                 >
                   <Stack gap={8}>
+                    {/* Nama & Nomor Pengirim */}
                     <Group gap="xs" align="center">
                       <IconUser size={16} color="#00FFC8" />
                       <Text c="#EAEAEA" fw={500}>
-                        {contact?.profile?.name || "Unknown Sender"}
+                        {parsed.name || "Unknown Sender"} ({parsed.number || "No Number"})
                       </Text>
                     </Group>
 
+                    {/* Pertanyaan / Pesan */}
                     <Group gap="xs" align="center">
                       <IconMessageCircle size={16} color="#00FFFF" />
                       <Text c="#9A9A9A" fz="sm">
-                        {msg?.text?.body || "(No message content)"}
+                        {parsed.question || "(No question)"}
                       </Text>
                     </Group>
 
+                    {/* ID Record */}
                     <Group gap="xs" align="center">
                       <IconHash size={16} color="#00FFC8" />
                       <Text c="#9A9A9A" fz="xs">
-                        {msg?.id}
+                        {item.id}
                       </Text>
                     </Group>
 
+                    {/* Timestamp */}
                     <Group gap="xs" align="center">
                       <IconCalendar size={16} color="#00FFFF" />
                       <Text c="#9A9A9A" fz="xs">
-                        {dayjs(Number(msg?.timestamp) * 1000).format("YYYY-MM-DD HH:mm:ss")}
+                        {dayjs(item.createdAt).format("YYYY-MM-DD HH:mm:ss")}
                       </Text>
                     </Group>
 
-                    <Group gap="xs" align="center">
-                      <IconCode size={16} color="#B554FF" />
-                      <Badge
-                        color="grape"
-                        radius="sm"
-                        variant="light"
-                        styles={{
-                          root: { backgroundColor: "rgba(181,84,255,0.15)", color: "#EAEAEA" },
-                        }}
-                      >
-                        {msg?.type || "Unknown"}
-                      </Badge>
-                    </Group>
+                    {/* Flow ID */}
+                    {parsed.flowId && (
+                      <Group gap="xs" align="center">
+                        <IconCode size={16} color="#B554FF" />
+                        <Badge
+                          color="grape"
+                          radius="sm"
+                          variant="light"
+                          styles={{
+                            root: { backgroundColor: "rgba(181,84,255,0.15)", color: "#EAEAEA" },
+                          }}
+                        >
+                          Flow: {parsed.flowId}
+                        </Badge>
+                      </Group>
+                    )}
 
-                    {answer && (
+                    {/* Jawaban */}
+                    {parsed.answer && (
                       <Card
                         p="sm"
                         radius="md"
                         style={{
                           backgroundColor: "rgba(45,45,45,0.7)",
                           border: "1px solid rgba(0,255,255,0.15)",
-                          boxShadow: "inset 0 0 10px rgba(0,255,255,0.1)",
                         }}
                       >
                         <Stack gap={4}>
                           <Text c="#EAEAEA" fw={500} fz="sm">
-                            Flow Response
-                          </Text>
-                          <Text c="#9A9A9A" fz="xs">
-                            id: {answer.flowId}
-                          </Text>
-                          <Text c="#9A9A9A" fz="xs">
-                            type: {answer.type}
+                            Bot Answer
                           </Text>
                           <Text c="#EAEAEA" fz="sm">
-                            {answer.text}
+                            {parsed.answer}
                           </Text>
                         </Stack>
                       </Card>
@@ -210,6 +207,7 @@ export default function WaHookHome() {
               </Text>
             </Card>
           )}
+
         </Stack>
 
         <Group justify="center" mt="xl">
