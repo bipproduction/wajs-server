@@ -245,7 +245,7 @@ const WaHookRoute = new Elysia({
             if (webhook[0]?.type === WhatsAppMessageType.TEXT) {
                 const messageQuestion = webhook[0]?.text;
                 const from = webhook[0]?.from;
-                const name = webhook[0].contact?.name;
+                const name = webhook[0]?.contact?.name;
 
                 if (messageQuestion && from) {
                     logger.info(
