@@ -236,6 +236,8 @@ const WaHookRoute = new Elysia({
         async ({ body }) => {
             const webhook = client.parseWebhook(body);
 
+            logger.info(`[POST] Webhook Type: ${webhook[0]?.type}`);
+
             if (webhook[0]?.type === WhatsAppMessageType.TEXT) {
                 const messageQuestion = webhook[0]?.text;
                 const from = webhook[0]?.from;
@@ -266,12 +268,15 @@ const WaHookRoute = new Elysia({
 
                     const buffer = await client.downloadMedia(message.media?.id!);
                     const media_data = buffer.toString("base64");
-                    const media_name = message.media?.filename;
-                    const media_mime = message.media?.mime_type;
+                    const media_name = message.media?.filename || "default_filename";
+                    const media_mime = message.media?.mime_type || "default_mime_type";
                     
                     // gunakan void agar tidak ada warning “unawaited promise"
-                    void flowAiText({
-                        message: webhook[0],
+                    void flowAiImage({
+                        message,
+                        media_data,
+                        media_name,
+                        media_mime,
                     });
                 }
             }
