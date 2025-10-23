@@ -187,6 +187,9 @@ async function flowAiImage({
     }
 }
 
+
+
+
 const WaHookRoute = new Elysia({
     prefix: "/wa-hook",
     tags: ["WhatsApp Hook"],
@@ -237,6 +240,7 @@ const WaHookRoute = new Elysia({
             const webhook = client.parseWebhook(body);
 
             logger.info(`[POST] Webhook Type: ${webhook[0]?.type}`);
+            console.log("ada data masuk ...", webhook[0]?.type)
 
             if (webhook[0]?.type === WhatsAppMessageType.TEXT) {
                 const messageQuestion = webhook[0]?.text;
