@@ -49,7 +49,7 @@ async function flowAi({
         logger.info("[POST] flow found");
 
         await client.markMessageAsRead(message.id);
-        await client.sendTypingIndicatorWithDuration(message.from, 5000);
+        await client.sendTypingIndicator("+6289697338821");
 
         const { flowUrl, flowToken } = flow;
 
