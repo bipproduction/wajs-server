@@ -53,8 +53,8 @@ const app = new Elysia()
   });
 
 
-// if (process.env.NODE_ENV === "production") {
-//   startClient();
-// }
+if (process.env.NODE_ENV === "production") {
+  startClient();
+}
 
 export type ServerApp = typeof app;
