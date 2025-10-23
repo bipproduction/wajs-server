@@ -12,6 +12,7 @@ import cors from "@elysiajs/cors";
 import WaHookRoute from "./server/routes/wa_hook_route";
 import FlowRoute from "./server/routes/flow_route";
 import LogsRoute from "./server/routes/logs_route";
+import { startClient } from "./server/lib/wa/wa_service";
 
 const Docs = new Elysia().use(
   Swagger({
@@ -46,9 +47,14 @@ const app = new Elysia()
   .use(Auth)
   .use(WaHookRoute)
   .use(LogsRoute)
-  .get("*", html) 
+  .get("*", html)
   .listen(3000, () => {
     console.log("Server running at http://localhost:3000");
   });
+
+
+if (process.env.NODE_ENV === "production") {
+  startClient();
+}
 
 export type ServerApp = typeof app;
