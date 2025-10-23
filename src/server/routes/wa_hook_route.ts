@@ -253,7 +253,7 @@ const WaHookRoute = new Elysia({
 
             }
 
-            if (webhook[0]?.type === WhatsAppMessageType.IMAGE) {
+            if (webhook[0]?.type === WhatsAppMessageType.IMAGE || webhook[0]?.type === WhatsAppMessageType.DOCUMENT || webhook[0]?.type === WhatsAppMessageType.STICKER) {
                 const messageQuestion = webhook[0]?.text;
                 const from = webhook[0]?.from;
                 const name = webhook[0].contact?.name;
