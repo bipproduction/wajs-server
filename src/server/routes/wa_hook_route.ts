@@ -265,7 +265,7 @@ const WaHookRoute = new Elysia({
                 const name = webhook[0].contact?.name;
                 const message = webhook[0];
 
-                if (messageQuestion && from) {
+                if (from) {
                     logger.info(
                         `[POST] Message: ${JSON.stringify({ message: messageQuestion, from, name })}`
                     );
