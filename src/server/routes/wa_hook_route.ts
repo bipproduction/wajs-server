@@ -2,7 +2,7 @@ import Elysia, { t } from "elysia";
 import { prisma } from "../lib/prisma";
 import type { WAHookMessage } from "types/wa_messages";
 import _ from "lodash";
-import { Whatsapp, whatsappApiInit } from "../lib/wa-api/wa-api";
+
 import type { GetParams, PostData } from "whatsapp-api-js/types";
 import { logger } from "../lib/logger";
 
@@ -10,12 +10,11 @@ import { logger } from "../lib/logger";
 import { WhatsAppClient, WhatsAppMessageType } from 'whatsapp-client-sdk';
 
 const client = new WhatsAppClient({
-    accessToken: process.env.WA_TOKEN!,        
-    phoneNumberId: process.env.WA_PHONE_NUMBER_ID!,   
+    accessToken: process.env.WA_TOKEN!,
+    phoneNumberId: process.env.WA_PHONE_NUMBER_ID!,
     webhookVerifyToken: process.env.WA_WEBHOOK_TOKEN!
 
 });
-
 
 
 async function fetchWithTimeout(input: RequestInfo, init: RequestInit, timeoutMs = 120_000) {
@@ -52,7 +51,6 @@ const WaHookRoute = new Elysia({
 })
     // ✅ Handle verifikasi Webhook (GET)
     .get("/hook", async (ctx) => {
-        Whatsapp.get(ctx.query as GetParams)
         const { query, set } = ctx;
         const mode = query["hub.mode"];
         const challenge = query["hub.challenge"];
@@ -92,10 +90,11 @@ const WaHookRoute = new Elysia({
 
     // ✅ Handle incoming message (POST)
     .post("/hook", async ({ body }) => {
-        Whatsapp.post(body as PostData)
         logger.info("[POST] Incoming WhatsApp Webhook:", body)
 
         const webhook = client.parseWebhook(body)
+
+        logger.info(`[POST] Message Type: ${webhook[0]?.type}`)
 
         if (webhook[0]?.type === WhatsAppMessageType.TEXT) {
             const message = webhook[0]?.text
@@ -108,7 +107,7 @@ const WaHookRoute = new Elysia({
                 name,
             }
 
-            logger.info(`[POST] Incoming WhatsApp Webhook: ${JSON.stringify(dataMessage)}`)
+            logger.info(`[POST] Message: ${JSON.stringify(dataMessage)}`)
         }
 
         // const create = await prisma.waHook.create({
