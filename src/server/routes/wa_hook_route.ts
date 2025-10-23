@@ -31,7 +31,7 @@ async function fetchWithTimeout(
 
 const FLOW_ID = "1";
 
-async function flowAi({
+async function flowAiText({
     message
 }: {
     message: ProcessedIncomingMessage;
@@ -68,6 +68,91 @@ async function flowAi({
                             sessionId: `${_.kebabCase(message.contact?.name)}_x_${message.from}`,
                             vars: { userName: _.kebabCase(message.contact?.name), userPhone: message.from },
                         },
+                    }),
+                }
+            );
+
+            const responseText = await response.text();
+
+            try {
+                const result = JSON.parse(responseText);
+                await prisma.waHook.create({
+                    data: {
+                        data: JSON.stringify({
+                            question: message.text,
+                            name: message.contact?.name,
+                            number: message.from,
+                            answer: result.text,
+                            flowId: flow.defaultFlow,
+                        }),
+                    },
+                });
+
+                if (flow.waPhoneNumberId && flow.waToken && flow.active) {
+                    await new Promise(resolve => setTimeout(resolve, 3000));
+                    await client.sendText(message.from, result.text);
+                }
+            } catch (error) {
+                logger.error(`[POST] Error parsing AI response ${error}`);
+                logger.error(responseText);
+            }
+        } catch (error) {
+            logger.error(`[POST] Error calling flow API ${error}`);
+        }
+    }
+}
+
+async function flowAiImage({
+    message,
+    media_data,
+    media_name,
+    media_mime,
+}: {
+    message: ProcessedIncomingMessage;
+    media_data: string;
+    media_name: string;
+    media_mime: string;
+}) {
+    const flow = await prisma.chatFlows.findUnique({
+        where: { id: FLOW_ID },
+    });
+
+    if (!flow) {
+        logger.info("[POST] no flow found");
+        return;
+    }
+
+    if (flow.defaultFlow && flow.active) {
+        logger.info("[POST] flow found");
+
+        await client.markMessageAsRead(message.id);
+        await client.sendTypingIndicator(message.from);
+
+        const { flowUrl, flowToken } = flow;
+
+        try {
+            const response = await fetchWithTimeout(
+                `${flowUrl}/prediction/${flow.defaultFlow}`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${flowToken}`,
+                        "Content-Type": "application/json",
+                    },
+                    method: "POST",
+                    body: JSON.stringify({
+                        question: message.text || "media",
+                        overrideConfig: {
+                            sessionId: `${_.kebabCase(message.contact?.name)}_x_${message.from}`,
+                            vars: { userName: _.kebabCase(message.contact?.name), userPhone: message.from },
+                        },
+                        uploads: [
+                            {
+                                type: "file:full",
+                                name: media_name,
+                                data: media_data,
+                                mime: media_mime,
+                            },
+                        ],
                     }),
                 }
             );
@@ -161,7 +246,31 @@ const WaHookRoute = new Elysia({
                         `[POST] Message: ${JSON.stringify({ message: messageQuestion, from, name })}`
                     );
                     // gunakan void agar tidak ada warning “unawaited promise”
-                    void flowAi({
+                    void flowAiText({
+                        message: webhook[0],
+                    });
+                }
+
+            }
+
+            if (webhook[0]?.type === WhatsAppMessageType.IMAGE) {
+                const messageQuestion = webhook[0]?.text;
+                const from = webhook[0]?.from;
+                const name = webhook[0].contact?.name;
+                const message = webhook[0];
+
+                if (messageQuestion && from) {
+                    logger.info(
+                        `[POST] Message: ${JSON.stringify({ message: messageQuestion, from, name })}`
+                    );
+
+                    const buffer = await client.downloadMedia(message.media?.id!);
+                    const media_data = buffer.toString("base64");
+                    const media_name = message.media?.filename;
+                    const media_mime = message.media?.mime_type;
+                    
+                    // gunakan void agar tidak ada warning “unawaited promise"
+                    void flowAiText({
                         message: webhook[0],
                     });
                 }
