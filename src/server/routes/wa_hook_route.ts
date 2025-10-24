@@ -149,7 +149,7 @@ async function flowAiImage({
                             {
                                 type: "file:full",
                                 name: media_name,
-                                data: media_data,
+                                data: `data:${media_mime};base64,${media_data}`,
                                 mime: media_mime,
                             },
                         ],
@@ -278,7 +278,7 @@ const WaHookRoute = new Elysia({
                     // gunakan void agar tidak ada warning “unawaited promise"
                     void flowAiImage({
                         message,
-                        media_data: `data:${media_mime};base64,${media_data}`,
+                        media_data,
                         media_name,
                         media_mime,
                     });
