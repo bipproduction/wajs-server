@@ -274,6 +274,8 @@ const WaHookRoute = new Elysia({
                     const media_data = buffer.toString("base64");
                     const media_name = message.media?.filename || "default_filename";
                     const media_mime = message.media?.mime_type || "default_mime_type";
+
+                    logger.info(`[POST] Media: ${JSON.stringify({ media_data, media_name, media_mime })}`);
                     
                     // gunakan void agar tidak ada warning “unawaited promise"
                     void flowAiImage({
