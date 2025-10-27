@@ -63,6 +63,7 @@ const WaRoute = new Elysia({
             };
         }
         
+        
         const chat = await client.getChatById(`${body.number}@c.us`);
         await chat.sendMessage(body.text);
 
