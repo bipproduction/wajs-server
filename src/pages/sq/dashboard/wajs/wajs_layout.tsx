@@ -1,9 +1,10 @@
 import { Navigate, Outlet } from "react-router-dom";
 import useSWR from "swr";
 import apiFetch from "@/lib/apiFetch";
-import { Badge, Button, Chip, Group, Pill, Stack } from "@mantine/core";
+import { Badge, Button, Chip, Group, Pill, Stack, Text } from "@mantine/core";
 import { useState } from "react";
 import clientRoutes from "@/clientRoutes";
+import { modals } from "@mantine/modals";
 
 export default function WajsLayout() {
   const [loading, setLoading] = useState(false);
@@ -40,6 +41,28 @@ export default function WajsLayout() {
           }}
         >
           Reconnect
+        </Button>
+        <Button
+          color="red"
+          onClick={() => {
+            setLoading(true);
+            modals.openConfirmModal({
+              title: "Rescan QR",
+              children: <Text>Are you sure you want to rescan QR?</Text>,
+              confirmProps: { color: "red" },
+              labels: {
+                cancel: "Cancel",
+                confirm: "Rescan QR",
+              },
+              onCancel: () => setLoading(false),
+              onConfirm: () => {
+                apiFetch.api.wa.restart.post();
+                setLoading(false);
+              },
+            });
+          }}
+        >
+          Rescan QR
         </Button>
       </Group>
       <Outlet />

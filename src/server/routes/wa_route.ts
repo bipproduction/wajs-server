@@ -1,4 +1,4 @@
-import Elysia from "elysia";
+import Elysia, { t } from "elysia";
 import { startClient, getState } from "../lib/wa/wa_service";
 import _ from "lodash";
 
@@ -47,6 +47,37 @@ const WaRoute = new Elysia({
         return {
             state: _.omit(state, "client"),
         };
+    })
+    .post("send-text", async ({body}) => {
+        const state = getState();
+        if (!state.ready) {
+            return {
+                message: "WhatsApp route not ready",
+            };
+        }
+
+        const client = state.client;
+        if (!client) {
+            return {
+                message: "WhatsApp client not ready",
+            };
+        }
+        
+        const chat = await client.getChatById(`${body.number}@c.us`);
+        await chat.sendMessage(body.text);
+
+        return {
+            message: "WhatsApp route ready",
+        };
+    },{
+        body: t.Object({
+            number: t.String(),
+            text: t.String(),
+        }),
+        detail: {
+            description: "Send text to WhatsApp",
+            tags: ["WhatsApp"],
+        }
     })
 
 export default WaRoute;

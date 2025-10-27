@@ -1,7 +1,3 @@
-TOKEN="EAALP22EWyC4BPnZCfcPQNmD5pGLKV6Ao3GIeWZCc81aPivDFc2FXGA1ZBgrRGcB60LaZCdAr1sbnfP1ufrH3dGthxQzpf18BTjDZBkgG3vBiYZAMpHa7MEZBiRIUZCBe4BDXe8KV0r7DsDmQHJqhA3yZBDKPOL1PKJPEqIq40tLxPwMqWYg4o7xf0sBmZCzx2wI1KtJL8I20MV1ggldngHZCIcnOKDL0uPzDAhc2LAQuI7ZBsgZDZD"
-MEDIA_ID="24893686766920074"
-BUSINESS_PHONE_NUMBER_ID="783866307805501"
-
-curl 'https://graph.facebook.com/v19.0/$MEDIA_ID?phone_number_id=$BUSINESS_PHONE_NUMBER_ID' \
--H 'Authorization: Bearer $TOKEN' \
--H 'Content-Type: application/json'
+curl -X POST https://n8n.wibudev.com/webhook/dc164759-b7ba-47d5-b5d8-ffd9d5840090 \
+  -H "Content-Type: application/json" \
+  -d '{"question": "kirimkan pesan ke 089697338821 pesannya hari ini bagaimana ya?", "sessionId": "dc164759-b7ba-47d5-b5d8-ffd9d5840090"}'
