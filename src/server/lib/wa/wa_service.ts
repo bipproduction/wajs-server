@@ -232,6 +232,11 @@ async function handleIncomingMessage(msg: WAWebJS.Message) {
         return;
     }
 
+    if (msg.hasMedia) {
+        const media = await msg.downloadMedia();
+        (msg as any).media = media;
+    }
+    
     console.log("kirim ke webhook")
     const res = await fetch("https://n8n.wibudev.com/webhook/dc164759-b7ba-47d5-b5d8-ffd9d5840090", {
         body: JSON.stringify(msg),
@@ -245,20 +250,20 @@ async function handleIncomingMessage(msg: WAWebJS.Message) {
     console.log(json);
 
     try {
-        const notifyName = (msg as any)._data.notifyName;
+        // const notifyName = (msg as any)._data.notifyName;
 
-        const dataMessage: DataMessage = {
-            from: msg.from,
-            fromNumber: msg.from.split('@')[0] || '',
-            fromMe: msg.fromMe,
-            body: msg.body,
-            hasMedia: msg.hasMedia,
-            type: msg.type,
-            to: msg.to,
-            deviceType: msg.deviceType,
-            media: {},
-            notifyName,
-        };
+        // const dataMessage: DataMessage = {
+        //     from: msg.from,
+        //     fromNumber: msg.from.split('@')[0] || '',
+        //     fromMe: msg.fromMe,
+        //     body: msg.body,
+        //     hasMedia: msg.hasMedia,
+        //     type: msg.type,
+        //     to: msg.to,
+        //     deviceType: msg.deviceType,
+        //     media: (msg as any).media,
+        //     notifyName,
+        // };
 
         // === KIRIM KE WEBHOOK ===
         // try {
