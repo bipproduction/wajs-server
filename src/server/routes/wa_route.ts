@@ -137,12 +137,12 @@ const WaRoute = new Elysia({
         },
         {
             body: t.Object({
-                number: t.String({ minLength: 10, maxLength: 15 }),
-                caption: t.Optional(t.String({ maxLength: 255 })),
+                number: t.String({ minLength: 10, maxLength: 15, examples: ["6281234567890"] }),
+                caption: t.Optional(t.String({ maxLength: 255, examples: ["Hello World"] })),
                 media: t.Object({
-                    data: t.String(), // base64 tanpa prefix
-                    filename: t.String({ minLength: 1, maxLength: 255 }),
-                    mimetype: t.String({ minLength: 1, maxLength: 255 }),
+                    data: t.String({ examples: ["iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="] }), // base64 tanpa prefix
+                    filename: t.String({ minLength: 1, maxLength: 255, examples: ["file.png"] }),
+                    mimetype: t.String({ minLength: 1, maxLength: 255, examples: ["image/png"] }),
                 }),
             }),
             detail: {
