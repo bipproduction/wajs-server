@@ -146,9 +146,9 @@ const WaRoute = new Elysia({
                 }),
             }),
             detail: {
+                summary: "Send media to WhatsApp",
                 description:
-                    "Send media (image, audio, video, PDF, or any file) to WhatsApp",
-                tags: ["WhatsApp"],
+                    "Send media (image, audio, video, PDF, or any file) to WhatsApp"
             },
         }
     );
