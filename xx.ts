@@ -1,3 +1,1 @@
-import mime from "mime";
-
-console.log(mime.getAllExtensions("image/png"));
+console.log("nama".includes("namxa"))
