@@ -1,10 +1,9 @@
 // src/lib/logger.ts
 import pino from 'pino'
 import fs from 'fs'
-import path from 'path'
 
 // Pastikan folder logs ada
-const LOG_DIR = path.join(process.cwd(), process.env.APP_LOGS_PATH || './.logs')
+const LOG_DIR = process.env.APP_LOGS_PATH || './.logs'
 if (!fs.existsSync(LOG_DIR)) {
     fs.mkdirSync(LOG_DIR, { recursive: true })
 }
