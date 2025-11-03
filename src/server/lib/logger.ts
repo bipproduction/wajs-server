@@ -8,6 +8,7 @@ if (!fs.existsSync(LOG_DIR)) {
     fs.mkdirSync(LOG_DIR, { recursive: true })
 }
 
+
 // Konfigurasi logger
 export const logger = pino({
     level: process.env.LOG_LEVEL ?? 'info',
