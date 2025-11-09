@@ -1,0 +1,6673 @@
+[
+  {
+    "name": "default",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "TrapAny",
+        "optional": false
+      }
+    ],
+    "returns": "Collection<any> & Function<any> & Object<any> & Primitive<any> & String<string>",
+    "description": "lodash function default",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "default"
+    }
+  },
+  {
+    "name": "chunk",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "size",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[][]",
+    "description": "lodash function chunk",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "chunk"
+    }
+  },
+  {
+    "name": "compact",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T | Falsey> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function compact",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "compact"
+    }
+  },
+  {
+    "name": "concat",
+    "type": "function",
+    "args": [
+      {
+        "name": "values",
+        "type": "Many<T>[]",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function concat",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "concat"
+    }
+  },
+  {
+    "name": "difference",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "values",
+        "type": "List<T>[]",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function difference",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "difference"
+    }
+  },
+  {
+    "name": "differenceBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T1> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "values",
+        "type": "List<T2>",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ValueIteratee<T1 | T2>",
+        "optional": false
+      }
+    ],
+    "returns": "T1[]",
+    "description": "lodash function differenceBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "differenceBy"
+    }
+  },
+  {
+    "name": "differenceWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T1> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "values",
+        "type": "List<T2>",
+        "optional": false
+      },
+      {
+        "name": "comparator",
+        "type": "Comparator2<T1, T2>",
+        "optional": false
+      }
+    ],
+    "returns": "T1[]",
+    "description": "lodash function differenceWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "differenceWith"
+    }
+  },
+  {
+    "name": "drop",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "n",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function drop",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "drop"
+    }
+  },
+  {
+    "name": "dropRight",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "n",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function dropRight",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "dropRight"
+    }
+  },
+  {
+    "name": "dropRightWhile",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "predicate",
+        "type": "ListIteratee<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function dropRightWhile",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "dropRightWhile"
+    }
+  },
+  {
+    "name": "dropWhile",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "predicate",
+        "type": "ListIteratee<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function dropWhile",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "dropWhile"
+    }
+  },
+  {
+    "name": "fill",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "any[] | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "value",
+        "type": "T",
+        "optional": false
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function fill",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "fill"
+    }
+  },
+  {
+    "name": "findIndex",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "predicate",
+        "type": "ListIterateeCustom<T, boolean> | undefined",
+        "optional": true
+      },
+      {
+        "name": "fromIndex",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function findIndex",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "findIndex"
+    }
+  },
+  {
+    "name": "findLastIndex",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "predicate",
+        "type": "ListIterateeCustom<T, boolean> | undefined",
+        "optional": true
+      },
+      {
+        "name": "fromIndex",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function findLastIndex",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "findLastIndex"
+    }
+  },
+  {
+    "name": "first",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "readonly [T, ...unknown[]]",
+        "optional": false
+      }
+    ],
+    "returns": "T",
+    "description": "lodash function first",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "first"
+    }
+  },
+  {
+    "name": "flatten",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<Many<T>> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function flatten",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "flatten"
+    }
+  },
+  {
+    "name": "flattenDeep",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "ListOfRecursiveArraysOrValues<T> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "Flat<T>[]",
+    "description": "lodash function flattenDeep",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "flattenDeep"
+    }
+  },
+  {
+    "name": "flattenDepth",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "ListOfRecursiveArraysOrValues<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "depth",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function flattenDepth",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "flattenDepth"
+    }
+  },
+  {
+    "name": "fromPairs",
+    "type": "function",
+    "args": [
+      {
+        "name": "pairs",
+        "type": "List<[PropertyName, T]> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "Dictionary<T>",
+    "description": "lodash function fromPairs",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "fromPairs"
+    }
+  },
+  {
+    "name": "head",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "readonly [T, ...unknown[]]",
+        "optional": false
+      }
+    ],
+    "returns": "T",
+    "description": "lodash function head",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "head"
+    }
+  },
+  {
+    "name": "indexOf",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "value",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "fromIndex",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function indexOf",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "indexOf"
+    }
+  },
+  {
+    "name": "initial",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function initial",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "initial"
+    }
+  },
+  {
+    "name": "intersection",
+    "type": "function",
+    "args": [
+      {
+        "name": "arrays",
+        "type": "(List<T> | null | undefined)[]",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function intersection",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "intersection"
+    }
+  },
+  {
+    "name": "intersectionBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T1> | null",
+        "optional": false
+      },
+      {
+        "name": "values",
+        "type": "List<T2>",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ValueIteratee<T1 | T2>",
+        "optional": false
+      }
+    ],
+    "returns": "T1[]",
+    "description": "lodash function intersectionBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "intersectionBy"
+    }
+  },
+  {
+    "name": "intersectionWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T1> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "values",
+        "type": "List<T2>",
+        "optional": false
+      },
+      {
+        "name": "comparator",
+        "type": "Comparator2<T1, T1 | T2>",
+        "optional": false
+      }
+    ],
+    "returns": "T1[]",
+    "description": "lodash function intersectionWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "intersectionWith"
+    }
+  },
+  {
+    "name": "join",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<any> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "separator",
+        "type": "string | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function join",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "join"
+    }
+  },
+  {
+    "name": "last",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "T | undefined",
+    "description": "lodash function last",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "last"
+    }
+  },
+  {
+    "name": "lastIndexOf",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "value",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "fromIndex",
+        "type": "number | true | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function lastIndexOf",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "lastIndexOf"
+    }
+  },
+  {
+    "name": "nth",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "n",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T | undefined",
+    "description": "lodash function nth",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "nth"
+    }
+  },
+  {
+    "name": "pull",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "T[]",
+        "optional": false
+      },
+      {
+        "name": "values",
+        "type": "T[]",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function pull",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "pull"
+    }
+  },
+  {
+    "name": "pullAll",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "T[]",
+        "optional": false
+      },
+      {
+        "name": "values",
+        "type": "List<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function pullAll",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "pullAll"
+    }
+  },
+  {
+    "name": "pullAllBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "T[]",
+        "optional": false
+      },
+      {
+        "name": "values",
+        "type": "List<T> | undefined",
+        "optional": true
+      },
+      {
+        "name": "iteratee",
+        "type": "ValueIteratee<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function pullAllBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "pullAllBy"
+    }
+  },
+  {
+    "name": "pullAllWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "T[]",
+        "optional": false
+      },
+      {
+        "name": "values",
+        "type": "List<T> | undefined",
+        "optional": true
+      },
+      {
+        "name": "comparator",
+        "type": "Comparator<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function pullAllWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "pullAllWith"
+    }
+  },
+  {
+    "name": "pullAt",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "T[]",
+        "optional": false
+      },
+      {
+        "name": "indexes",
+        "type": "Many<number>[]",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function pullAt",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "pullAt"
+    }
+  },
+  {
+    "name": "remove",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "RejectReadonly<TList>",
+        "optional": false
+      },
+      {
+        "name": "predicate",
+        "type": "ListIteratee<TList[0]> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "TList[0][]",
+    "description": "lodash function remove",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "remove"
+    }
+  },
+  {
+    "name": "reverse",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "RejectReadonly<TList>",
+        "optional": false
+      }
+    ],
+    "returns": "TList",
+    "description": "lodash function reverse",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "reverse"
+    }
+  },
+  {
+    "name": "slice",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "start",
+        "type": "number | undefined",
+        "optional": true
+      },
+      {
+        "name": "end",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function slice",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "slice"
+    }
+  },
+  {
+    "name": "sortedIndex",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "value",
+        "type": "T",
+        "optional": false
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function sortedIndex",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "sortedIndex"
+    }
+  },
+  {
+    "name": "sortedIndexBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "value",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ValueIteratee<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function sortedIndexBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "sortedIndexBy"
+    }
+  },
+  {
+    "name": "sortedIndexOf",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "value",
+        "type": "T",
+        "optional": false
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function sortedIndexOf",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "sortedIndexOf"
+    }
+  },
+  {
+    "name": "sortedLastIndex",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "value",
+        "type": "T",
+        "optional": false
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function sortedLastIndex",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "sortedLastIndex"
+    }
+  },
+  {
+    "name": "sortedLastIndexBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "value",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ValueIteratee<T>",
+        "optional": false
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function sortedLastIndexBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "sortedLastIndexBy"
+    }
+  },
+  {
+    "name": "sortedLastIndexOf",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "value",
+        "type": "T",
+        "optional": false
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function sortedLastIndexOf",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "sortedLastIndexOf"
+    }
+  },
+  {
+    "name": "sortedUniq",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function sortedUniq",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "sortedUniq"
+    }
+  },
+  {
+    "name": "sortedUniqBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ValueIteratee<T>",
+        "optional": false
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function sortedUniqBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "sortedUniqBy"
+    }
+  },
+  {
+    "name": "tail",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "readonly [unknown, ...T]",
+        "optional": false
+      }
+    ],
+    "returns": "T",
+    "description": "lodash function tail",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "tail"
+    }
+  },
+  {
+    "name": "take",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "n",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function take",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "take"
+    }
+  },
+  {
+    "name": "takeRight",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "n",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function takeRight",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "takeRight"
+    }
+  },
+  {
+    "name": "takeRightWhile",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "predicate",
+        "type": "ListIteratee<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function takeRightWhile",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "takeRightWhile"
+    }
+  },
+  {
+    "name": "takeWhile",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "predicate",
+        "type": "ListIteratee<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function takeWhile",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "takeWhile"
+    }
+  },
+  {
+    "name": "union",
+    "type": "function",
+    "args": [
+      {
+        "name": "arrays",
+        "type": "(List<T> | null | undefined)[]",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function union",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "union"
+    }
+  },
+  {
+    "name": "unionBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "arrays",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ValueIteratee<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function unionBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "unionBy"
+    }
+  },
+  {
+    "name": "unionWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "arrays",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "comparator",
+        "type": "Comparator<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function unionWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "unionWith"
+    }
+  },
+  {
+    "name": "uniq",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function uniq",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "uniq"
+    }
+  },
+  {
+    "name": "uniqBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ValueIteratee<T>",
+        "optional": false
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function uniqBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "uniqBy"
+    }
+  },
+  {
+    "name": "uniqWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "comparator",
+        "type": "Comparator<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function uniqWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "uniqWith"
+    }
+  },
+  {
+    "name": "unzip",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "T[][] | List<List<T>> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "T[][]",
+    "description": "lodash function unzip",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "unzip"
+    }
+  },
+  {
+    "name": "unzipWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<List<T>> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "(...values: T[]) => TResult",
+        "optional": false
+      }
+    ],
+    "returns": "TResult[]",
+    "description": "lodash function unzipWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "unzipWith"
+    }
+  },
+  {
+    "name": "without",
+    "type": "function",
+    "args": [
+      {
+        "name": "array",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "values",
+        "type": "T[]",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function without",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "without"
+    }
+  },
+  {
+    "name": "xor",
+    "type": "function",
+    "args": [
+      {
+        "name": "arrays",
+        "type": "(List<T> | null | undefined)[]",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function xor",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "xor"
+    }
+  },
+  {
+    "name": "xorBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "arrays",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ValueIteratee<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function xorBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "xorBy"
+    }
+  },
+  {
+    "name": "xorWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "arrays",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "comparator",
+        "type": "Comparator<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function xorWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "xorWith"
+    }
+  },
+  {
+    "name": "zip",
+    "type": "function",
+    "args": [
+      {
+        "name": "arrays1",
+        "type": "List<T1>",
+        "optional": false
+      },
+      {
+        "name": "arrays2",
+        "type": "List<T2>",
+        "optional": false
+      }
+    ],
+    "returns": "[T1 | undefined, T2 | undefined][]",
+    "description": "lodash function zip",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "zip"
+    }
+  },
+  {
+    "name": "zipObject",
+    "type": "function",
+    "args": [
+      {
+        "name": "props",
+        "type": "List<PropertyName>",
+        "optional": false
+      },
+      {
+        "name": "values",
+        "type": "List<T>",
+        "optional": false
+      }
+    ],
+    "returns": "Dictionary<T>",
+    "description": "lodash function zipObject",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "zipObject"
+    }
+  },
+  {
+    "name": "zipObjectDeep",
+    "type": "function",
+    "args": [
+      {
+        "name": "paths",
+        "type": "List<PropertyPath> | undefined",
+        "optional": true
+      },
+      {
+        "name": "values",
+        "type": "List<any> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "object",
+    "description": "lodash function zipObjectDeep",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "zipObjectDeep"
+    }
+  },
+  {
+    "name": "zipWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "arrays",
+        "type": "List<T>",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "(value1: T) => TResult",
+        "optional": false
+      }
+    ],
+    "returns": "TResult[]",
+    "description": "lodash function zipWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "zipWith"
+    }
+  },
+  {
+    "name": "countBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ValueIteratee<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "Dictionary<number>",
+    "description": "lodash function countBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "countBy"
+    }
+  },
+  {
+    "name": "each",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "T[]",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ArrayIterator<T, any> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function each",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "each"
+    }
+  },
+  {
+    "name": "eachRight",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "T[]",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ArrayIterator<T, any> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function eachRight",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "eachRight"
+    }
+  },
+  {
+    "name": "every",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "predicate",
+        "type": "ListIterateeCustom<T, boolean> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function every",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "every"
+    }
+  },
+  {
+    "name": "filter",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "string | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "predicate",
+        "type": "StringIterator<boolean> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string[]",
+    "description": "lodash function filter",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "filter"
+    }
+  },
+  {
+    "name": "find",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "predicate",
+        "type": "ListIteratorTypeGuard<T, S>",
+        "optional": false
+      },
+      {
+        "name": "fromIndex",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "S | undefined",
+    "description": "lodash function find",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "find"
+    }
+  },
+  {
+    "name": "findLast",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "predicate",
+        "type": "ListIteratorTypeGuard<T, S>",
+        "optional": false
+      },
+      {
+        "name": "fromIndex",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "S | undefined",
+    "description": "lodash function findLast",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "findLast"
+    }
+  },
+  {
+    "name": "flatMap",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "Dictionary<Many<T>> | NumericDictionary<Many<T>> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function flatMap",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "flatMap"
+    }
+  },
+  {
+    "name": "flatMapDeep",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "Dictionary<T | ListOfRecursiveArraysOrValues<T>> | NumericDictionary<T | ListOfRecursiveArraysOrValues<T>> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function flatMapDeep",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "flatMapDeep"
+    }
+  },
+  {
+    "name": "flatMapDepth",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "Dictionary<T | ListOfRecursiveArraysOrValues<T>> | NumericDictionary<T | ListOfRecursiveArraysOrValues<T>> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function flatMapDepth",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "flatMapDepth"
+    }
+  },
+  {
+    "name": "forEach",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "T[]",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ArrayIterator<T, any> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function forEach",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "forEach"
+    }
+  },
+  {
+    "name": "forEachRight",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "T[]",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ArrayIterator<T, any> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function forEachRight",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "forEachRight"
+    }
+  },
+  {
+    "name": "groupBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ValueIteratee<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "Dictionary<T[]>",
+    "description": "lodash function groupBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "groupBy"
+    }
+  },
+  {
+    "name": "includes",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "Dictionary<T> | NumericDictionary<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "target",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "fromIndex",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function includes",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "includes"
+    }
+  },
+  {
+    "name": "invokeMap",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "object | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "methodName",
+        "type": "string",
+        "optional": false
+      },
+      {
+        "name": "args",
+        "type": "any[]",
+        "optional": true
+      }
+    ],
+    "returns": "any[]",
+    "description": "lodash function invokeMap",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "invokeMap"
+    }
+  },
+  {
+    "name": "keyBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ValueIterateeCustom<T, PropertyName> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "Dictionary<T>",
+    "description": "lodash function keyBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "keyBy"
+    }
+  },
+  {
+    "name": "map",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "TupleIterator<T, TResult>",
+        "optional": false
+      }
+    ],
+    "returns": "{ [K in keyof T]: TResult; }",
+    "description": "lodash function map",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "map"
+    }
+  },
+  {
+    "name": "orderBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "iteratees",
+        "type": "Many<ListIterator<T, unknown>> | undefined",
+        "optional": true
+      },
+      {
+        "name": "orders",
+        "type": "Many<boolean | \"asc\" | \"desc\"> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function orderBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "orderBy"
+    }
+  },
+  {
+    "name": "partition",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "callback",
+        "type": "ValueIteratorTypeGuard<T, U>",
+        "optional": false
+      }
+    ],
+    "returns": "[U[], Exclude<T, U>[]]",
+    "description": "lodash function partition",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "partition"
+    }
+  },
+  {
+    "name": "reduce",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "T[] | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "callback",
+        "type": "MemoListIterator<T, TResult, T[]>",
+        "optional": false
+      },
+      {
+        "name": "accumulator",
+        "type": "TResult",
+        "optional": false
+      }
+    ],
+    "returns": "TResult",
+    "description": "lodash function reduce",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "reduce"
+    }
+  },
+  {
+    "name": "reduceRight",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "T[] | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "callback",
+        "type": "MemoListIterator<T, TResult, T[]>",
+        "optional": false
+      },
+      {
+        "name": "accumulator",
+        "type": "TResult",
+        "optional": false
+      }
+    ],
+    "returns": "TResult",
+    "description": "lodash function reduceRight",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "reduceRight"
+    }
+  },
+  {
+    "name": "reject",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "string | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "predicate",
+        "type": "StringIterator<boolean> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string[]",
+    "description": "lodash function reject",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "reject"
+    }
+  },
+  {
+    "name": "sample",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "readonly [T, ...T[]]",
+        "optional": false
+      }
+    ],
+    "returns": "T",
+    "description": "lodash function sample",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "sample"
+    }
+  },
+  {
+    "name": "sampleSize",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "Dictionary<T> | NumericDictionary<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "n",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function sampleSize",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "sampleSize"
+    }
+  },
+  {
+    "name": "shuffle",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function shuffle",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "shuffle"
+    }
+  },
+  {
+    "name": "size",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "string | object | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function size",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "size"
+    }
+  },
+  {
+    "name": "some",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "predicate",
+        "type": "ListIterateeCustom<T, boolean> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function some",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "some"
+    }
+  },
+  {
+    "name": "sortBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "iteratees",
+        "type": "Many<ListIteratee<T>>[]",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function sortBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "sortBy"
+    }
+  },
+  {
+    "name": "now",
+    "type": "function",
+    "args": [],
+    "returns": "number",
+    "description": "lodash function now",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "now"
+    }
+  },
+  {
+    "name": "after",
+    "type": "function",
+    "args": [
+      {
+        "name": "n",
+        "type": "number",
+        "optional": false
+      },
+      {
+        "name": "func",
+        "type": "TFunc",
+        "optional": false
+      }
+    ],
+    "returns": "TFunc",
+    "description": "lodash function after",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "after"
+    }
+  },
+  {
+    "name": "ary",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "(...args: any[]) => any",
+        "optional": false
+      },
+      {
+        "name": "n",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "(...args: any[]) => any",
+    "description": "lodash function ary",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "ary"
+    }
+  },
+  {
+    "name": "before",
+    "type": "function",
+    "args": [
+      {
+        "name": "n",
+        "type": "number",
+        "optional": false
+      },
+      {
+        "name": "func",
+        "type": "TFunc",
+        "optional": false
+      }
+    ],
+    "returns": "TFunc",
+    "description": "lodash function before",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "before"
+    }
+  },
+  {
+    "name": "bind",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "(...args: any[]) => any",
+        "optional": false
+      },
+      {
+        "name": "thisArg",
+        "type": "any",
+        "optional": false
+      },
+      {
+        "name": "partials",
+        "type": "any[]",
+        "optional": true
+      }
+    ],
+    "returns": "(...args: any[]) => any",
+    "description": "lodash function bind",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "bind"
+    }
+  },
+  {
+    "name": "bindKey",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "object",
+        "optional": false
+      },
+      {
+        "name": "key",
+        "type": "string",
+        "optional": false
+      },
+      {
+        "name": "partials",
+        "type": "any[]",
+        "optional": true
+      }
+    ],
+    "returns": "(...args: any[]) => any",
+    "description": "lodash function bindKey",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "bindKey"
+    }
+  },
+  {
+    "name": "curry",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "(t1: T1) => R",
+        "optional": false
+      },
+      {
+        "name": "arity",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "CurriedFunction1<T1, R>",
+    "description": "lodash function curry",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "curry"
+    }
+  },
+  {
+    "name": "curryRight",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "(t1: T1) => R",
+        "optional": false
+      },
+      {
+        "name": "arity",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "RightCurriedFunction1<T1, R>",
+    "description": "lodash function curryRight",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "curryRight"
+    }
+  },
+  {
+    "name": "debounce",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "wait",
+        "type": "number | undefined",
+        "optional": false
+      },
+      {
+        "name": "options",
+        "type": "DebounceSettingsLeading",
+        "optional": false
+      }
+    ],
+    "returns": "DebouncedFuncLeading<T>",
+    "description": "lodash function debounce",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "debounce"
+    }
+  },
+  {
+    "name": "defer",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "(...args: any[]) => any",
+        "optional": false
+      },
+      {
+        "name": "args",
+        "type": "any[]",
+        "optional": true
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function defer",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "defer"
+    }
+  },
+  {
+    "name": "delay",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "(...args: any[]) => any",
+        "optional": false
+      },
+      {
+        "name": "wait",
+        "type": "number",
+        "optional": false
+      },
+      {
+        "name": "args",
+        "type": "any[]",
+        "optional": true
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function delay",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "delay"
+    }
+  },
+  {
+    "name": "flip",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "T",
+        "optional": false
+      }
+    ],
+    "returns": "T",
+    "description": "lodash function flip",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "flip"
+    }
+  },
+  {
+    "name": "memoize",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "resolver",
+        "type": "((...args: Parameters<T>) => any) | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T & MemoizedFunction",
+    "description": "lodash function memoize",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "memoize"
+    }
+  },
+  {
+    "name": "negate",
+    "type": "function",
+    "args": [
+      {
+        "name": "predicate",
+        "type": "(...args: T) => boolean",
+        "optional": false
+      }
+    ],
+    "returns": "(...args: T) => boolean",
+    "description": "lodash function negate",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "negate"
+    }
+  },
+  {
+    "name": "once",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "T",
+        "optional": false
+      }
+    ],
+    "returns": "T",
+    "description": "lodash function once",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "once"
+    }
+  },
+  {
+    "name": "overArgs",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "(...args: any[]) => any",
+        "optional": false
+      },
+      {
+        "name": "transforms",
+        "type": "Many<(...args: any[]) => any>[]",
+        "optional": true
+      }
+    ],
+    "returns": "(...args: any[]) => any",
+    "description": "lodash function overArgs",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "overArgs"
+    }
+  },
+  {
+    "name": "partial",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "Function2<T1, T2, R>",
+        "optional": false
+      },
+      {
+        "name": "plc1",
+        "type": "LoDashStatic",
+        "optional": false
+      },
+      {
+        "name": "arg2",
+        "type": "T2",
+        "optional": false
+      }
+    ],
+    "returns": "Function1<T1, R>",
+    "description": "lodash function partial",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "partial"
+    }
+  },
+  {
+    "name": "partialRight",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "Function0<R>",
+        "optional": false
+      }
+    ],
+    "returns": "Function0<R>",
+    "description": "lodash function partialRight",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "partialRight"
+    }
+  },
+  {
+    "name": "rearg",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "(...args: any[]) => any",
+        "optional": false
+      },
+      {
+        "name": "indexes",
+        "type": "Many<number>[]",
+        "optional": true
+      }
+    ],
+    "returns": "(...args: any[]) => any",
+    "description": "lodash function rearg",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "rearg"
+    }
+  },
+  {
+    "name": "rest",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "(...args: any[]) => any",
+        "optional": false
+      },
+      {
+        "name": "start",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "(...args: any[]) => any",
+    "description": "lodash function rest",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "rest"
+    }
+  },
+  {
+    "name": "spread",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "(...args: any[]) => TResult",
+        "optional": false
+      },
+      {
+        "name": "start",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "(...args: any[]) => TResult",
+    "description": "lodash function spread",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "spread"
+    }
+  },
+  {
+    "name": "throttle",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "wait",
+        "type": "number | undefined",
+        "optional": true
+      },
+      {
+        "name": "options",
+        "type": "ThrottleSettingsLeading | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "DebouncedFuncLeading<T>",
+    "description": "lodash function throttle",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "throttle"
+    }
+  },
+  {
+    "name": "unary",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "(arg1: T, ...args: any[]) => TResult",
+        "optional": false
+      }
+    ],
+    "returns": "(arg1: T) => TResult",
+    "description": "lodash function unary",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "unary"
+    }
+  },
+  {
+    "name": "wrap",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "wrapper",
+        "type": "(value: T, ...args: TArgs[]) => TResult",
+        "optional": false
+      }
+    ],
+    "returns": "(...args: TArgs[]) => TResult",
+    "description": "lodash function wrap",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "wrap"
+    }
+  },
+  {
+    "name": "castArray",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "Many<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function castArray",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "castArray"
+    }
+  },
+  {
+    "name": "clone",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "T",
+        "optional": false
+      }
+    ],
+    "returns": "T",
+    "description": "lodash function clone",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "clone"
+    }
+  },
+  {
+    "name": "cloneDeep",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "T",
+        "optional": false
+      }
+    ],
+    "returns": "T",
+    "description": "lodash function cloneDeep",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "cloneDeep"
+    }
+  },
+  {
+    "name": "cloneDeepWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "customizer",
+        "type": "CloneDeepWithCustomizer<T>",
+        "optional": false
+      }
+    ],
+    "returns": "any",
+    "description": "lodash function cloneDeepWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "cloneDeepWith"
+    }
+  },
+  {
+    "name": "cloneWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "customizer",
+        "type": "CloneWithCustomizer<T, TResult>",
+        "optional": false
+      }
+    ],
+    "returns": "TResult",
+    "description": "lodash function cloneWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "cloneWith"
+    }
+  },
+  {
+    "name": "conformsTo",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "source",
+        "type": "ConformsPredicateObject<T>",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function conformsTo",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "conformsTo"
+    }
+  },
+  {
+    "name": "eq",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      },
+      {
+        "name": "other",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function eq",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "eq"
+    }
+  },
+  {
+    "name": "gt",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      },
+      {
+        "name": "other",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function gt",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "gt"
+    }
+  },
+  {
+    "name": "gte",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      },
+      {
+        "name": "other",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function gte",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "gte"
+    }
+  },
+  {
+    "name": "isArguments",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isArguments",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isArguments"
+    }
+  },
+  {
+    "name": "isArray",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isArray",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isArray"
+    }
+  },
+  {
+    "name": "isArrayBuffer",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isArrayBuffer",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isArrayBuffer"
+    }
+  },
+  {
+    "name": "isArrayLike",
+    "type": "function",
+    "args": [
+      {
+        "name": "t",
+        "type": "T",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isArrayLike",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isArrayLike"
+    }
+  },
+  {
+    "name": "isArrayLikeObject",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "T",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isArrayLikeObject",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isArrayLikeObject"
+    }
+  },
+  {
+    "name": "isBoolean",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isBoolean",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isBoolean"
+    }
+  },
+  {
+    "name": "isBuffer",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isBuffer",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isBuffer"
+    }
+  },
+  {
+    "name": "isDate",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isDate",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isDate"
+    }
+  },
+  {
+    "name": "isElement",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isElement",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isElement"
+    }
+  },
+  {
+    "name": "isEmpty",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "T | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isEmpty",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isEmpty"
+    }
+  },
+  {
+    "name": "isEqual",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      },
+      {
+        "name": "other",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isEqual",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isEqual"
+    }
+  },
+  {
+    "name": "isEqualWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      },
+      {
+        "name": "other",
+        "type": "any",
+        "optional": false
+      },
+      {
+        "name": "customizer",
+        "type": "IsEqualCustomizer | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isEqualWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isEqualWith"
+    }
+  },
+  {
+    "name": "isError",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isError",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isError"
+    }
+  },
+  {
+    "name": "isFinite",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isFinite",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isFinite"
+    }
+  },
+  {
+    "name": "isFunction",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isFunction",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isFunction"
+    }
+  },
+  {
+    "name": "isInteger",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isInteger",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isInteger"
+    }
+  },
+  {
+    "name": "isLength",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isLength",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isLength"
+    }
+  },
+  {
+    "name": "isMap",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isMap",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isMap"
+    }
+  },
+  {
+    "name": "isMatch",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "object",
+        "optional": false
+      },
+      {
+        "name": "source",
+        "type": "object",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isMatch",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isMatch"
+    }
+  },
+  {
+    "name": "isMatchWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "object",
+        "optional": false
+      },
+      {
+        "name": "source",
+        "type": "object",
+        "optional": false
+      },
+      {
+        "name": "customizer",
+        "type": "isMatchWithCustomizer",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isMatchWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isMatchWith"
+    }
+  },
+  {
+    "name": "isNaN",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isNaN",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isNaN"
+    }
+  },
+  {
+    "name": "isNative",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isNative",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isNative"
+    }
+  },
+  {
+    "name": "isNil",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isNil",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isNil"
+    }
+  },
+  {
+    "name": "isNull",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isNull",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isNull"
+    }
+  },
+  {
+    "name": "isNumber",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isNumber",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isNumber"
+    }
+  },
+  {
+    "name": "isObject",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isObject",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isObject"
+    }
+  },
+  {
+    "name": "isObjectLike",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isObjectLike",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isObjectLike"
+    }
+  },
+  {
+    "name": "isPlainObject",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isPlainObject",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isPlainObject"
+    }
+  },
+  {
+    "name": "isRegExp",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isRegExp",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isRegExp"
+    }
+  },
+  {
+    "name": "isSafeInteger",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isSafeInteger",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isSafeInteger"
+    }
+  },
+  {
+    "name": "isSet",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isSet",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isSet"
+    }
+  },
+  {
+    "name": "isString",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isString",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isString"
+    }
+  },
+  {
+    "name": "isSymbol",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isSymbol",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isSymbol"
+    }
+  },
+  {
+    "name": "isTypedArray",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isTypedArray",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isTypedArray"
+    }
+  },
+  {
+    "name": "isUndefined",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isUndefined",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isUndefined"
+    }
+  },
+  {
+    "name": "isWeakMap",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isWeakMap",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isWeakMap"
+    }
+  },
+  {
+    "name": "isWeakSet",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function isWeakSet",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "isWeakSet"
+    }
+  },
+  {
+    "name": "lt",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      },
+      {
+        "name": "other",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function lt",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "lt"
+    }
+  },
+  {
+    "name": "lte",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      },
+      {
+        "name": "other",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function lte",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "lte"
+    }
+  },
+  {
+    "name": "toArray",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "Dictionary<T> | NumericDictionary<T> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function toArray",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "toArray"
+    }
+  },
+  {
+    "name": "toFinite",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function toFinite",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "toFinite"
+    }
+  },
+  {
+    "name": "toInteger",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function toInteger",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "toInteger"
+    }
+  },
+  {
+    "name": "toLength",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function toLength",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "toLength"
+    }
+  },
+  {
+    "name": "toNumber",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function toNumber",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "toNumber"
+    }
+  },
+  {
+    "name": "toPlainObject",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "any",
+    "description": "lodash function toPlainObject",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "toPlainObject"
+    }
+  },
+  {
+    "name": "toSafeInteger",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function toSafeInteger",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "toSafeInteger"
+    }
+  },
+  {
+    "name": "toString",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function toString",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "toString"
+    }
+  },
+  {
+    "name": "add",
+    "type": "function",
+    "args": [
+      {
+        "name": "augend",
+        "type": "number",
+        "optional": false
+      },
+      {
+        "name": "addend",
+        "type": "number",
+        "optional": false
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function add",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "add"
+    }
+  },
+  {
+    "name": "ceil",
+    "type": "function",
+    "args": [
+      {
+        "name": "n",
+        "type": "number",
+        "optional": false
+      },
+      {
+        "name": "precision",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function ceil",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "ceil"
+    }
+  },
+  {
+    "name": "divide",
+    "type": "function",
+    "args": [
+      {
+        "name": "dividend",
+        "type": "number",
+        "optional": false
+      },
+      {
+        "name": "divisor",
+        "type": "number",
+        "optional": false
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function divide",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "divide"
+    }
+  },
+  {
+    "name": "floor",
+    "type": "function",
+    "args": [
+      {
+        "name": "n",
+        "type": "number",
+        "optional": false
+      },
+      {
+        "name": "precision",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function floor",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "floor"
+    }
+  },
+  {
+    "name": "max",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "T | undefined",
+    "description": "lodash function max",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "max"
+    }
+  },
+  {
+    "name": "maxBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ValueIteratee<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T | undefined",
+    "description": "lodash function maxBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "maxBy"
+    }
+  },
+  {
+    "name": "mean",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "List<any> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function mean",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "mean"
+    }
+  },
+  {
+    "name": "meanBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ValueIteratee<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function meanBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "meanBy"
+    }
+  },
+  {
+    "name": "min",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "T | undefined",
+    "description": "lodash function min",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "min"
+    }
+  },
+  {
+    "name": "minBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ValueIteratee<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T | undefined",
+    "description": "lodash function minBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "minBy"
+    }
+  },
+  {
+    "name": "multiply",
+    "type": "function",
+    "args": [
+      {
+        "name": "multiplier",
+        "type": "number",
+        "optional": false
+      },
+      {
+        "name": "multiplicand",
+        "type": "number",
+        "optional": false
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function multiply",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "multiply"
+    }
+  },
+  {
+    "name": "round",
+    "type": "function",
+    "args": [
+      {
+        "name": "n",
+        "type": "number",
+        "optional": false
+      },
+      {
+        "name": "precision",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function round",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "round"
+    }
+  },
+  {
+    "name": "subtract",
+    "type": "function",
+    "args": [
+      {
+        "name": "minuend",
+        "type": "number",
+        "optional": false
+      },
+      {
+        "name": "subtrahend",
+        "type": "number",
+        "optional": false
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function subtract",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "subtract"
+    }
+  },
+  {
+    "name": "sum",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "List<any> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function sum",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "sum"
+    }
+  },
+  {
+    "name": "sumBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "collection",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "string | ((value: T) => number) | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function sumBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "sumBy"
+    }
+  },
+  {
+    "name": "clamp",
+    "type": "function",
+    "args": [
+      {
+        "name": "number",
+        "type": "number",
+        "optional": false
+      },
+      {
+        "name": "lower",
+        "type": "number",
+        "optional": false
+      },
+      {
+        "name": "upper",
+        "type": "number",
+        "optional": false
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function clamp",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "clamp"
+    }
+  },
+  {
+    "name": "inRange",
+    "type": "function",
+    "args": [
+      {
+        "name": "n",
+        "type": "number",
+        "optional": false
+      },
+      {
+        "name": "start",
+        "type": "number",
+        "optional": false
+      },
+      {
+        "name": "end",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function inRange",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "inRange"
+    }
+  },
+  {
+    "name": "random",
+    "type": "function",
+    "args": [
+      {
+        "name": "floating",
+        "type": "boolean | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function random",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "random"
+    }
+  },
+  {
+    "name": "assign",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "TObject",
+        "optional": false
+      },
+      {
+        "name": "source",
+        "type": "TSource",
+        "optional": false
+      }
+    ],
+    "returns": "TObject & TSource",
+    "description": "lodash function assign",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "assign"
+    }
+  },
+  {
+    "name": "assignIn",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "TObject",
+        "optional": false
+      },
+      {
+        "name": "source",
+        "type": "TSource",
+        "optional": false
+      }
+    ],
+    "returns": "TObject & TSource",
+    "description": "lodash function assignIn",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "assignIn"
+    }
+  },
+  {
+    "name": "assignInWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "TObject",
+        "optional": false
+      },
+      {
+        "name": "source",
+        "type": "TSource",
+        "optional": false
+      },
+      {
+        "name": "customizer",
+        "type": "AssignCustomizer",
+        "optional": false
+      }
+    ],
+    "returns": "TObject & TSource",
+    "description": "lodash function assignInWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "assignInWith"
+    }
+  },
+  {
+    "name": "assignWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "TObject",
+        "optional": false
+      },
+      {
+        "name": "source",
+        "type": "TSource",
+        "optional": false
+      },
+      {
+        "name": "customizer",
+        "type": "AssignCustomizer",
+        "optional": false
+      }
+    ],
+    "returns": "TObject & TSource",
+    "description": "lodash function assignWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "assignWith"
+    }
+  },
+  {
+    "name": "at",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "Dictionary<T> | NumericDictionary<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "props",
+        "type": "PropertyPath[]",
+        "optional": true
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function at",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "at"
+    }
+  },
+  {
+    "name": "create",
+    "type": "function",
+    "args": [
+      {
+        "name": "prototype",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "properties",
+        "type": "U | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T & U",
+    "description": "lodash function create",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "create"
+    }
+  },
+  {
+    "name": "defaults",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "TObject",
+        "optional": false
+      },
+      {
+        "name": "source",
+        "type": "TSource",
+        "optional": false
+      }
+    ],
+    "returns": "NonNullable<TSource & TObject>",
+    "description": "lodash function defaults",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "defaults"
+    }
+  },
+  {
+    "name": "defaultsDeep",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "any",
+        "optional": false
+      },
+      {
+        "name": "sources",
+        "type": "any[]",
+        "optional": true
+      }
+    ],
+    "returns": "any",
+    "description": "lodash function defaultsDeep",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "defaultsDeep"
+    }
+  },
+  {
+    "name": "entries",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "Dictionary<T> | NumericDictionary<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "[string, T][]",
+    "description": "lodash function entries",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "entries"
+    }
+  },
+  {
+    "name": "entriesIn",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "Dictionary<T> | NumericDictionary<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "[string, T][]",
+    "description": "lodash function entriesIn",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "entriesIn"
+    }
+  },
+  {
+    "name": "extend",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "TObject",
+        "optional": false
+      },
+      {
+        "name": "source",
+        "type": "TSource",
+        "optional": false
+      }
+    ],
+    "returns": "TObject & TSource",
+    "description": "lodash function extend",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "extend"
+    }
+  },
+  {
+    "name": "extendWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "TObject",
+        "optional": false
+      },
+      {
+        "name": "source",
+        "type": "TSource",
+        "optional": false
+      },
+      {
+        "name": "customizer",
+        "type": "AssignCustomizer",
+        "optional": false
+      }
+    ],
+    "returns": "TObject & TSource",
+    "description": "lodash function extendWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "extendWith"
+    }
+  },
+  {
+    "name": "findKey",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "T | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "predicate",
+        "type": "ObjectIteratee<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string | undefined",
+    "description": "lodash function findKey",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "findKey"
+    }
+  },
+  {
+    "name": "findLastKey",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "T | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "predicate",
+        "type": "ObjectIteratee<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string | undefined",
+    "description": "lodash function findLastKey",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "findLastKey"
+    }
+  },
+  {
+    "name": "forIn",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ObjectIterator<T, any> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T",
+    "description": "lodash function forIn",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "forIn"
+    }
+  },
+  {
+    "name": "forInRight",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ObjectIterator<T, any> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T",
+    "description": "lodash function forInRight",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "forInRight"
+    }
+  },
+  {
+    "name": "forOwn",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ObjectIterator<T, any> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T",
+    "description": "lodash function forOwn",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "forOwn"
+    }
+  },
+  {
+    "name": "forOwnRight",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ObjectIterator<T, any> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T",
+    "description": "lodash function forOwnRight",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "forOwnRight"
+    }
+  },
+  {
+    "name": "functions",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "string[]",
+    "description": "lodash function functions",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "functions"
+    }
+  },
+  {
+    "name": "functionsIn",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "string[]",
+    "description": "lodash function functionsIn",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "functionsIn"
+    }
+  },
+  {
+    "name": "get",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "TObject",
+        "optional": false
+      },
+      {
+        "name": "path",
+        "type": "TKey | [TKey]",
+        "optional": false
+      }
+    ],
+    "returns": "TObject[TKey]",
+    "description": "lodash function get",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "get"
+    }
+  },
+  {
+    "name": "has",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "path",
+        "type": "K",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function has",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "has"
+    }
+  },
+  {
+    "name": "hasIn",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "path",
+        "type": "PropertyPath",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function hasIn",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "hasIn"
+    }
+  },
+  {
+    "name": "invert",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "object",
+        "optional": false
+      }
+    ],
+    "returns": "Dictionary<string>",
+    "description": "lodash function invert",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "invert"
+    }
+  },
+  {
+    "name": "invertBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "Dictionary<T> | NumericDictionary<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "interatee",
+        "type": "ValueIteratee<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "Dictionary<string[]>",
+    "description": "lodash function invertBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "invertBy"
+    }
+  },
+  {
+    "name": "invoke",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "any",
+        "optional": false
+      },
+      {
+        "name": "path",
+        "type": "PropertyPath",
+        "optional": false
+      },
+      {
+        "name": "args",
+        "type": "any[]",
+        "optional": true
+      }
+    ],
+    "returns": "any",
+    "description": "lodash function invoke",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "invoke"
+    }
+  },
+  {
+    "name": "keys",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "string[]",
+    "description": "lodash function keys",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "keys"
+    }
+  },
+  {
+    "name": "keysIn",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "any",
+        "optional": true
+      }
+    ],
+    "returns": "string[]",
+    "description": "lodash function keysIn",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "keysIn"
+    }
+  },
+  {
+    "name": "mapKeys",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "List<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "ListIteratee<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "Dictionary<T>",
+    "description": "lodash function mapKeys",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "mapKeys"
+    }
+  },
+  {
+    "name": "mapValues",
+    "type": "function",
+    "args": [
+      {
+        "name": "obj",
+        "type": "string | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "callback",
+        "type": "StringIterator<TResult>",
+        "optional": false
+      }
+    ],
+    "returns": "NumericDictionary<TResult>",
+    "description": "lodash function mapValues",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "mapValues"
+    }
+  },
+  {
+    "name": "merge",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "TObject",
+        "optional": false
+      },
+      {
+        "name": "source",
+        "type": "TSource",
+        "optional": false
+      }
+    ],
+    "returns": "TObject & TSource",
+    "description": "lodash function merge",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "merge"
+    }
+  },
+  {
+    "name": "mergeWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "TObject",
+        "optional": false
+      },
+      {
+        "name": "source",
+        "type": "TSource",
+        "optional": false
+      },
+      {
+        "name": "customizer",
+        "type": "(value: any, srcValue: any, key: string, object: any, source: any, stack: any) => any",
+        "optional": false
+      }
+    ],
+    "returns": "TObject & TSource",
+    "description": "lodash function mergeWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "mergeWith"
+    }
+  },
+  {
+    "name": "omit",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "T | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "paths",
+        "type": "K",
+        "optional": true
+      }
+    ],
+    "returns": "Pick<T, Exclude<keyof T, K[number]>>",
+    "description": "lodash function omit",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "omit"
+    }
+  },
+  {
+    "name": "omitBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "Dictionary<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "predicate",
+        "type": "ValueKeyIteratee<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "Dictionary<T>",
+    "description": "lodash function omitBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "omitBy"
+    }
+  },
+  {
+    "name": "pick",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "props",
+        "type": "Many<U>[]",
+        "optional": true
+      }
+    ],
+    "returns": "Pick<T, U>",
+    "description": "lodash function pick",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "pick"
+    }
+  },
+  {
+    "name": "pickBy",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "Dictionary<T> | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "predicate",
+        "type": "ValueKeyIterateeTypeGuard<T, S>",
+        "optional": false
+      }
+    ],
+    "returns": "Dictionary<S>",
+    "description": "lodash function pickBy",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "pickBy"
+    }
+  },
+  {
+    "name": "result",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "any",
+        "optional": false
+      },
+      {
+        "name": "path",
+        "type": "PropertyPath",
+        "optional": false
+      },
+      {
+        "name": "defaultValue",
+        "type": "TResult | ((...args: any[]) => TResult) | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "TResult",
+    "description": "lodash function result",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "result"
+    }
+  },
+  {
+    "name": "set",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "path",
+        "type": "PropertyPath",
+        "optional": false
+      },
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "T",
+    "description": "lodash function set",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "set"
+    }
+  },
+  {
+    "name": "setWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "path",
+        "type": "PropertyPath",
+        "optional": false
+      },
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      },
+      {
+        "name": "customizer",
+        "type": "SetWithCustomizer<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T",
+    "description": "lodash function setWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "setWith"
+    }
+  },
+  {
+    "name": "toPairs",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "Dictionary<T> | NumericDictionary<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "[string, T][]",
+    "description": "lodash function toPairs",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "toPairs"
+    }
+  },
+  {
+    "name": "toPairsIn",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "Dictionary<T> | NumericDictionary<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "[string, T][]",
+    "description": "lodash function toPairsIn",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "toPairsIn"
+    }
+  },
+  {
+    "name": "transform",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "readonly T[]",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "MemoVoidArrayIterator<T, TResult>",
+        "optional": false
+      },
+      {
+        "name": "accumulator",
+        "type": "TResult | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "TResult",
+    "description": "lodash function transform",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "transform"
+    }
+  },
+  {
+    "name": "unset",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "any",
+        "optional": false
+      },
+      {
+        "name": "path",
+        "type": "PropertyPath",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function unset",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "unset"
+    }
+  },
+  {
+    "name": "update",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "object",
+        "optional": false
+      },
+      {
+        "name": "path",
+        "type": "PropertyPath",
+        "optional": false
+      },
+      {
+        "name": "updater",
+        "type": "(value: any) => any",
+        "optional": false
+      }
+    ],
+    "returns": "any",
+    "description": "lodash function update",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "update"
+    }
+  },
+  {
+    "name": "updateWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "path",
+        "type": "PropertyPath",
+        "optional": false
+      },
+      {
+        "name": "updater",
+        "type": "(oldValue: any) => any",
+        "optional": false
+      },
+      {
+        "name": "customizer",
+        "type": "SetWithCustomizer<T> | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "T",
+    "description": "lodash function updateWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "updateWith"
+    }
+  },
+  {
+    "name": "values",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "Dictionary<T> | NumericDictionary<T> | List<T> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function values",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "values"
+    }
+  },
+  {
+    "name": "valuesIn",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "Dictionary<T> | NumericDictionary<T> | List<T> | null | undefined",
+        "optional": false
+      }
+    ],
+    "returns": "T[]",
+    "description": "lodash function valuesIn",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "valuesIn"
+    }
+  },
+  {
+    "name": "chain",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "TrapAny",
+        "optional": false
+      }
+    ],
+    "returns": "CollectionChain<any> & FunctionChain<any> & ObjectChain<any> & PrimitiveChain<any> & StringChain<string>",
+    "description": "lodash function chain",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "chain"
+    }
+  },
+  {
+    "name": "tap",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "interceptor",
+        "type": "(value: T) => void",
+        "optional": false
+      }
+    ],
+    "returns": "T",
+    "description": "lodash function tap",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "tap"
+    }
+  },
+  {
+    "name": "thru",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "interceptor",
+        "type": "(value: T) => TResult",
+        "optional": false
+      }
+    ],
+    "returns": "TResult",
+    "description": "lodash function thru",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "thru"
+    }
+  },
+  {
+    "name": "camelCase",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function camelCase",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "camelCase"
+    }
+  },
+  {
+    "name": "capitalize",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "T | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string extends T ? string : Capitalize<Lowercase<T>>",
+    "description": "lodash function capitalize",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "capitalize"
+    }
+  },
+  {
+    "name": "deburr",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function deburr",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "deburr"
+    }
+  },
+  {
+    "name": "endsWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      },
+      {
+        "name": "target",
+        "type": "string | undefined",
+        "optional": true
+      },
+      {
+        "name": "position",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function endsWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "endsWith"
+    }
+  },
+  {
+    "name": "escape",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function escape",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "escape"
+    }
+  },
+  {
+    "name": "escapeRegExp",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function escapeRegExp",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "escapeRegExp"
+    }
+  },
+  {
+    "name": "kebabCase",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function kebabCase",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "kebabCase"
+    }
+  },
+  {
+    "name": "lowerCase",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function lowerCase",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "lowerCase"
+    }
+  },
+  {
+    "name": "lowerFirst",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "T | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "Uncapitalize<T>",
+    "description": "lodash function lowerFirst",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "lowerFirst"
+    }
+  },
+  {
+    "name": "pad",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      },
+      {
+        "name": "length",
+        "type": "number | undefined",
+        "optional": true
+      },
+      {
+        "name": "chars",
+        "type": "string | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function pad",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "pad"
+    }
+  },
+  {
+    "name": "padEnd",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      },
+      {
+        "name": "length",
+        "type": "number | undefined",
+        "optional": true
+      },
+      {
+        "name": "chars",
+        "type": "string | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function padEnd",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "padEnd"
+    }
+  },
+  {
+    "name": "padStart",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      },
+      {
+        "name": "length",
+        "type": "number | undefined",
+        "optional": true
+      },
+      {
+        "name": "chars",
+        "type": "string | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function padStart",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "padStart"
+    }
+  },
+  {
+    "name": "parseInt",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string",
+        "optional": false
+      },
+      {
+        "name": "radix",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "number",
+    "description": "lodash function parseInt",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "parseInt"
+    }
+  },
+  {
+    "name": "repeat",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      },
+      {
+        "name": "n",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function repeat",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "repeat"
+    }
+  },
+  {
+    "name": "replace",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string",
+        "optional": false
+      },
+      {
+        "name": "pattern",
+        "type": "string | RegExp",
+        "optional": false
+      },
+      {
+        "name": "replacement",
+        "type": "string | ReplaceFunction",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function replace",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "replace"
+    }
+  },
+  {
+    "name": "snakeCase",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function snakeCase",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "snakeCase"
+    }
+  },
+  {
+    "name": "split",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "separator",
+        "type": "string | RegExp | undefined",
+        "optional": true
+      },
+      {
+        "name": "limit",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string[]",
+    "description": "lodash function split",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "split"
+    }
+  },
+  {
+    "name": "startCase",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function startCase",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "startCase"
+    }
+  },
+  {
+    "name": "startsWith",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      },
+      {
+        "name": "target",
+        "type": "string | undefined",
+        "optional": true
+      },
+      {
+        "name": "position",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "boolean",
+    "description": "lodash function startsWith",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "startsWith"
+    }
+  },
+  {
+    "name": "template",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      },
+      {
+        "name": "options",
+        "type": "TemplateOptions | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "TemplateExecutor",
+    "description": "lodash function template",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "template"
+    }
+  },
+  {
+    "name": "toLower",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "T | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "Lowercase<T>",
+    "description": "lodash function toLower",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "toLower"
+    }
+  },
+  {
+    "name": "toUpper",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "T | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "Uppercase<T>",
+    "description": "lodash function toUpper",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "toUpper"
+    }
+  },
+  {
+    "name": "trim",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      },
+      {
+        "name": "chars",
+        "type": "string | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function trim",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "trim"
+    }
+  },
+  {
+    "name": "trimEnd",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      },
+      {
+        "name": "chars",
+        "type": "string | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function trimEnd",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "trimEnd"
+    }
+  },
+  {
+    "name": "trimStart",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      },
+      {
+        "name": "chars",
+        "type": "string | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function trimStart",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "trimStart"
+    }
+  },
+  {
+    "name": "truncate",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      },
+      {
+        "name": "options",
+        "type": "TruncateOptions | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function truncate",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "truncate"
+    }
+  },
+  {
+    "name": "unescape",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function unescape",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "unescape"
+    }
+  },
+  {
+    "name": "upperCase",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function upperCase",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "upperCase"
+    }
+  },
+  {
+    "name": "upperFirst",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "T | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "Capitalize<T>",
+    "description": "lodash function upperFirst",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "upperFirst"
+    }
+  },
+  {
+    "name": "words",
+    "type": "function",
+    "args": [
+      {
+        "name": "string",
+        "type": "string | undefined",
+        "optional": true
+      },
+      {
+        "name": "pattern",
+        "type": "string | RegExp | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string[]",
+    "description": "lodash function words",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "words"
+    }
+  },
+  {
+    "name": "attempt",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "(...args: any[]) => TResult",
+        "optional": false
+      },
+      {
+        "name": "args",
+        "type": "any[]",
+        "optional": true
+      }
+    ],
+    "returns": "TResult | Error",
+    "description": "lodash function attempt",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "attempt"
+    }
+  },
+  {
+    "name": "bindAll",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "T",
+        "optional": false
+      },
+      {
+        "name": "methodNames",
+        "type": "Many<string>[]",
+        "optional": true
+      }
+    ],
+    "returns": "T",
+    "description": "lodash function bindAll",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "bindAll"
+    }
+  },
+  {
+    "name": "cond",
+    "type": "function",
+    "args": [
+      {
+        "name": "pairs",
+        "type": "CondPairNullary<R>[]",
+        "optional": false
+      }
+    ],
+    "returns": "() => R",
+    "description": "lodash function cond",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "cond"
+    }
+  },
+  {
+    "name": "conforms",
+    "type": "function",
+    "args": [
+      {
+        "name": "source",
+        "type": "ConformsPredicateObject<T>",
+        "optional": false
+      }
+    ],
+    "returns": "(value: T) => boolean",
+    "description": "lodash function conforms",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "conforms"
+    }
+  },
+  {
+    "name": "constant",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "T",
+        "optional": false
+      }
+    ],
+    "returns": "() => T",
+    "description": "lodash function constant",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "constant"
+    }
+  },
+  {
+    "name": "defaultTo",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "T | null | undefined",
+        "optional": false
+      },
+      {
+        "name": "defaultValue",
+        "type": "T",
+        "optional": false
+      }
+    ],
+    "returns": "T",
+    "description": "lodash function defaultTo",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "defaultTo"
+    }
+  },
+  {
+    "name": "flow",
+    "type": "function",
+    "args": [
+      {
+        "name": "f1",
+        "type": "(...args: A) => R1",
+        "optional": false
+      },
+      {
+        "name": "f2",
+        "type": "(a: R1) => R2",
+        "optional": false
+      },
+      {
+        "name": "f3",
+        "type": "(a: R2) => R3",
+        "optional": false
+      },
+      {
+        "name": "f4",
+        "type": "(a: R3) => R4",
+        "optional": false
+      },
+      {
+        "name": "f5",
+        "type": "(a: R4) => R5",
+        "optional": false
+      },
+      {
+        "name": "f6",
+        "type": "(a: R5) => R6",
+        "optional": false
+      },
+      {
+        "name": "f7",
+        "type": "(a: R6) => R7",
+        "optional": false
+      }
+    ],
+    "returns": "(...args: A) => R7",
+    "description": "lodash function flow",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "flow"
+    }
+  },
+  {
+    "name": "flowRight",
+    "type": "function",
+    "args": [
+      {
+        "name": "f7",
+        "type": "(a: R6) => R7",
+        "optional": false
+      },
+      {
+        "name": "f6",
+        "type": "(a: R5) => R6",
+        "optional": false
+      },
+      {
+        "name": "f5",
+        "type": "(a: R4) => R5",
+        "optional": false
+      },
+      {
+        "name": "f4",
+        "type": "(a: R3) => R4",
+        "optional": false
+      },
+      {
+        "name": "f3",
+        "type": "(a: R2) => R3",
+        "optional": false
+      },
+      {
+        "name": "f2",
+        "type": "(a: R1) => R2",
+        "optional": false
+      },
+      {
+        "name": "f1",
+        "type": "(...args: A) => R1",
+        "optional": false
+      }
+    ],
+    "returns": "(...args: A) => R7",
+    "description": "lodash function flowRight",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "flowRight"
+    }
+  },
+  {
+    "name": "identity",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "T",
+        "optional": false
+      }
+    ],
+    "returns": "T",
+    "description": "lodash function identity",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "identity"
+    }
+  },
+  {
+    "name": "iteratee",
+    "type": "function",
+    "args": [
+      {
+        "name": "func",
+        "type": "TFunction",
+        "optional": false
+      }
+    ],
+    "returns": "TFunction",
+    "description": "lodash function iteratee",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "iteratee"
+    }
+  },
+  {
+    "name": "matches",
+    "type": "function",
+    "args": [
+      {
+        "name": "source",
+        "type": "T",
+        "optional": false
+      }
+    ],
+    "returns": "(value: any) => boolean",
+    "description": "lodash function matches",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "matches"
+    }
+  },
+  {
+    "name": "matchesProperty",
+    "type": "function",
+    "args": [
+      {
+        "name": "path",
+        "type": "PropertyPath",
+        "optional": false
+      },
+      {
+        "name": "srcValue",
+        "type": "T",
+        "optional": false
+      }
+    ],
+    "returns": "(value: any) => boolean",
+    "description": "lodash function matchesProperty",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "matchesProperty"
+    }
+  },
+  {
+    "name": "method",
+    "type": "function",
+    "args": [
+      {
+        "name": "path",
+        "type": "PropertyPath",
+        "optional": false
+      },
+      {
+        "name": "args",
+        "type": "any[]",
+        "optional": true
+      }
+    ],
+    "returns": "(object: any) => any",
+    "description": "lodash function method",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "method"
+    }
+  },
+  {
+    "name": "methodOf",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "object",
+        "optional": false
+      },
+      {
+        "name": "args",
+        "type": "any[]",
+        "optional": true
+      }
+    ],
+    "returns": "(path: PropertyPath) => any",
+    "description": "lodash function methodOf",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "methodOf"
+    }
+  },
+  {
+    "name": "mixin",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "TObject",
+        "optional": false
+      },
+      {
+        "name": "source",
+        "type": "Dictionary<(...args: any[]) => any>",
+        "optional": false
+      },
+      {
+        "name": "options",
+        "type": "MixinOptions | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "TObject",
+    "description": "lodash function mixin",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "mixin"
+    }
+  },
+  {
+    "name": "noConflict",
+    "type": "function",
+    "args": [],
+    "returns": "LoDashStatic",
+    "description": "lodash function noConflict",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "noConflict"
+    }
+  },
+  {
+    "name": "noop",
+    "type": "function",
+    "args": [
+      {
+        "name": "args",
+        "type": "any[]",
+        "optional": true
+      }
+    ],
+    "returns": "void",
+    "description": "lodash function noop",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "noop"
+    }
+  },
+  {
+    "name": "nthArg",
+    "type": "function",
+    "args": [
+      {
+        "name": "n",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "(...args: any[]) => any",
+    "description": "lodash function nthArg",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "nthArg"
+    }
+  },
+  {
+    "name": "over",
+    "type": "function",
+    "args": [
+      {
+        "name": "iteratees",
+        "type": "Many<(...args: any[]) => TResult>[]",
+        "optional": true
+      }
+    ],
+    "returns": "(...args: any[]) => TResult[]",
+    "description": "lodash function over",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "over"
+    }
+  },
+  {
+    "name": "overEvery",
+    "type": "function",
+    "args": [
+      {
+        "name": "predicates",
+        "type": "[(arg: T) => arg is Result1, (arg: T) => arg is Result2]",
+        "optional": true
+      }
+    ],
+    "returns": "(arg: T) => arg is Result1 & Result2",
+    "description": "lodash function overEvery",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "overEvery"
+    }
+  },
+  {
+    "name": "overSome",
+    "type": "function",
+    "args": [
+      {
+        "name": "predicates",
+        "type": "[(arg: T) => arg is Result1, (arg: T) => arg is Result2]",
+        "optional": true
+      }
+    ],
+    "returns": "(arg: T) => arg is Result1 | Result2",
+    "description": "lodash function overSome",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "overSome"
+    }
+  },
+  {
+    "name": "property",
+    "type": "function",
+    "args": [
+      {
+        "name": "path",
+        "type": "PropertyPath",
+        "optional": false
+      }
+    ],
+    "returns": "(obj: TObj) => TResult",
+    "description": "lodash function property",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "property"
+    }
+  },
+  {
+    "name": "propertyOf",
+    "type": "function",
+    "args": [
+      {
+        "name": "object",
+        "type": "T",
+        "optional": false
+      }
+    ],
+    "returns": "(path: PropertyPath) => any",
+    "description": "lodash function propertyOf",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "propertyOf"
+    }
+  },
+  {
+    "name": "range",
+    "type": "function",
+    "args": [
+      {
+        "name": "start",
+        "type": "number",
+        "optional": false
+      },
+      {
+        "name": "end",
+        "type": "number | undefined",
+        "optional": true
+      },
+      {
+        "name": "step",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "number[]",
+    "description": "lodash function range",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "range"
+    }
+  },
+  {
+    "name": "rangeRight",
+    "type": "function",
+    "args": [
+      {
+        "name": "start",
+        "type": "number",
+        "optional": false
+      },
+      {
+        "name": "end",
+        "type": "number | undefined",
+        "optional": true
+      },
+      {
+        "name": "step",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "number[]",
+    "description": "lodash function rangeRight",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "rangeRight"
+    }
+  },
+  {
+    "name": "runInContext",
+    "type": "function",
+    "args": [
+      {
+        "name": "context",
+        "type": "object | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "LoDashStatic",
+    "description": "lodash function runInContext",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "runInContext"
+    }
+  },
+  {
+    "name": "stubArray",
+    "type": "function",
+    "args": [],
+    "returns": "any[]",
+    "description": "lodash function stubArray",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "stubArray"
+    }
+  },
+  {
+    "name": "stubFalse",
+    "type": "function",
+    "args": [],
+    "returns": "false",
+    "description": "lodash function stubFalse",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "stubFalse"
+    }
+  },
+  {
+    "name": "stubObject",
+    "type": "function",
+    "args": [],
+    "returns": "any",
+    "description": "lodash function stubObject",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "stubObject"
+    }
+  },
+  {
+    "name": "stubString",
+    "type": "function",
+    "args": [],
+    "returns": "string",
+    "description": "lodash function stubString",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "stubString"
+    }
+  },
+  {
+    "name": "stubTrue",
+    "type": "function",
+    "args": [],
+    "returns": "true",
+    "description": "lodash function stubTrue",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "stubTrue"
+    }
+  },
+  {
+    "name": "times",
+    "type": "function",
+    "args": [
+      {
+        "name": "n",
+        "type": "number",
+        "optional": false
+      },
+      {
+        "name": "iteratee",
+        "type": "(num: number) => TResult",
+        "optional": false
+      }
+    ],
+    "returns": "TResult[]",
+    "description": "lodash function times",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "times"
+    }
+  },
+  {
+    "name": "toPath",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "string[]",
+    "description": "lodash function toPath",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "toPath"
+    }
+  },
+  {
+    "name": "uniqueId",
+    "type": "function",
+    "args": [
+      {
+        "name": "prefix",
+        "type": "string | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "lodash function uniqueId",
+    "x-props": {
+      "module": "lodash",
+      "kind": "function",
+      "operationId": "uniqueId"
+    }
+  }
+]

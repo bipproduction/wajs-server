@@ -1,0 +1,656 @@
+[
+  {
+    "name": "enable",
+    "type": "function",
+    "args": [],
+    "returns": "void",
+    "description": "colors function enable",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "enable"
+    }
+  },
+  {
+    "name": "disable",
+    "type": "function",
+    "args": [],
+    "returns": "void",
+    "description": "colors function disable",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "disable"
+    }
+  },
+  {
+    "name": "setTheme",
+    "type": "function",
+    "args": [
+      {
+        "name": "theme",
+        "type": "any",
+        "optional": false
+      }
+    ],
+    "returns": "void",
+    "description": "colors function setTheme",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "setTheme"
+    }
+  },
+  {
+    "name": "strip",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function strip",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "strip"
+    }
+  },
+  {
+    "name": "stripColors",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function stripColors",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "stripColors"
+    }
+  },
+  {
+    "name": "black",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function black",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "black"
+    }
+  },
+  {
+    "name": "red",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function red",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "red"
+    }
+  },
+  {
+    "name": "green",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function green",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "green"
+    }
+  },
+  {
+    "name": "yellow",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function yellow",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "yellow"
+    }
+  },
+  {
+    "name": "blue",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function blue",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "blue"
+    }
+  },
+  {
+    "name": "magenta",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function magenta",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "magenta"
+    }
+  },
+  {
+    "name": "cyan",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function cyan",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "cyan"
+    }
+  },
+  {
+    "name": "white",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function white",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "white"
+    }
+  },
+  {
+    "name": "gray",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function gray",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "gray"
+    }
+  },
+  {
+    "name": "grey",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function grey",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "grey"
+    }
+  },
+  {
+    "name": "bgBlack",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function bgBlack",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "bgBlack"
+    }
+  },
+  {
+    "name": "bgRed",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function bgRed",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "bgRed"
+    }
+  },
+  {
+    "name": "bgGreen",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function bgGreen",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "bgGreen"
+    }
+  },
+  {
+    "name": "bgYellow",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function bgYellow",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "bgYellow"
+    }
+  },
+  {
+    "name": "bgBlue",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function bgBlue",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "bgBlue"
+    }
+  },
+  {
+    "name": "bgMagenta",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function bgMagenta",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "bgMagenta"
+    }
+  },
+  {
+    "name": "bgCyan",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function bgCyan",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "bgCyan"
+    }
+  },
+  {
+    "name": "bgWhite",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function bgWhite",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "bgWhite"
+    }
+  },
+  {
+    "name": "reset",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function reset",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "reset"
+    }
+  },
+  {
+    "name": "bold",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function bold",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "bold"
+    }
+  },
+  {
+    "name": "dim",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function dim",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "dim"
+    }
+  },
+  {
+    "name": "italic",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function italic",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "italic"
+    }
+  },
+  {
+    "name": "underline",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function underline",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "underline"
+    }
+  },
+  {
+    "name": "inverse",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function inverse",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "inverse"
+    }
+  },
+  {
+    "name": "hidden",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function hidden",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "hidden"
+    }
+  },
+  {
+    "name": "strikethrough",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function strikethrough",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "strikethrough"
+    }
+  },
+  {
+    "name": "rainbow",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function rainbow",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "rainbow"
+    }
+  },
+  {
+    "name": "zebra",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function zebra",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "zebra"
+    }
+  },
+  {
+    "name": "america",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function america",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "america"
+    }
+  },
+  {
+    "name": "trap",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function trap",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "trap"
+    }
+  },
+  {
+    "name": "random",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function random",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "random"
+    }
+  },
+  {
+    "name": "zalgo",
+    "type": "function",
+    "args": [
+      {
+        "name": "text",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "colors function zalgo",
+    "x-props": {
+      "module": "colors",
+      "kind": "function",
+      "operationId": "zalgo"
+    }
+  }
+]

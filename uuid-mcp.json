@@ -1,0 +1,293 @@
+[
+  {
+    "name": "parse",
+    "type": "function",
+    "args": [
+      {
+        "name": "uuid",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "Uint8Array<ArrayBufferLike>",
+    "description": "uuid function parse",
+    "x-props": {
+      "module": "uuid",
+      "kind": "function",
+      "operationId": "parse"
+    }
+  },
+  {
+    "name": "stringify",
+    "type": "function",
+    "args": [
+      {
+        "name": "arr",
+        "type": "Uint8Array<ArrayBufferLike>",
+        "optional": false
+      },
+      {
+        "name": "offset",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "uuid function stringify",
+    "x-props": {
+      "module": "uuid",
+      "kind": "function",
+      "operationId": "stringify"
+    }
+  },
+  {
+    "name": "v1",
+    "type": "function",
+    "args": [
+      {
+        "name": "options",
+        "type": "Version1Options | undefined",
+        "optional": true
+      },
+      {
+        "name": "buf",
+        "type": "undefined",
+        "optional": true
+      },
+      {
+        "name": "offset",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "uuid function v1",
+    "x-props": {
+      "module": "uuid",
+      "kind": "function",
+      "operationId": "v1"
+    }
+  },
+  {
+    "name": "v1ToV6",
+    "type": "function",
+    "args": [
+      {
+        "name": "uuid",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "uuid function v1ToV6",
+    "x-props": {
+      "module": "uuid",
+      "kind": "function",
+      "operationId": "v1ToV6"
+    }
+  },
+  {
+    "name": "v3",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "string | Uint8Array<ArrayBufferLike>",
+        "optional": false
+      },
+      {
+        "name": "namespace",
+        "type": "UUIDTypes",
+        "optional": false
+      },
+      {
+        "name": "buf",
+        "type": "undefined",
+        "optional": true
+      },
+      {
+        "name": "offset",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "uuid function v3",
+    "x-props": {
+      "module": "uuid",
+      "kind": "function",
+      "operationId": "v3"
+    }
+  },
+  {
+    "name": "v4",
+    "type": "function",
+    "args": [
+      {
+        "name": "options",
+        "type": "Version4Options | undefined",
+        "optional": true
+      },
+      {
+        "name": "buf",
+        "type": "undefined",
+        "optional": true
+      },
+      {
+        "name": "offset",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "uuid function v4",
+    "x-props": {
+      "module": "uuid",
+      "kind": "function",
+      "operationId": "v4"
+    }
+  },
+  {
+    "name": "v5",
+    "type": "function",
+    "args": [
+      {
+        "name": "value",
+        "type": "string | Uint8Array<ArrayBufferLike>",
+        "optional": false
+      },
+      {
+        "name": "namespace",
+        "type": "UUIDTypes",
+        "optional": false
+      },
+      {
+        "name": "buf",
+        "type": "undefined",
+        "optional": true
+      },
+      {
+        "name": "offset",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "uuid function v5",
+    "x-props": {
+      "module": "uuid",
+      "kind": "function",
+      "operationId": "v5"
+    }
+  },
+  {
+    "name": "v6",
+    "type": "function",
+    "args": [
+      {
+        "name": "options",
+        "type": "Version1Options | undefined",
+        "optional": true
+      },
+      {
+        "name": "buf",
+        "type": "undefined",
+        "optional": true
+      },
+      {
+        "name": "offset",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "uuid function v6",
+    "x-props": {
+      "module": "uuid",
+      "kind": "function",
+      "operationId": "v6"
+    }
+  },
+  {
+    "name": "v6ToV1",
+    "type": "function",
+    "args": [
+      {
+        "name": "uuid",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "string",
+    "description": "uuid function v6ToV1",
+    "x-props": {
+      "module": "uuid",
+      "kind": "function",
+      "operationId": "v6ToV1"
+    }
+  },
+  {
+    "name": "v7",
+    "type": "function",
+    "args": [
+      {
+        "name": "options",
+        "type": "Version7Options | undefined",
+        "optional": true
+      },
+      {
+        "name": "buf",
+        "type": "undefined",
+        "optional": true
+      },
+      {
+        "name": "offset",
+        "type": "number | undefined",
+        "optional": true
+      }
+    ],
+    "returns": "string",
+    "description": "uuid function v7",
+    "x-props": {
+      "module": "uuid",
+      "kind": "function",
+      "operationId": "v7"
+    }
+  },
+  {
+    "name": "validate",
+    "type": "function",
+    "args": [
+      {
+        "name": "uuid",
+        "type": "unknown",
+        "optional": false
+      }
+    ],
+    "returns": "boolean",
+    "description": "uuid function validate",
+    "x-props": {
+      "module": "uuid",
+      "kind": "function",
+      "operationId": "validate"
+    }
+  },
+  {
+    "name": "version",
+    "type": "function",
+    "args": [
+      {
+        "name": "uuid",
+        "type": "string",
+        "optional": false
+      }
+    ],
+    "returns": "number",
+    "description": "uuid function version",
+    "x-props": {
+      "module": "uuid",
+      "kind": "function",
+      "operationId": "version"
+    }
+  }
+]
