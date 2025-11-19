@@ -26,5 +26,6 @@ const user = [
 }).finally(() => {
     console.log("✅ Seeding completed successfully ")
     process.exit(0)
+    
 })
 
