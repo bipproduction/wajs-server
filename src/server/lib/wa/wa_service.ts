@@ -9,8 +9,11 @@ import { prisma } from '../prisma';
 
 type HookData =
     | { eventType: "qr"; qr: string }
+    | { eventType: "start" }
     | { eventType: "ready" }
     | { eventType: "disconnected"; reason?: string }
+    | { eventType: "reconnect" }
+    | { eventType: "auth_failure"; msg: string }
     | { eventType: "message" } & Partial<WAWebJS.Message>;
 
 
@@ -20,7 +23,7 @@ async function handleHook(data: HookData) {
     await Promise.allSettled(
         webHooks.map(async (hook) => {
             try {
-                log(`🌐 Mengirim webhook ke ${hook.url}`);
+                log(`🌐 Mengirim webhook ke ${hook.name} ${hook.url}`);
 
                 let res: Response = {} as Response;
                 res = await fetch(hook.url, {
@@ -33,9 +36,11 @@ async function handleHook(data: HookData) {
                 });
 
                 const json = await res.text();
-                logger.info(`[RESPONSE] ${hook.url}: ${json}`);
+                logger.info(`[RESPONSE] ${hook.name} ${hook.url}: ${json}`);
+                
             } catch (err) {
-                logger.error(`[ERROR] ${hook.url}:`);
+                logger.error(`[ERROR] ${hook.name} ${hook.url}:`);
+                logger.error(`[ERROR] ${hook.name}: ${err}`);
             }
         })
     )
@@ -115,6 +120,8 @@ async function startClient() {
     await destroyClient();
 
     log('🚀 Memulai WhatsApp client...');
+    handleHook({ eventType: "start" });
+
     const client = new Client({
         authStrategy: new LocalAuth({
             dataPath: process.env.WWEBJS_AUTH || path.join(process.cwd(), '.wwebjs_auth')
@@ -161,6 +168,7 @@ async function startClient() {
     client.on('auth_failure', (msg) => {
         log('❌ Autentikasi gagal:', msg);
         state.ready = false;
+        handleHook({ eventType: "auth_failure", msg });
     });
 
     client.on('disconnected', async (reason) => {
@@ -174,6 +182,7 @@ async function startClient() {
         log('⏳ Mencoba reconnect dalam 5 detik...');
 
         state.reconnectTimeout = setTimeout(async () => {
+            handleHook({ eventType: "reconnect" });
             await startClient();
         }, 5000);
     });
@@ -191,6 +200,7 @@ async function startClient() {
             state.isReconnecting = false;
             await startClient();
         }, 10000);
+        handleHook({ eventType: "reconnect" });
     } finally {
         state.isStarting = false;
     }

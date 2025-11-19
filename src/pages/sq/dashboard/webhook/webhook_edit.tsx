@@ -140,12 +140,12 @@ function EditView({ webhook }: { webhook: Partial<WebHook> | null }) {
   }
 
   return (
-    <Stack style={{ backgroundColor: "#191919" }} p="xl">
+    <Stack style={{ backgroundColor: "#191919" }} p="xl" >
       <Stack
         gap="md"
         w={"100%"}
         mx="auto"
-        bg="rgba(45,45,45,0.6)"
+        bg={enabled? "" : "rgba(47, 34, 34, 0.6)"}
         p="xl"
         style={{
           borderRadius: "20px",
