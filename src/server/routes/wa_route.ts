@@ -194,7 +194,7 @@ const WaRoute = new Elysia({
                 "Send text to WhatsApp via GET request"
         },
     })
-    .post("/send-typing", async (ctx: Context) => {
+    .post("/send-seen", async (ctx: Context) => {
         const { nom } = ctx.query
 
         if (!nom) {
@@ -222,6 +222,47 @@ const WaRoute = new Elysia({
 
         const chat = await state.client.getChatById(`${nom}@c.us`);
         await chat.sendSeen();
+        return {
+            message: "✅ Typing sent",
+            info: chat.id,
+        };
+    }, {
+        query: t.Object({
+            nom: t.String({ minLength: 10, maxLength: 15, examples: ["6281234567890"] }),
+        }),
+        detail: {
+            summary: "Send seen to WhatsApp",
+            description:
+                "Send seen to WhatsApp via GET request"
+        },
+    })
+    .post("/send-typing", async (ctx: Context) => {
+        const { nom } = ctx.query
+
+        if (!nom) {
+            ctx.set.status = 400;
+            return {
+                message: "[QUERY] Nomor harus diisi",
+            };
+        }
+
+        const state = getState();
+
+        if (!state.ready) {
+            ctx.set.status = 400;
+            return {
+                message: "[READY] WhatsApp client tidak siap",
+            };
+        }
+
+        if (!state.client) {
+            ctx.set.status = 400;
+            return {
+                message: "[CLIENT] WhatsApp client tidak siap",
+            };
+        }
+
+        const chat = await state.client.getChatById(`${nom}@c.us`);
         await chat.sendStateTyping();
         return {
             message: "✅ Typing sent",
