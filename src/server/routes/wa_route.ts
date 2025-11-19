@@ -223,7 +223,7 @@ const WaRoute = new Elysia({
         const chat = await state.client.getChatById(`${nom}@c.us`);
         await chat.sendSeen();
         return {
-            message: "✅ Typing sent",
+            message: "✅ Seen sent",
             info: chat.id,
         };
     }, {
