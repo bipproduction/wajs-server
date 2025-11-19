@@ -2,6 +2,7 @@ import {
   Button,
   Container,
   Group,
+  PasswordInput,
   Stack,
   Text,
   TextInput,
@@ -68,7 +69,7 @@ export default function Login() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <TextInput
+        <PasswordInput
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}

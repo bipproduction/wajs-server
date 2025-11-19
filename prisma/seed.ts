@@ -2,9 +2,9 @@ import { prisma } from "@/server/lib/prisma";
 
 const user = [
     {
-        name: "Bip",
-        email: "bip@bip.com",
-        password: "bip",
+        name: "wibu",
+        email: "wibu@bip.com",
+        password: "Production_123",
     }
 ];
 

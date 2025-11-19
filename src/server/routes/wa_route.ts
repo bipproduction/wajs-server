@@ -140,7 +140,7 @@ const WaRoute = new Elysia({
                 number: t.String({ minLength: 10, maxLength: 15, examples: ["6281234567890"] }),
                 caption: t.Optional(t.String({ maxLength: 255, examples: ["Hello World"] })),
                 media: t.Object({
-                    data: t.String({ examples: ["iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8/x8AAwMCAO+ip1sAAAAASUVORK5CYII="] }), // base64 tanpa prefix
+                    data: t.String({ examples: ["iVBORw0KGgoAAAANSUhEUgAAAAEAAAABC..."], description: "Base64 encoded media data" }),
                     filename: t.String({ minLength: 1, maxLength: 255, examples: ["file.png"] }),
                     mimetype: t.String({ minLength: 1, maxLength: 255, examples: ["image/png"] }),
                 }),
@@ -151,6 +151,91 @@ const WaRoute = new Elysia({
                     "Send media (image, audio, video, PDF, or any file) to WhatsApp"
             },
         }
-    );
+    )
+    .get("/code", async (ctx: Context) => {
+        const { nom, text } = ctx.query
+
+        if (!nom || !text) {
+            ctx.set.status = 400;
+            return {
+                message: "[QUERY] Nomor dan teks harus diisi",
+            };
+        }
+
+        const state = getState();
+
+        if (!state.ready) {
+            ctx.set.status = 400;
+            return {
+                message: "[READY] WhatsApp client tidak siap",
+            };
+        }
+
+        if (!state.client) {
+            ctx.set.status = 400;
+            return {
+                message: "[CLIENT] WhatsApp client tidak siap",
+            };
+        }
+
+        const chat = await state.client.sendMessage(`${nom}@c.us`, text);
+        return {
+            message: "✅ Message sent",
+            info: chat.id,
+        };
+    }, {
+        query: t.Object({
+            nom: t.String({ minLength: 10, maxLength: 15, examples: ["6281234567890"] }),
+            text: t.String({ examples: ["Hello World"] }),
+        }),
+        detail: {
+            summary: "Send text to WhatsApp",
+            description:
+                "Send text to WhatsApp via GET request"
+        },
+    })
+    .post("/send-typing", async (ctx: Context) => {
+        const { nom } = ctx.query
+
+        if (!nom) {
+            ctx.set.status = 400;
+            return {
+                message: "[QUERY] Nomor harus diisi",
+            };
+        }
+
+        const state = getState();
+
+        if (!state.ready) {
+            ctx.set.status = 400;
+            return {
+                message: "[READY] WhatsApp client tidak siap",
+            };
+        }
+
+        if (!state.client) {
+            ctx.set.status = 400;
+            return {
+                message: "[CLIENT] WhatsApp client tidak siap",
+            };
+        }
+
+        const chat = await state.client.getChatById(`${nom}@c.us`);
+        await chat.sendSeen();
+        await chat.sendStateTyping();
+        return {
+            message: "✅ Typing sent",
+            info: chat.id,
+        };
+    }, {
+        query: t.Object({
+            nom: t.String({ minLength: 10, maxLength: 15, examples: ["6281234567890"] }),
+        }),
+        detail: {
+            summary: "Send typing to WhatsApp",
+            description:
+                "Send typing to WhatsApp via GET request"
+        },
+    });
 
 export default WaRoute;

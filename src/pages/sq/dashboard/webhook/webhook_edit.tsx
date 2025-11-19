@@ -1,32 +1,24 @@
-import useSWR from "swr";
+import clientRoutes from "@/clientRoutes";
 import apiFetch from "@/lib/apiFetch";
-import { useSearchParams, useNavigate } from "react-router-dom";
+import {
+  Button,
+  Checkbox,
+  Divider,
+  Group,
+  Select,
+  Stack,
+  Text,
+  TextInput,
+  Title
+} from "@mantine/core";
+import { useShallowEffect } from "@mantine/hooks";
+import { modals } from "@mantine/modals";
+import { notifications } from "@mantine/notifications";
+import { IconCheck, IconCode, IconX } from "@tabler/icons-react";
 import type { WebHook } from "generated/prisma";
 import { useState } from "react";
-import { useMemo } from "react";
-import { notifications } from "@mantine/notifications";
-import { IconCode, IconCheck, IconX } from "@tabler/icons-react";
-import Editor from "@monaco-editor/react";
-import {
-  Stack,
-  Group,
-  Title,
-  Divider,
-  TextInput,
-  Select,
-  Checkbox,
-  Card,
-  Button,
-  Text,
-} from "@mantine/core";
-import { modals } from "@mantine/modals";
-import clientRoutes from "@/clientRoutes";
-import { useShallowEffect } from "@mantine/hooks";
-
-const templateData = `
-Available variables:
-{{data.from}}, {{data.fromNumber}}, {{data.fromMe}}, {{data.body}}, {{data.hasMedia}}, {{data.type}}, {{data.to}}, {{data.deviceType}}, {{data.notifyName}}, {{data.media.data}}, {{data.media.mimetype}}, {{data.media.filename}}, {{data.media.filesize}}
-`;
+import { useNavigate, useSearchParams } from "react-router-dom";
+import useSWR from "swr";
 
 export default function WebhookEdit() {
   const [searchParams] = useSearchParams();
@@ -94,54 +86,17 @@ export default function WebhookEdit() {
   );
 }
 
-function EditView({ webhook }: { webhook: WebHook | null }) {
+function EditView({ webhook }: { webhook: Partial<WebHook> | null }) {
   const navigate = useNavigate();
   const [name, setName] = useState(webhook?.name || "");
   const [description, setDescription] = useState(webhook?.description || "");
   const [url, setUrl] = useState(webhook?.url || "");
   const [method, setMethod] = useState(webhook?.method || "POST");
   const [headers, setHeaders] = useState(webhook?.headers || "{}");
-  const [payload, setPayload] = useState(webhook?.payload || "{}");
+
   const [apiToken, setApiToken] = useState(webhook?.apiToken || "");
-  const [enabled, setEnabled] = useState(webhook?.enabled || true);
-  const [replay, setReplay] = useState(webhook?.replay || false);
-  const [replayKey, setReplayKey] = useState(webhook?.replayKey || "");
+  const [enabled, setEnabled] = useState(webhook?.enabled );
 
-  const safeJson = (value: string) => {
-    try {
-      return JSON.stringify(JSON.parse(value || "{}"), null, 2);
-    } catch {
-      return value || "{}";
-    }
-  };
-
-  // useShallowEffect(() => {
-  //     let headerObj: Record<string, string> = {};
-  //     try {
-  //         headerObj = JSON.parse(headers);
-  //     } catch { }
-  //     if (apiToken) headerObj["Authorization"] = `Bearer ${apiToken}`;
-  //     setHeaders(JSON.stringify(headerObj, null, 2));
-  // }, [apiToken]);
-
-  const previewCode = useMemo(() => {
-    let headerObj: Record<string, string> = {};
-    try {
-      headerObj = JSON.parse(headers);
-    } catch {}
-    if (apiToken) headerObj["Authorization"] = `Bearer ${apiToken}`;
-    const prettyHeaders = safeJson(JSON.stringify(headerObj));
-    const prettyPayload = safeJson(payload);
-    const includeBody = ["POST", "PUT", "PATCH"].includes(method.toUpperCase());
-
-    return `fetch("${url || "https://example.com/webhook"}", {
-    method: "${method}",
-    headers: ${prettyHeaders},${includeBody ? `\n  body: ${prettyPayload},` : ""}
-  })
-    .then(res => res.json())
-    .then(console.log)
-    .catch(console.error);`;
-  }, [url, method, headers, payload, apiToken]);
 
   async function onSubmit() {
     if (!webhook?.id) {
@@ -163,10 +118,7 @@ function EditView({ webhook }: { webhook: WebHook | null }) {
         url,
         method,
         headers,
-        payload,
-        enabled,
-        replay,
-        replayKey,
+        enabled: enabled || false,
       });
 
     if (data?.success) {
@@ -191,7 +143,7 @@ function EditView({ webhook }: { webhook: WebHook | null }) {
     <Stack style={{ backgroundColor: "#191919" }} p="xl">
       <Stack
         gap="md"
-        maw={900}
+        w={"100%"}
         mx="auto"
         bg="rgba(45,45,45,0.6)"
         p="xl"
@@ -204,7 +156,7 @@ function EditView({ webhook }: { webhook: WebHook | null }) {
       >
         <Group justify="space-between">
           <Title order={2} c="#EAEAEA" fw={600}>
-            Create Webhook
+            Edit Webhook
           </Title>
           <IconCode color="#00FFFF" size={28} />
         </Group>
@@ -261,7 +213,7 @@ function EditView({ webhook }: { webhook: WebHook | null }) {
           }}
         />
 
-        <Stack gap="xs">
+        {/* <Stack gap="xs">
           <Text fw={600} c="#EAEAEA">
             Headers (JSON)
           </Text>
@@ -279,9 +231,9 @@ function EditView({ webhook }: { webhook: WebHook | null }) {
               automaticLayout: true,
             }}
           />
-        </Stack>
+        </Stack> */}
 
-        <Stack gap="xs">
+        {/* <Stack gap="xs">
           <Text fw={600} c="#EAEAEA">
             Payload
           </Text>
@@ -301,11 +253,10 @@ function EditView({ webhook }: { webhook: WebHook | null }) {
               automaticLayout: true,
             }}
           />
-        </Stack>
-
+        </Stack> */}
         <Checkbox
           label="Enable Webhook"
-          checked={enabled}
+          defaultChecked={enabled}
           onChange={(e) => setEnabled(e.target.checked as any)}
           color="teal"
           styles={{
@@ -313,7 +264,7 @@ function EditView({ webhook }: { webhook: WebHook | null }) {
           }}
         />
 
-        <Checkbox
+        {/* <Checkbox
           label="Enable Replay"
           checked={replay}
           onChange={(e) => setReplay(e.target.checked as any)}
@@ -321,17 +272,17 @@ function EditView({ webhook }: { webhook: WebHook | null }) {
           styles={{
             label: { color: "#EAEAEA" },
           }}
-        />
+        /> */}
 
-        <TextInput
+        {/* <TextInput
           description="Replay Key is used to identify the webhook example: data.text"
           label="Replay Key"
           placeholder="Replay Key"
           value={replayKey}
           onChange={(e) => setReplayKey(e.target.value)}
-        />
+        /> */}
 
-        <Card
+        {/* <Card
           radius="xl"
           p="md"
           style={{
@@ -358,7 +309,7 @@ function EditView({ webhook }: { webhook: WebHook | null }) {
               }}
             />
           </Stack>
-        </Card>
+        </Card> */}
 
         <Group justify="flex-end" mt="md">
           <Button

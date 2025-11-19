@@ -109,10 +109,11 @@ export default function WebhookHome() {
 
   return (
     <Stack style={{ backgroundColor: "#191919" }} p="xl">
-      <Group justify="space-between" mb="lg">
-        <Title order={2} c="#EAEAEA" fw={600}>
-          Webhook Manager
-        </Title>
+      <Title order={2} c="#EAEAEA" fw={600}>
+        Webhook Manager
+      </Title>
+      <Group justify="end" mb="lg">
+
         <ButtonCreate />
         <Tooltip label="Refresh webhooks" withArrow color="cyan">
           <ActionIcon
@@ -229,7 +230,7 @@ export default function WebhookHome() {
                 </Text>
               </Group>
 
-              <Group gap="xs">
+              {/* <Group gap="xs">
                 <Text c="#9A9A9A" size="sm">
                   Headers:
                 </Text>
@@ -238,9 +239,9 @@ export default function WebhookHome() {
                     ? webhook.headers
                     : "No headers configured"}
                 </Text>
-              </Group>
+              </Group> */}
 
-              <Group gap="xs">
+              {/* <Group gap="xs">
                 <Text c="#9A9A9A" size="sm">
                   Payload:
                 </Text>
@@ -249,7 +250,7 @@ export default function WebhookHome() {
                     ? webhook.payload
                     : "Empty payload"}
                 </Text>
-              </Group>
+              </Group> */}
             </Stack>
           </Card>
         ))}

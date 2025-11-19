@@ -116,7 +116,7 @@ export default function WebhookCreate() {
     <Stack style={{ backgroundColor: "#191919" }} p="xl">
       <Stack
         gap="md"
-        maw={900}
+        w={"100%"}
         mx="auto"
         bg="rgba(45,45,45,0.6)"
         p="xl"
@@ -186,7 +186,7 @@ export default function WebhookCreate() {
           }}
         />
 
-        <Stack gap="xs">
+        {/* <Stack gap="xs">
           <Text fw={600} c="#EAEAEA">
             Headers (JSON)
           </Text>
@@ -204,9 +204,9 @@ export default function WebhookCreate() {
               automaticLayout: true,
             }}
           />
-        </Stack>
+        </Stack> */}
 
-        <Stack gap="xs">
+        {/* <Stack gap="xs">
           <Text fw={600} c="#EAEAEA">
             Payload
           </Text>
@@ -226,7 +226,7 @@ export default function WebhookCreate() {
               automaticLayout: true,
             }}
           />
-        </Stack>
+        </Stack> */}
 
         <Checkbox
           label="Enable Webhook"
@@ -237,7 +237,7 @@ export default function WebhookCreate() {
             label: { color: "#EAEAEA" },
           }}
         />
-        <Checkbox
+        {/* <Checkbox
           label="Enable Replay"
           checked={replay}
           onChange={(e) => setReplay(e.currentTarget.checked)}
@@ -245,16 +245,16 @@ export default function WebhookCreate() {
           styles={{
             label: { color: "#EAEAEA" },
           }}
-        />
-        <TextInput
+        /> */}
+        {/* <TextInput
           description="Replay Key is used to identify the webhook example: data.text"
           label="Replay Key"
           placeholder="Replay Key"
           value={replayKey}
           onChange={(e) => setReplayKey(e.target.value)}
-        />
+        /> */}
 
-        <Card
+        {/* <Card
           radius="xl"
           p="md"
           style={{
@@ -281,7 +281,7 @@ export default function WebhookCreate() {
               }}
             />
           </Stack>
-        </Card>
+        </Card> */}
 
         <Group justify="flex-end" mt="md">
           <Button

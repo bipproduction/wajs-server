@@ -60,6 +60,16 @@ const WebhookRoute = new Elysia({
             where: {
                 id: ctx.params.id,
             },
+            select: {
+                id: true,
+                name: true,
+                description: true,
+                url: true,
+                method: true,
+                headers: true,
+                apiToken: true,
+                enabled: true,
+            }
         });
         return {
             webhook,
@@ -93,7 +103,7 @@ const WebhookRoute = new Elysia({
         },
     })
     .put("/update/:id", async (ctx) => {
-        const { name, description, url, method, headers, payload, apiToken, enabled, replay, replayKey } = ctx.body;
+        const { name, description, url, method, headers, apiToken, enabled } = ctx.body;
         await prisma.webHook.update({
             where: {
                 id: ctx.params.id,
@@ -104,11 +114,8 @@ const WebhookRoute = new Elysia({
                 url,
                 method,
                 headers: headers,
-                payload: payload,
                 apiToken,
-                enabled,
-                replay,
-                replayKey,
+                enabled,    
             },
         });
         return {
@@ -125,11 +132,8 @@ const WebhookRoute = new Elysia({
             url: t.String(),
             method: t.String(),
             headers: t.String(),
-            payload: t.String(),
             apiToken: t.String(),
             enabled: t.Boolean(),
-            replay: t.Boolean(),
-            replayKey: t.String(),
         }),
         detail: {
             summary: "Update webhook",
