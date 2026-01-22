@@ -23,3 +23,5 @@ export default function ProtectedRoute() {
   if (!isAuthenticated) return <Navigate to={clientRoutes["/login"]} replace />;
   return <Outlet />;
 }
+
+// use fix-code

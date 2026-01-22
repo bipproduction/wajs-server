@@ -5,6 +5,7 @@ import { ModalsProvider } from "@mantine/modals";
 import { MantineProvider } from "@mantine/core";
 import AppRoutes from "./AppRoutes";
 
+// use-fix-code
 export function App() {
   return (
     <MantineProvider defaultColorScheme="dark">

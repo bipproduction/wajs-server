@@ -70,7 +70,8 @@ const WaRoute = new Elysia({
         await chat.sendMessage(body.text);
 
         return {
-            message: "WhatsApp route ready",
+            success: true,
+            message: chat.id,
         };
     }, {
         body: t.Object({
@@ -221,7 +222,7 @@ const WaRoute = new Elysia({
         }
 
         const chat = await state.client.getChatById(`${nom}@c.us`);
-        await chat.sendSeen();
+        // await chat.sendSeen();
         return {
             message: "✅ Seen sent",
             info: chat.id,
