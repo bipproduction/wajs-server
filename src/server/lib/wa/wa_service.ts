@@ -118,6 +118,7 @@ async function startClient() {
     state.isStarting = true;
 
     await destroyClient();
+    
 
     log('🚀 Memulai WhatsApp client...');
     handleHook({ eventType: "start" });
