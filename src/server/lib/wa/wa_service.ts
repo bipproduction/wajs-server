@@ -127,6 +127,7 @@ async function startClient() {
             dataPath: process.env.WWEBJS_AUTH || path.join(process.cwd(), '.wwebjs_auth')
         }),
         puppeteer: {
+            executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/chromium',
             headless: true,
             args: [
                 '--no-sandbox',
